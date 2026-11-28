@@ -419,6 +419,102 @@
   color: #FFFFFF !important;
 }
 
+/* 🌟 System & Tools: Integrations (Lead Sources & Webhooks), Security (Activity Logs), Settings (Data Exports) */
+[data-theme='dark'] .integration-bento-card,
+[data-theme='dark'] .integration-metric-card,
+[data-theme='dark'] .security-log-card,
+[data-theme='dark'] .audit-metric-card,
+[data-theme='dark'] .config-bento-card,
+[data-theme='dark'] .config-metric-card,
+[data-theme='dark'] [class*="bento-card"],
+[data-theme='dark'] [class*="metric-card"] {
+  background: #0F172A !important;
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  color: #F8FAFC !important;
+}
+
+[data-theme='dark'] .integration-bento-card:hover,
+[data-theme='dark'] .security-log-card:hover,
+[data-theme='dark'] .config-bento-card:hover {
+  background: #131B2E !important;
+  background-color: #131B2E !important;
+  border-color: #334155 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Fix inner account telemetry boxes, log info rows & code snippets */
+[data-theme='dark'] .integration-bento-card [style*="#F8FAFC"],
+[data-theme='dark'] .integration-bento-card [style*="#FFF7F7"],
+[data-theme='dark'] .security-log-card [style*="#F8FAFC"],
+[data-theme='dark'] .config-bento-card [style*="#F8FAFC"],
+[data-theme='dark'] [style*="border: '1px solid #E2E8F0'"],
+[data-theme='dark'] [style*="border: '1px solid #FECACA'"] {
+  background: #131B2E !important;
+  background-color: #131B2E !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+/* All filter bars and search wrapper bars in Integrations, Security, and Settings */
+[data-theme='dark'] div[style*="backgroundColor: '#FFFFFF'"][style*="border: '1.5px solid #CBD5E1'"],
+[data-theme='dark'] div[style*="backgroundColor: '#FFFFFF'"][style*="borderRadius: '16px'"],
+[data-theme='dark'] div[style*="background: '#FFFFFF'"] {
+  background: #0F172A !important;
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+
+/* Search inputs across these tabs */
+[data-theme='dark'] input[type="text"],
+[data-theme='dark'] input[type="search"] {
+  background: #131B2E !important;
+  background-color: #131B2E !important;
+  border-color: #334155 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme='dark'] input[type="text"]::placeholder,
+[data-theme='dark'] input[type="search"]::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Titles and headings in these cards */
+[data-theme='dark'] .integration-bento-card h4,
+[data-theme='dark'] .security-log-card h4,
+[data-theme='dark'] .config-bento-card h4,
+[data-theme='dark'] .integration-bento-card strong,
+[data-theme='dark'] .security-log-card strong,
+[data-theme='dark'] .config-bento-card strong {
+  color: #FFFFFF !important;
+}
+
+/* Descriptions & subtitles */
+[data-theme='dark'] .integration-bento-card p,
+[data-theme='dark'] .security-log-card p,
+[data-theme='dark'] .config-bento-card p {
+  color: #CBD5E1 !important;
+}
+
+/* Secondary & test connection action buttons */
+[data-theme='dark'] .integ-btn-glow,
+[data-theme='dark'] button[style*="background: '#FFFFFF'"],
+[data-theme='dark'] button[style*="backgroundColor: '#FFFFFF'"] {
+  background: #1E293B !important;
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #FFFFFF !important;
+}
+
+/* Active and inactive filter buttons */
+[data-theme='dark'] button[style*="border: '1.2px solid #E2E8F0'"],
+[data-theme='dark'] button[style*="border: '1.2px solid #CBD5E1'"] {
+  background: #131B2E !important;
+  border-color: #334155 !important;
+  color: #CBD5E1 !important;
+}
+
 /* Table container wrapper */
 [data-theme='dark'] .table-container,
 [data-theme='dark'] div[style*="overflow: 'hidden'"][style*="border: '1.5px solid #E2E8F0'"],
