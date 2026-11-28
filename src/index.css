@@ -156,6 +156,127 @@
   border-color: #1E293B !important;
 }
 
+/* Complete Dark Mode System Across All Admin Tabs (Dashboard, Leads, Deals, Customers, Employees, Quotations, Approvals, Settings) */
+[data-theme='dark'] {
+  background-color: #070913 !important;
+  color: #F8FAFC !important;
+}
+
+[data-theme='dark'] body {
+  background-color: #070913 !important;
+  color: #F8FAFC !important;
+}
+
+/* Force dark backgrounds on all white containers, surfaces, cards, and sections */
+[data-theme='dark'] [style*="background: #FFF"],
+[data-theme='dark'] [style*="background:#FFF"],
+[data-theme='dark'] [style*="background: #fff"],
+[data-theme='dark'] [style*="background:#fff"],
+[data-theme='dark'] [style*="backgroundColor: '#FFF"],
+[data-theme='dark'] [style*="backgroundColor: '#fff"],
+[data-theme='dark'] [style*="backgroundColor: '#FFFFFF'"],
+[data-theme='dark'] [style*="backgroundColor: '#ffffff'"],
+[data-theme='dark'] [style*="background-color: #FFF"],
+[data-theme='dark'] [style*="background-color: #fff"],
+[data-theme='dark'] [style*="background-color: #FFFFFF"],
+[data-theme='dark'] [style*="background-color: #ffffff"],
+[data-theme='dark'] [style*="background-color: rgb(255, 255, 255)"],
+[data-theme='dark'] [style*="background: #FAFAFC"],
+[data-theme='dark'] [style*="backgroundColor: '#FAFAFC'"],
+[data-theme='dark'] [style*="background-color: #FAFAFC"],
+[data-theme='dark'] [style*="background: #F8FAFC"],
+[data-theme='dark'] [style*="backgroundColor: '#F8FAFC'"],
+[data-theme='dark'] [style*="background-color: #F8FAFC"],
+[data-theme='dark'] [style*="background: #F1F5F9"],
+[data-theme='dark'] [style*="backgroundColor: '#F1F5F9'"],
+[data-theme='dark'] [style*="background-color: #F1F5F9"] {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+
+/* All buttons in dark mode: Ensure crisp visible text and dark/accent backgrounds */
+[data-theme='dark'] button {
+  color: #F8FAFC !important;
+}
+
+[data-theme='dark'] button:not([style*="linear-gradient"]):not([style*="background: transparent"]):not([style*="background:none"]) {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+}
+
+[data-theme='dark'] button * {
+  color: inherit !important;
+}
+
+/* Filter buttons, tabs, segmented controls */
+[data-theme='dark'] button[style*="#EEF2FF"],
+[data-theme='dark'] button[style*="#E0E7FF"] {
+  background: rgba(99, 102, 241, 0.2) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  color: #A5B4FC !important;
+}
+
+/* Primary action buttons with gradients */
+[data-theme='dark'] button[style*="linear-gradient"] {
+  color: #FFFFFF !important;
+}
+
+/* Badges, tags and status pills across all tabs */
+[data-theme='dark'] span[style*="borderRadius"],
+[data-theme='dark'] span[style*="border-radius"],
+[data-theme='dark'] div[style*="borderRadius"],
+[data-theme='dark'] div[style*="border-radius"] {
+  box-shadow: none;
+}
+
+/* Soft light backgrounds for pills -> deep translucent dark pills */
+[data-theme='dark'] span[style*="#ECFDF5"],
+[data-theme='dark'] div[style*="#ECFDF5"],
+[data-theme='dark'] span[style*="#F0FDF4"],
+[data-theme='dark'] div[style*="#F0FDF4"] {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  color: #6EE7B7 !important;
+}
+
+[data-theme='dark'] span[style*="#EFF6FF"],
+[data-theme='dark'] div[style*="#EFF6FF"],
+[data-theme='dark'] span[style*="#DBEAFE"],
+[data-theme='dark'] div[style*="#DBEAFE"],
+[data-theme='dark'] span[style*="#EEF2FF"],
+[data-theme='dark'] div[style*="#EEF2FF"] {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  color: #93C5FD !important;
+}
+
+[data-theme='dark'] span[style*="#FFFBEB"],
+[data-theme='dark'] div[style*="#FFFBEB"],
+[data-theme='dark'] span[style*="#FEF3C7"],
+[data-theme='dark'] div[style*="#FEF3C7"] {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  color: #FCD34D !important;
+}
+
+[data-theme='dark'] span[style*="#FEF2F2"],
+[data-theme='dark'] div[style*="#FEF2F2"],
+[data-theme='dark'] span[style*="#FFE4E6"],
+[data-theme='dark'] div[style*="#FFE4E6"] {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+  border-color: rgba(239, 68, 68, 0.5) !important;
+  color: #FCA5A5 !important;
+}
+
+[data-theme='dark'] span[style*="#F5F3FF"],
+[data-theme='dark'] div[style*="#F5F3FF"],
+[data-theme='dark'] span[style*="#EDE9FE"],
+[data-theme='dark'] div[style*="#EDE9FE"] {
+  background-color: rgba(168, 85, 247, 0.2) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+  color: #D8B4FE !important;
+}
+
 /* Complete Dark Mode Table System (Fixes zebra striping across Leads, Customers, Deals, Employees, Quotations, Approvals) */
 [data-theme='dark'] table {
   background-color: #0B0F19 !important;
