@@ -1083,16 +1083,17 @@ export default function LeadsTab({
                     return (
                       <tr
                         key={l._id}
+                        className="lead-table-row"
                         style={{
-                          borderBottom: '1px solid #F1F5F9',
-                          backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC',
+                          borderBottom: '1px solid var(--border, #F1F5F9)',
+                          backgroundColor: isEven ? 'var(--card-bg, #FFFFFF)' : 'var(--canvas, #FAFAFC)',
                           transition: 'all 0.18s ease'
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#F1F5F9';
+                          e.currentTarget.style.backgroundColor = 'var(--primary-light, #F1F5F9)';
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = isEven ? '#FFFFFF' : '#FAFAFC';
+                          e.currentTarget.style.backgroundColor = isEven ? 'var(--card-bg, #FFFFFF)' : 'var(--canvas, #FAFAFC)';
                         }}
                       >
                         {/* 1. Tracking ID */}
