@@ -1041,28 +1041,28 @@ export default function LeadsTab({
             <table style={{ width: '100%', minWidth: '880px', borderCollapse: 'collapse', textAlign: 'left' }}>
               <thead>
                 <tr style={{
-                  backgroundColor: '#F8FAFC',
-                  borderBottom: '1.5px solid #E2E8F0'
+                  backgroundColor: 'var(--card-bg, #F8FAFC)',
+                  borderBottom: '1.5px solid var(--border, #E2E8F0)'
                 }}>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     # ENQUIRY ID
                   </th>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     CLIENT & COMPANY
                   </th>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     SERVICE & CHANNEL
                   </th>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     STATUS
                   </th>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     ESTIMATE
                   </th>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     ASSIGNED SPECIALIST
                   </th>
-                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'center' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted, #64748B)', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'center' }}>
                     ACTIONS
                   </th>
                 </tr>
