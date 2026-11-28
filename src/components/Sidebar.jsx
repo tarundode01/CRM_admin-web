@@ -422,8 +422,11 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
               if (onLogout) {
                 onLogout();
               } else {
+                sessionStorage.removeItem('admin_token');
+                sessionStorage.removeItem('admin_user');
                 localStorage.removeItem('admin_token');
                 localStorage.removeItem('admin_user');
+                localStorage.setItem('admin_active_tab', 'dashboard');
                 window.location.reload();
               }
             }}

@@ -22,8 +22,20 @@ import { DashboardShimmer, TableShimmer, ChatShimmer } from './components/Shimme
 import { requestApi, isAbortError } from './services/api.js';
 
 export default function App() {
-  const [token, setToken] = useState(localStorage.getItem('admin_token') || null);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('admin_user') || 'null'));
+  // Always start with Login page on fresh entry / new tab / opening Vercel URL
+  const [token, setToken] = useState(() => {
+    // Check sessionStorage only so refreshing active tab stays logged in,
+    // but opening the link freshly / closing window starts cleanly on Login page
+    return sessionStorage.getItem('admin_token') || null;
+  });
+  const [user, setUser] = useState(() => {
+    try {
+      const u = sessionStorage.getItem('admin_user');
+      return u ? JSON.parse(u) : null;
+    } catch {
+      return null;
+    }
+  });
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [companyInfo, setCompanyInfo] = useState(() => {
@@ -190,6 +202,8 @@ export default function App() {
         }
         setToken(t);
         setUser(u);
+        sessionStorage.setItem('admin_token', t);
+        sessionStorage.setItem('admin_user', JSON.stringify(u));
         localStorage.setItem('admin_token', t);
         localStorage.setItem('admin_user', JSON.stringify(u));
         // Always land on Dashboard upon login
@@ -199,10 +213,13 @@ export default function App() {
         // Fallback for custom or direct admin session
         const adminName = customName || 'Super Admin';
         const compName = customCompanyInfo?.name || 'OmniCRM HQ';
-        setToken('admin_verified_jwt_' + Date.now());
+        const verifiedToken = 'admin_verified_jwt_' + Date.now();
+        setToken(verifiedToken);
         const adminUser = { name: adminName, email, role: 'admin', company: compName };
         setUser(adminUser);
-        localStorage.setItem('admin_token', 'admin_verified_jwt_' + Date.now());
+        sessionStorage.setItem('admin_token', verifiedToken);
+        sessionStorage.setItem('admin_user', JSON.stringify(adminUser));
+        localStorage.setItem('admin_token', verifiedToken);
         localStorage.setItem('admin_user', JSON.stringify(adminUser));
         setActiveTab('dashboard');
         localStorage.setItem('admin_active_tab', 'dashboard');
@@ -210,10 +227,13 @@ export default function App() {
     } catch (e) {
       const adminName = customName || 'Super Admin';
       const compName = customCompanyInfo?.name || 'OmniCRM HQ';
-      setToken('admin_verified_jwt_' + Date.now());
+      const verifiedToken = 'admin_verified_jwt_' + Date.now();
+      setToken(verifiedToken);
       const adminUser = { name: adminName, email, role: 'admin', company: compName };
       setUser(adminUser);
-      localStorage.setItem('admin_token', 'admin_verified_jwt_' + Date.now());
+      sessionStorage.setItem('admin_token', verifiedToken);
+      sessionStorage.setItem('admin_user', JSON.stringify(adminUser));
+      localStorage.setItem('admin_token', verifiedToken);
       localStorage.setItem('admin_user', JSON.stringify(adminUser));
       setActiveTab('dashboard');
       localStorage.setItem('admin_active_tab', 'dashboard');
@@ -225,8 +245,12 @@ export default function App() {
   const handleLogout = () => {
     setToken(null);
     setUser(null);
+    sessionStorage.removeItem('admin_token');
+    sessionStorage.removeItem('admin_user');
     localStorage.removeItem('admin_token');
     localStorage.removeItem('admin_user');
+    setActiveTab('dashboard');
+    localStorage.setItem('admin_active_tab', 'dashboard');
   };
 
   // 2. Fetch Live Database Records
