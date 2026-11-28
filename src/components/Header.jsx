@@ -10,7 +10,9 @@ export default function Header({
   notifications = [],
   unreadNotifsCount = 0,
   onMarkNotificationRead,
-  onSelectTab
+  onSelectTab,
+  theme = 'light',
+  toggleTheme
 }) {
   const [showNotifDropdown, setShowNotifDropdown] = useState(false);
   const [notifFilter, setNotifFilter] = useState('all'); // 'all', 'unread', 'leads'
@@ -55,8 +57,35 @@ export default function Header({
         </div>
       </div>
 
-      {/* Right Controls: Notification Bell, Database Sync, User Profile & Logout */}
+      {/* Right Controls: Notification Bell, Database Sync, Theme Toggle, User Profile & Logout */}
       <div className="header-controls-section" style={{ position: 'relative' }}>
+        
+        {/* 🌓 Dark / Light Mode Switcher (Default: Light Mode) */}
+        {toggleTheme && (
+          <button
+            onClick={toggleTheme}
+            className="header-theme-toggle-btn"
+            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            style={{
+              background: theme === 'dark' ? '#1E293B' : '#FFFFFF',
+              border: theme === 'dark' ? '1.5px solid #334155' : '1.5px solid #CBD5E1',
+              borderRadius: '12px',
+              padding: '6px 11px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: theme === 'dark' ? '#F8FAFC' : '#1E293B',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+              transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+            }}
+          >
+            <span style={{ fontSize: '15px' }}>{theme === 'dark' ? '☀️' : '🌙'}</span>
+            <span className="header-sync-text" style={{ fontSize: '11px', fontWeight: '800' }}>
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </span>
+          </button>
+        )}
         
         {/* 🔔 Premium Real-Time Notification Bell & Drawer */}
         <div style={{ position: 'relative' }}>

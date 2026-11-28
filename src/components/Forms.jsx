@@ -51,7 +51,7 @@ export function CreateLeadView({ onSubmit, onCancel }) {
       
       {/* 🌟 1. Royal Executive Hero Billboard Banner (Super Sleek, High-Colour & Compact) */}
       <div className="lead-banner" style={{
-        background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #064E3B 100%)',
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
         borderRadius: '16px',
         padding: '16px 20px',
         color: '#FFFFFF',
@@ -654,7 +654,7 @@ export function CreateEmployeeView({ onSubmit, onCancel }) {
       
       {/* 🌟 1. Royal Executive Hero Billboard Banner (Super Sleek & Compact) */}
       <div className="deal-banner" style={{
-        background: 'linear-gradient(135deg, #2E1065 0%, #581C87 40%, #7C3AED 75%, #9333EA 100%)',
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
         borderRadius: '16px',
         padding: '16px 20px',
         color: '#FFFFFF',
@@ -1168,7 +1168,7 @@ export function CreateDealView({ leads, customers, onSubmit, onCancel }) {
       
       {/* 🌟 1. Royal Executive Hero Billboard Banner */}
       <div className="deal-banner" style={{
-        background: 'linear-gradient(135deg, #451A03 0%, #78350F 35%, #B45309 70%, #D97706 100%)',
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
         borderRadius: '16px',
         padding: '16px 20px',
         color: '#FFFFFF',
@@ -1898,7 +1898,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
       {/* 🌟 2. Telemetry Intelligence Metric Cards (Spacious, Clear & Animated Bento) */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         
-        {/* Metric 1: Closed Revenue (Emerald) */}
+        {/* Metric 1: Closed Revenue */}
         <div 
           className="analytics-metric-card"
           style={{
@@ -1906,10 +1906,10 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #A7F3D0',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(16, 185, 129, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5FDF8 50%, #ECFDF5 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -1918,12 +1918,12 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             animationDelay: '0.05s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#10B981';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(16, 185, 129, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#A7F3D0';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(16, 185, 129, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -1931,8 +1931,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #059669 0%, #10B981 50%, #34D399 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -1945,7 +1945,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)',
+              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)',
               flexShrink: 0
             }}>
               💰
@@ -1953,8 +1953,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#047857',
-              backgroundColor: '#D1FAE5',
+              color: '#059669',
+              backgroundColor: '#ECFDF5',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #A7F3D0',
@@ -1964,11 +1964,11 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#047857', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Closed Revenue
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#064E3B', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 ₹{(totalRevenue / 100000).toFixed(1)}L
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -1978,7 +1978,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
           </div>
         </div>
 
-        {/* Metric 2: Pipeline Pool (Cerulean Cyan) */}
+        {/* Metric 2: Pipeline Pool */}
         <div 
           className="analytics-metric-card"
           style={{
@@ -1986,10 +1986,10 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #BAE6FD',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(2, 132, 199, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 50%, #E0F2FE 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -1998,12 +1998,12 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             animationDelay: '0.1s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#0284C7';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(2, 132, 199, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#BAE6FD';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(2, 132, 199, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -2011,21 +2011,21 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #0369A1 0%, #0284C7 50%, #38BDF8 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
               width: '46px',
               height: '46px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #0369A1 0%, #0284C7 100%)',
+              background: 'linear-gradient(135deg, #0284C7 0%, #38BDF8 100%)',
               color: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(2, 132, 199, 0.35)',
+              boxShadow: '0 4px 12px rgba(2, 132, 199, 0.25)',
               flexShrink: 0
             }}>
               📊
@@ -2033,8 +2033,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#0369A1',
-              backgroundColor: '#E0F2FE',
+              color: '#0284C7',
+              backgroundColor: '#F0F9FF',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #BAE6FD',
@@ -2044,11 +2044,11 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#0284C7', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Pipeline Pool
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#075985', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 ₹{(leadPipelineVal / 100000).toFixed(1)}L
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -2058,7 +2058,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
           </div>
         </div>
 
-        {/* Metric 3: Conversion Win (Violet) */}
+        {/* Metric 3: Conversion Win */}
         <div 
           className="analytics-metric-card"
           style={{
@@ -2066,10 +2066,10 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #DDD6FE',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(124, 58, 237, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #FAF5FF 50%, #F5F3FF 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -2078,12 +2078,12 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             animationDelay: '0.15s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#7C3AED';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(124, 58, 237, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#DDD6FE';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(124, 58, 237, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -2091,21 +2091,21 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #6D28D9 0%, #7C3AED 50%, #A855F7 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
               width: '46px',
               height: '46px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #6D28D9 0%, #7C3AED 100%)',
+              background: 'linear-gradient(135deg, #7C3AED 0%, #A855F7 100%)',
               color: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(124, 58, 237, 0.35)',
+              boxShadow: '0 4px 12px rgba(124, 58, 237, 0.25)',
               flexShrink: 0
             }}>
               🎯
@@ -2113,8 +2113,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#6D28D9',
-              backgroundColor: '#F5F3FF',
+              color: '#7C3AED',
+              backgroundColor: '#FAF5FF',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #DDD6FE',
@@ -2124,11 +2124,11 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#7C3AED', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Win Ratio
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#4C1D95', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {conversionRate}%
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -2138,7 +2138,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
           </div>
         </div>
 
-        {/* Metric 4: Active Specialists (Royal Indigo) */}
+        {/* Metric 4: Active Specialists */}
         <div 
           className="analytics-metric-card"
           style={{
@@ -2146,10 +2146,10 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #C7D2FE',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(99, 102, 241, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #EEF2FF 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -2158,12 +2158,12 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             animationDelay: '0.2s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#6366F1';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(99, 102, 241, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#C7D2FE';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(99, 102, 241, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -2171,8 +2171,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -2185,7 +2185,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(99, 102, 241, 0.35)',
+              boxShadow: '0 4px 12px rgba(99, 102, 241, 0.25)',
               flexShrink: 0
             }}>
               👥
@@ -2194,7 +2194,7 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
               fontSize: '10.5px',
               fontWeight: '800',
               color: '#4338CA',
-              backgroundColor: '#E0E7FF',
+              backgroundColor: '#EEF2FF',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #C7D2FE',
@@ -2204,11 +2204,11 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#6366F1', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Specialists
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#1E1B4B', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {employees?.length || 0} Staff
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -2230,8 +2230,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
             border: '1px solid #E2E8F0',
-            padding: '18px 20px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+            padding: '20px 22px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -2245,41 +2245,44 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #E11D48 0%, #16A34A 25%, #0284C7 50%, #4F46E5 75%, #EA580C 100%)'
+            background: '#4338CA'
           }} />
 
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', flexWrap: 'wrap', gap: '6px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: '8px',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '10px',
                   backgroundColor: '#EEF2FF',
+                  color: '#4338CA',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '15px'
+                  fontSize: '16px',
+                  border: '1px solid #C7D2FE'
                 }}>
                   🌐
                 </div>
-                <h3 style={{ fontSize: '15px', fontWeight: '900', color: '#0F172A', margin: 0 }}>
+                <h3 style={{ fontSize: '15px', fontWeight: '900', color: '#0F172A', margin: 0, letterSpacing: '-0.2px' }}>
                   Multi-Channel Inbound Acquisition
                 </h3>
               </div>
               <span style={{
                 fontSize: '10px',
-                fontWeight: '900',
-                backgroundColor: '#EFF6FF',
-                color: '#2563EB',
-                padding: '3px 9px',
+                fontWeight: '800',
+                backgroundColor: '#EEF2FF',
+                color: '#4338CA',
+                padding: '3px 10px',
                 borderRadius: '8px',
-                border: '1px solid #BFDBFE'
+                border: '1px solid #C7D2FE',
+                letterSpacing: '0.4px'
               }}>
                 ● LIVE DATABASE
               </span>
             </div>
-            <p style={{ margin: '0 0 14px 0', fontSize: '11.5px', color: '#64748B' }}>
+            <p style={{ margin: '0 0 16px 0', fontSize: '12px', color: '#64748B', fontWeight: '500' }}>
               Real-time breakdown of leads captured across Instagram, WhatsApp, LinkedIn, Facebook, Web & Phone.
             </p>
           </div>
@@ -2291,45 +2294,52 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
                 <div 
                   key={i} 
                   style={{
-                    backgroundColor: c.bg,
-                    padding: '10px 12px',
+                    backgroundColor: '#FFFFFF',
+                    padding: '12px 14px',
                     borderRadius: '12px',
-                    border: `1.2px solid ${c.border}`,
-                    transition: 'all 0.2s ease',
-                    boxShadow: '0 2px 6px rgba(0,0,0,0.02)'
+                    border: isPeak ? '1.5px solid #C7D2FE' : '1px solid #E2E8F0',
+                    transition: 'all 0.25s ease',
+                    boxShadow: isPeak ? '0 4px 14px rgba(67, 56, 202, 0.08)' : '0 2px 6px rgba(0,0,0,0.02)',
+                    position: 'relative'
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.06)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = isPeak ? '0 4px 14px rgba(67, 56, 202, 0.08)' : '0 2px 6px rgba(0,0,0,0.02)';
+                  }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontWeight: '800', color: '#1E293B', marginBottom: '6px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ fontSize: '15px' }}>{c.icon}</span>
                       <span>{c.channel}</span>
                       {isPeak && (
                         <span style={{
-                          fontSize: '8.5px',
-                          fontWeight: '900',
+                          fontSize: '9px',
+                          fontWeight: '800',
                           backgroundColor: '#FEF3C7',
                           color: '#B45309',
-                          padding: '2px 6px',
-                          borderRadius: '5px',
+                          padding: '2px 8px',
+                          borderRadius: '6px',
                           border: '1px solid #FCD34D'
                         }}>
                           👑 TOP LEAD SOURCE
                         </span>
                       )}
                     </span>
-                    <span style={{ color: c.color, fontWeight: '900', fontSize: '12.5px' }}>
+                    <span style={{ color: c.color, fontWeight: '900', fontSize: '13px' }}>
                       {c.leads} Leads ({c.percent}%)
                     </span>
                   </div>
-                  <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(255,255,255,0.85)', borderRadius: '4px', overflow: 'hidden' }}>
+                  <div style={{ height: '7px', width: '100%', backgroundColor: '#F1F5F9', borderRadius: '4px', overflow: 'hidden' }}>
                     <div style={{
                       height: '100%',
                       width: `${c.percent}%`,
                       background: `linear-gradient(90deg, ${c.color} 0%, ${c.gradEnd} 100%)`,
                       borderRadius: '4px',
-                      boxShadow: `0 0 10px ${c.glow}`,
+                      boxShadow: `0 0 8px ${c.glow}`,
                       transition: 'width 0.8s ease'
                     }} />
                   </div>
@@ -2340,18 +2350,18 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
 
           <div style={{
             backgroundColor: '#F8FAFC',
-            padding: '10px 14px',
+            padding: '12px 16px',
             borderRadius: '12px',
             border: '1px solid #E2E8F0',
-            marginTop: '14px',
+            marginTop: '16px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ fontSize: '11px', color: '#64748B', fontWeight: '700' }}>
+            <span style={{ fontSize: '11.5px', color: '#64748B', fontWeight: '700' }}>
               Total Multi-Channel Leads:
             </span>
-            <span style={{ fontSize: '14px', fontWeight: '900', color: '#0F172A' }}>
+            <span style={{ fontSize: '13.5px', fontWeight: '900', color: '#0F172A', backgroundColor: '#FFFFFF', padding: '3px 10px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               {leads.length} Active Records
             </span>
           </div>
@@ -2364,8 +2374,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
             border: '1px solid #E2E8F0',
-            padding: '18px 20px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.04)',
+            padding: '20px 22px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -2379,28 +2389,30 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #3B82F6 0%, #8B5CF6 33%, #F59E0B 66%, #10B981 100%)'
+            background: '#4338CA'
           }} />
 
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <div style={{
-                width: '28px',
-                height: '28px',
-                borderRadius: '8px',
-                backgroundColor: '#EFF6FF',
+                width: '32px',
+                height: '32px',
+                borderRadius: '10px',
+                backgroundColor: '#EEF2FF',
+                color: '#4338CA',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '15px'
+                fontSize: '16px',
+                border: '1px solid #C7D2FE'
               }}>
                 ⚡
               </div>
-              <h3 style={{ fontSize: '15px', fontWeight: '900', color: '#0F172A', margin: 0 }}>
+              <h3 style={{ fontSize: '15px', fontWeight: '900', color: '#0F172A', margin: 0, letterSpacing: '-0.2px' }}>
                 Deal Stage Velocity & Conversion
               </h3>
             </div>
-            <p style={{ margin: '0 0 14px 0', fontSize: '11.5px', color: '#64748B' }}>
+            <p style={{ margin: '0 0 16px 0', fontSize: '12px', color: '#64748B', fontWeight: '500' }}>
               Active deals distributed across negotiation, proposal and closed phases.
             </p>
           </div>
@@ -2410,26 +2422,32 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
               <div 
                 key={i} 
                 style={{
-                  backgroundColor: s.bg,
-                  padding: '10px 12px',
+                  backgroundColor: '#FFFFFF',
+                  padding: '12px 14px',
                   borderRadius: '12px',
-                  border: `1.2px solid ${s.border}`,
-                  transition: 'all 0.2s ease',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.02)'
+                  border: s.isHighest ? '1.5px solid #A7F3D0' : '1px solid #E2E8F0',
+                  transition: 'all 0.25s ease',
+                  boxShadow: s.isHighest ? '0 4px 14px rgba(16, 185, 129, 0.08)' : '0 2px 6px rgba(0,0,0,0.02)'
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1.5px)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 16px rgba(0,0,0,0.06)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = s.isHighest ? '0 4px 14px rgba(16, 185, 129, 0.08)' : '0 2px 6px rgba(0,0,0,0.02)';
+                }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontWeight: '800', color: '#1E293B', marginBottom: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     {s.isHighest && <span>👑</span>}
                     <span>{s.stage}</span>
                   </span>
-                  <span style={{ color: s.color, fontWeight: '900', fontSize: '12.5px' }}>
+                  <span style={{ color: s.color, fontWeight: '900', fontSize: '13px' }}>
                     {s.count} Deals ({s.percent}%)
                   </span>
                 </div>
-                <div style={{ height: '8px', width: '100%', backgroundColor: 'rgba(255,255,255,0.85)', borderRadius: '4px', overflow: 'hidden' }}>
+                <div style={{ height: '7px', width: '100%', backgroundColor: '#F1F5F9', borderRadius: '4px', overflow: 'hidden' }}>
                   <div style={{
                     height: '100%',
                     width: `${s.percent}%`,
@@ -2445,18 +2463,18 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
 
           <div style={{
             backgroundColor: '#F8FAFC',
-            padding: '10px 14px',
+            padding: '12px 16px',
             borderRadius: '12px',
             border: '1px solid #E2E8F0',
-            marginTop: '14px',
+            marginTop: '16px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ fontSize: '11px', color: '#64748B', fontWeight: '700' }}>
+            <span style={{ fontSize: '11.5px', color: '#64748B', fontWeight: '700' }}>
               Total Deployed Pipeline Pool:
             </span>
-            <span style={{ fontSize: '14px', fontWeight: '900', color: '#059669' }}>
+            <span style={{ fontSize: '13.5px', fontWeight: '900', color: '#059669', backgroundColor: '#ECFDF5', padding: '3px 10px', borderRadius: '8px', border: '1px solid #A7F3D0' }}>
               ₹{((totalRevenue + leadPipelineVal) / 100000).toFixed(1)} Lakhs
             </span>
           </div>

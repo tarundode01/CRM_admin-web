@@ -12,7 +12,7 @@ export default function EmployeesTab({
 }) {
   const [filterDept, setFilterDept] = useState('All');
   const [search, setSearch] = useState('');
-  const [viewMode, setViewMode] = useState('cards'); // 'cards' (Bento Grid) or 'table'
+  const [viewMode, setViewMode] = useState('table'); // 'cards' (Bento Grid) or 'table'
   const [editingEmp, setEditingEmp] = useState(null);
   const [editFormData, setEditFormData] = useState({ name: '', email: '', phone: '', department: '', designation: '', role: 'sales', monthlyTarget: 1000000, targetTasks: 20 });
   const [targetEmp, setTargetEmp] = useState(null);
@@ -249,7 +249,7 @@ export default function EmployeesTab({
         .premium-emp-card {
           background-color: #FFFFFF;
           border-radius: 18px;
-          border: 1.5px solid rgba(226, 232, 240, 0.9);
+          border: 1.5px solid #E2E8F0;
           box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
           padding: 18px;
           display: flex;
@@ -261,8 +261,8 @@ export default function EmployeesTab({
         }
         .premium-emp-card:hover {
           transform: translateY(-6px) scale(1.012);
-          box-shadow: 0 18px 38px rgba(99, 102, 241, 0.12), 0 4px 14px rgba(15, 23, 42, 0.06);
-          border-color: #A5B4FC;
+          box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+          border-color: #94A3B8;
         }
         .premium-emp-card::before {
           content: '';
@@ -271,9 +271,7 @@ export default function EmployeesTab({
           left: 0;
           right: 0;
           height: 3.5px;
-          background: linear-gradient(90deg, #6366F1, #8B5CF6, #EC4899, #10B981, #6366F1);
-          background-size: 300% 300%;
-          animation: cardGlowShimmer 6s ease infinite;
+          background: #4338CA;
           opacity: 0.85;
           transition: opacity 0.3s ease;
         }
@@ -365,32 +363,30 @@ export default function EmployeesTab({
         </div>
       )}
 
-      {/* 🌟 1. Compact & Attractive Violet Banner */}
+      {/* 🌟 1. Executive Midnight Royal Indigo Billboard Banner */}
       <div style={{
-        background: 'linear-gradient(135deg, #3B0764 0%, #6D28D9 50%, #7C3AED 100%)',
+        background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
         borderRadius: '16px',
-        padding: '18px 24px',
+        padding: '20px 24px',
         color: '#FFFFFF',
-        boxShadow: '0 10px 30px rgba(109, 40, 217, 0.22)',
+        boxShadow: '0 8px 30px rgba(15, 23, 42, 0.22)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: '14px',
-        border: '1.5px solid rgba(221, 214, 254, 0.35)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        {/* Glow ambient background sphere */}
+        {/* Royal Indigo Top Accent Line */}
         <div style={{
           position: 'absolute',
-          top: '-40px',
-          right: '-40px',
-          width: '200px',
-          height: '200px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(237, 233, 254, 0.35) 0%, rgba(0,0,0,0) 70%)',
-          pointerEvents: 'none'
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3.5px',
+          background: 'linear-gradient(90deg, #4338CA 0%, #6366F1 50%, #818CF8 100%)'
         }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
@@ -398,44 +394,46 @@ export default function EmployeesTab({
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.22)',
-            padding: '3px 12px',
-            borderRadius: '20px',
-            fontSize: '11px',
+            background: 'rgba(255, 255, 255, 0.12)',
+            padding: '4px 10px',
+            borderRadius: '16px',
+            fontSize: '10px',
             fontWeight: '900',
             letterSpacing: '0.6px',
-            marginBottom: '5px',
-            backdropFilter: 'blur(6px)'
+            marginBottom: '6px',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.18)',
+            color: '#E0E7FF'
           }}>
             <span>👥</span> WORKFORCE & STAFF
           </div>
-          <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.4px', textShadow: '0 2px 4px rgba(0,0,0,0.15)' }}>
+          <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             Workforce & Executive Staff
           </h1>
-          <p style={{ margin: '4px 0 0 0', opacity: 0.94, fontSize: '12.5px', maxWidth: '540px', color: '#F5F3FF' }}>
+          <p style={{ margin: '4px 0 0 0', opacity: 0.9, fontSize: '12px', maxWidth: '540px', color: '#C7D2FE', fontWeight: '500' }}>
             Multi-tier sales officers, in-field deployment, and team credentials.
           </p>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', position: 'relative', zIndex: 2, flexWrap: 'wrap' }}>
           {/* View Toggle */}
-          <div style={{ display: 'flex', backgroundColor: 'rgba(255,255,255,0.22)', borderRadius: '12px', padding: '3px', border: '1px solid rgba(255,255,255,0.28)', backdropFilter: 'blur(8px)' }}>
+          <div style={{ display: 'flex', backgroundColor: 'rgba(255, 255, 255, 0.12)', borderRadius: '10px', padding: '3px', border: '1px solid rgba(255, 255, 255, 0.2)', backdropFilter: 'blur(8px)' }}>
             <button
               onClick={() => setViewMode('cards')}
               style={{
                 backgroundColor: viewMode === 'cards' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'cards' ? '#6D28D9' : '#FFFFFF',
+                color: viewMode === 'cards' ? '#1E1B4B' : '#FFFFFF',
                 border: 'none',
-                borderRadius: '9px',
+                borderRadius: '7px',
                 padding: '6px 14px',
-                fontSize: '11.5px',
+                fontSize: '11px',
                 fontWeight: '900',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                boxShadow: viewMode === 'cards' ? '0 2px 8px rgba(0,0,0,0.12)' : 'none',
-                transition: 'all 0.2s ease'
+                boxShadow: viewMode === 'cards' ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                transition: 'all 0.18s ease'
               }}
             >
               <span>🗂️</span> Cards
@@ -444,18 +442,18 @@ export default function EmployeesTab({
               onClick={() => setViewMode('table')}
               style={{
                 backgroundColor: viewMode === 'table' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'table' ? '#6D28D9' : '#FFFFFF',
+                color: viewMode === 'table' ? '#1E1B4B' : '#FFFFFF',
                 border: 'none',
-                borderRadius: '9px',
+                borderRadius: '7px',
                 padding: '6px 14px',
-                fontSize: '11.5px',
+                fontSize: '11px',
                 fontWeight: '900',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                boxShadow: viewMode === 'table' ? '0 2px 8px rgba(0,0,0,0.12)' : 'none',
-                transition: 'all 0.2s ease'
+                boxShadow: viewMode === 'table' ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                transition: 'all 0.18s ease'
               }}
             >
               <span>📑</span> List
@@ -466,13 +464,13 @@ export default function EmployeesTab({
             onClick={onOpenAddEmployee}
             style={{
               backgroundColor: '#FFFFFF',
-              color: '#6D28D9',
+              color: '#1E1B4B',
               fontSize: '12px',
               fontWeight: '900',
-              padding: '9px 18px',
-              borderRadius: '12px',
+              padding: '8px 18px',
+              borderRadius: '10px',
               border: 'none',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.16)',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
@@ -487,184 +485,236 @@ export default function EmployeesTab({
         </div>
       </div>
 
-      {/* 🌟 2. Spacious & Modern 4-Col KPI Metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+      {/* 🌟 2. Executive Crisp White SaaS Metric Cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         
-        {/* Metric 1 */}
+        {/* Metric 1 - Total Staff */}
         <div style={{
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
-          border: '1.5px solid #DDD6FE',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(109, 40, 217, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FAF5FF 100%)',
+          border: '1.5px solid #E2E8F0',
+          padding: '16px 18px',
+          boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
           display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          minHeight: '105px',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          transition: 'all 0.2s ease'
         }}>
           <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%)',
-            border: '1.5px solid #C4B5FD',
-            color: '#7C3AED',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)'
-          }}>
-            👥
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #4338CA 0%, #6366F1 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#EEF2FF',
+              border: '1.2px solid #C7D2FE',
+              color: '#4338CA',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              👥
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#4338CA', fontWeight: '800', backgroundColor: '#EEF2FF', padding: '3px 8px', borderRadius: '6px', border: '1px solid #C7D2FE' }}>
+              Active Roster
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#6D28D9', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Total Staff
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#1E1B4B', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {employees.length}
               </div>
-              <span style={{ fontSize: '10.5px', color: '#7C3AED', fontWeight: '800', backgroundColor: '#EDE9FE', padding: '2px 7px', borderRadius: '6px' }}>
-                Active Roster
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Verified Accounts
               </span>
             </div>
           </div>
         </div>
 
-        {/* Metric 2 */}
+        {/* Metric 2 - Active Now */}
         <div style={{
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
-          border: '1.5px solid #A7F3D0',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(5, 150, 105, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%)',
+          border: '1.5px solid #E2E8F0',
+          padding: '16px 18px',
+          boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
           display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          minHeight: '105px',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          transition: 'all 0.2s ease'
         }}>
           <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
-            border: '1.5px solid #6EE7B7',
-            color: '#059669',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(5, 150, 105, 0.15)'
-          }}>
-            ⚡
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #059669 0%, #10B981 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#ECFDF5',
+              border: '1.2px solid #A7F3D0',
+              color: '#059669',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              ⚡
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#047857', fontWeight: '800', backgroundColor: '#ECFDF5', padding: '3px 8px', borderRadius: '6px', border: '1px solid #A7F3D0' }}>
+              Online
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#047857', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Active Now
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#065F46', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {activeCount}
               </div>
-              <span style={{ fontSize: '10.5px', color: '#059669', fontWeight: '800', backgroundColor: '#D1FAE5', padding: '2px 7px', borderRadius: '6px' }}>
-                Online
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Ready for Dispatch
               </span>
             </div>
           </div>
         </div>
 
-        {/* Metric 3 */}
+        {/* Metric 3 - Sales Force */}
         <div style={{
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
-          border: '1.5px solid #FDE68A',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(217, 119, 6, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFDF8 100%)',
+          border: '1.5px solid #E2E8F0',
+          padding: '16px 18px',
+          boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
           display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          minHeight: '105px',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          transition: 'all 0.2s ease'
         }}>
           <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)',
-            border: '1.5px solid #FCD34D',
-            color: '#B45309',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(217, 119, 6, 0.15)'
-          }}>
-            💼
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#FFFBEB',
+              border: '1.2px solid #FDE68A',
+              color: '#D97706',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              💼
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#B45309', fontWeight: '800', backgroundColor: '#FEF3C7', padding: '3px 8px', borderRadius: '6px', border: '1px solid #FDE68A' }}>
+              Field Team
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#B45309', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Sales Force
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#78350F', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {salesForceCount || employees.length}
               </div>
-              <span style={{ fontSize: '10.5px', color: '#B45309', fontWeight: '800', backgroundColor: '#FEF3C7', padding: '2px 7px', borderRadius: '6px' }}>
-                Field Team
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Commercial Unit
               </span>
             </div>
           </div>
         </div>
 
-        {/* Metric 4 */}
+        {/* Metric 4 - Security */}
         <div style={{
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
-          border: '1.5px solid #BAE6FD',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(2, 132, 199, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 100%)',
+          border: '1.5px solid #E2E8F0',
+          padding: '16px 18px',
+          boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
           display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          minHeight: '105px',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          transition: 'all 0.2s ease'
         }}>
           <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%)',
-            border: '1.5px solid #7DD3FC',
-            color: '#0284C7',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(2, 132, 199, 0.15)'
-          }}>
-            🛡️
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #0369A1 0%, #0284C7 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#F0F9FF',
+              border: '1.2px solid #BAE6FD',
+              color: '#0284C7',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              🛡️
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#0284C7', fontWeight: '800', backgroundColor: '#E0F2FE', padding: '3px 8px', borderRadius: '6px', border: '1px solid #BAE6FD' }}>
+              2FA Active
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#0369A1', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Security
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '20px', fontWeight: '900', color: '#0C4A6E', lineHeight: '1' }}>
+              <div style={{ fontSize: '20px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 Verified
               </div>
-              <span style={{ fontSize: '10.5px', color: '#0284C7', fontWeight: '800', backgroundColor: '#E0F2FE', padding: '2px 7px', borderRadius: '6px' }}>
-                2FA Active
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Encrypted Auth
               </span>
             </div>
           </div>
@@ -672,7 +722,7 @@ export default function EmployeesTab({
 
       </div>
 
-      {/* 🌟 3. Filter Controls & Prominent Colorful Live Search Bar */}
+      {/* 🌟 3. Filter Controls & Executive Search Bar */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -680,10 +730,10 @@ export default function EmployeesTab({
         flexWrap: 'wrap',
         gap: '12px',
         backgroundColor: '#FFFFFF',
-        padding: '12px 18px',
-        borderRadius: '16px',
-        border: '1.5px solid #DDD6FE',
-        boxShadow: '0 4px 16px rgba(109, 40, 217, 0.04)'
+        padding: '12px 16px',
+        borderRadius: '14px',
+        border: '1.5px solid #E2E8F0',
+        boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)'
       }}>
         {/* Department Filters */}
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
@@ -701,24 +751,26 @@ export default function EmployeesTab({
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '4px',
-                  padding: '6px 10px',
+                  gap: '6px',
+                  padding: '6px 14px',
                   borderRadius: '8px',
-                  fontSize: '11.5px',
+                  fontSize: '11px',
                   fontWeight: '800',
-                  border: isSel ? '1.5px solid #7C3AED' : '1.5px solid #E2E8F0',
-                  backgroundColor: isSel ? '#F5F3FF' : '#FFFFFF',
-                  color: isSel ? '#6D28D9' : '#64748B',
-                  cursor: 'pointer'
+                  border: isSel ? '1.5px solid #4338CA' : '1.2px solid #E2E8F0',
+                  backgroundColor: isSel ? '#4338CA' : '#FFFFFF',
+                  color: isSel ? '#FFFFFF' : '#475569',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                  boxShadow: isSel ? '0 2px 8px rgba(67, 56, 202, 0.25)' : 'none'
                 }}
               >
                 <span>{f.label}</span>
                 <span style={{
-                  backgroundColor: isSel ? '#6D28D9' : '#F1F5F9',
-                  color: isSel ? '#FFFFFF' : '#64748B',
-                  borderRadius: '10px',
+                  backgroundColor: isSel ? 'rgba(255, 255, 255, 0.25)' : '#F1F5F9',
+                  color: isSel ? '#FFFFFF' : '#475569',
+                  borderRadius: '8px',
                   padding: '1px 6px',
-                  fontSize: '10px',
+                  fontSize: '9.5px',
                   fontWeight: '900'
                 }}>
                   {f.count}
@@ -728,23 +780,19 @@ export default function EmployeesTab({
           })}
         </div>
 
-        {/* Large, Colorful & Deeply Filtered Search Input */}
-        <div style={{ position: 'relative', flex: '1 1 320px', maxWidth: '460px' }}>
+        {/* Clean Executive Search Bar */}
+        <div style={{ position: 'relative', flex: '1 1 280px', maxWidth: '420px' }}>
           <div style={{
             position: 'absolute',
             left: '12px',
             top: '50%',
             transform: 'translateY(-50%)',
-            width: '28px',
-            height: '28px',
-            borderRadius: '8px',
-            background: 'linear-gradient(135deg, #6D28D9 0%, #8B5CF6 100%)',
-            color: '#FFFFFF',
+            color: '#64748B',
+            fontSize: '13px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '13px',
-            boxShadow: '0 2px 6px rgba(109, 40, 217, 0.3)'
+            pointerEvents: 'none'
           }}>
             🔍
           </div>
@@ -755,25 +803,26 @@ export default function EmployeesTab({
             onChange={e => setSearch(e.target.value)}
             style={{
               width: '100%',
-              padding: '11px 14px 11px 48px',
-              borderRadius: '12px',
-              border: '1.5px solid #C4B5FD',
-              backgroundColor: '#FFFFFF',
-              fontSize: '12.5px',
+              padding: '9px 14px 9px 38px',
+              borderRadius: '10px',
+              border: '1.5px solid #E2E8F0',
+              backgroundColor: '#F8FAFC',
+              fontSize: '12px',
               fontWeight: '600',
               color: '#0F172A',
               outline: 'none',
               boxSizing: 'border-box',
-              boxShadow: '0 2px 8px rgba(109, 40, 217, 0.06)',
               transition: 'all 0.2s ease'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = '#7C3AED';
-              e.target.style.boxShadow = '0 0 0 3px rgba(124, 58, 237, 0.18)';
+              e.target.style.borderColor = '#4338CA';
+              e.target.style.backgroundColor = '#FFFFFF';
+              e.target.style.boxShadow = '0 0 0 3px rgba(67, 56, 202, 0.12)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = '#C4B5FD';
-              e.target.style.boxShadow = '0 2px 8px rgba(109, 40, 217, 0.06)';
+              e.target.style.borderColor = '#E2E8F0';
+              e.target.style.backgroundColor = '#F8FAFC';
+              e.target.style.boxShadow = 'none';
             }}
           />
         </div>
@@ -1096,182 +1145,230 @@ export default function EmployeesTab({
           )}
         </div>
       ) : (
-        /* Classic List Table View */
-        <div className="table-responsive" style={{
+        /* Executive SaaS List Table View - Clean, High Contrast & Polished */
+        <div style={{
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
-          border: '1.5px solid var(--border)',
-          boxShadow: '0 3px 12px rgba(0,0,0,0.02)',
+          border: '1.5px solid #E2E8F0',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
           overflow: 'hidden'
         }}>
-          <table style={{ width: '100%', minWidth: '650px', borderCollapse: 'collapse', textAlign: 'left' }}>
-            <thead>
-              <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid var(--border)' }}>
-                <th style={{ padding: '12px 14px', fontSize: '11px', fontWeight: '900', color: '#64748B' }}>STAFF</th>
-                <th style={{ padding: '12px 14px', fontSize: '11px', fontWeight: '900', color: '#64748B' }}>CONTACT</th>
-                <th style={{ padding: '12px 14px', fontSize: '11px', fontWeight: '900', color: '#64748B' }}>DEPARTMENT</th>
-                <th style={{ padding: '12px 14px', fontSize: '11px', fontWeight: '900', color: '#64748B' }}>CLIENTS HANDLED</th>
-                <th style={{ padding: '12px 14px', fontSize: '11px', fontWeight: '900', color: '#64748B' }}>STATUS</th>
-                <th style={{ padding: '12px 14px', fontSize: '11px', fontWeight: '900', color: '#64748B', textAlign: 'right' }}>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredEmployees.length === 0 ? (
-                <tr>
-                  <td colSpan="6" style={{ padding: '30px', textAlign: 'center', color: '#94A3B8', fontSize: '12px' }}>
-                    No employees onboarded yet.
-                  </td>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', minWidth: '780px', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid #E2E8F0' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>STAFF MEMBER</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CONTACT</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>DEPARTMENT</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CLIENTS HANDLED</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>STATUS</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'right' }}>ACTIONS</th>
                 </tr>
-              ) : (
-                filteredEmployees.map((emp, idx) => {
-                  const deptStyle = getDeptBadgeStyle(emp.department);
-                  const avatarGrad = getAvatarGradient(emp.name, idx);
-                  const stats = getEmployeeClientStats(emp);
+              </thead>
+              <tbody>
+                {filteredEmployees.length === 0 ? (
+                  <tr>
+                    <td colSpan="6" style={{ padding: '40px', textAlign: 'center', color: '#64748B', fontSize: '12.5px', fontWeight: '600' }}>
+                      <div style={{ fontSize: '30px', marginBottom: '8px' }}>👥</div>
+                      No team members found matching your search.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredEmployees.map((emp, idx) => {
+                    const deptStyle = getDeptBadgeStyle(emp.department);
+                    const avatarGrad = getAvatarGradient(emp.name, idx);
+                    const stats = getEmployeeClientStats(emp);
+                    const isEven = idx % 2 === 0;
 
-                  return (
-                    <tr key={emp._id || idx} style={{ borderBottom: '1px solid #F1F5F9' }}>
-                      <td style={{ padding: '10px 14px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <div style={{
-                            width: '32px',
-                            height: '32px',
-                            borderRadius: '8px',
-                            background: avatarGrad,
-                            color: '#FFFFFF',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontWeight: '900',
-                            fontSize: '13px'
-                          }}>
-                            {emp.name?.[0]?.toUpperCase() || 'E'}
-                          </div>
-                          <div>
-                            <div style={{ fontWeight: '800', fontSize: '13px', color: '#0F172A' }}>
-                              {emp.name}
+                    return (
+                      <tr
+                        key={emp._id || idx}
+                        style={{
+                          borderBottom: '1px solid #F1F5F9',
+                          backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#F8FAFC';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = isEven ? '#FFFFFF' : '#FAFAFC';
+                        }}
+                      >
+                        {/* 1. Staff Member */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <div style={{
+                              width: '36px',
+                              height: '36px',
+                              borderRadius: '9px',
+                              background: avatarGrad,
+                              color: '#FFFFFF',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontWeight: '900',
+                              fontSize: '14px',
+                              boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+                              flexShrink: 0
+                            }}>
+                              {emp.name?.[0]?.toUpperCase() || 'E'}
                             </div>
-                            <div style={{ fontSize: '10.5px', color: '#94A3B8' }}>
-                              #{emp.employeeId || emp._id?.slice(-5) || 'EMP' + idx}
+                            <div>
+                              <div style={{ fontWeight: '800', fontSize: '13px', color: '#0F172A' }}>
+                                {emp.name}
+                              </div>
+                              <div style={{ fontSize: '11px', color: '#64748B', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '1px' }}>
+                                <span style={{ fontFamily: 'monospace', color: '#4338CA', fontWeight: '700' }}>#{emp.employeeId || emp._id?.slice(-5) || 'EMP' + idx}</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
+                        </td>
 
-                      <td style={{ padding: '10px 14px' }}>
-                        <div style={{ fontWeight: '700', fontSize: '12px', color: '#334155' }}>{emp.email}</div>
-                        <div style={{ fontSize: '11px', color: '#94A3B8' }}>{emp.phone || '+91 98765 00000'}</div>
-                      </td>
+                        {/* 2. Contact Details */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ fontWeight: '700', fontSize: '12px', color: '#334155' }}>{emp.email}</div>
+                          <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>{emp.phone || '+91 98765 00000'}</div>
+                        </td>
 
-                      <td style={{ padding: '10px 14px' }}>
-                        <span style={{
-                          backgroundColor: deptStyle.bg,
-                          color: deptStyle.color,
-                          border: `1px solid ${deptStyle.border}`,
-                          fontSize: '10.5px',
-                          fontWeight: '800',
-                          padding: '2px 7px',
-                          borderRadius: '5px',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '4px'
-                        }}>
-                          <span>{deptStyle.icon}</span>
-                          <span>{emp.department || 'Enterprise Sales'}</span>
-                        </span>
-                      </td>
-
-                      {/* Dynamic Clients Handled Column */}
-                      <td style={{ padding: '10px 14px' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        {/* 3. Department */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
                           <span style={{
-                            background: stats.clientCount > 0 ? 'linear-gradient(135deg, #059669 0%, #10B981 100%)' : '#F1F5F9',
-                            color: stats.clientCount > 0 ? '#FFFFFF' : '#64748B',
+                            backgroundColor: '#EEF2FF',
+                            color: '#4338CA',
+                            border: '1px solid #C7D2FE',
                             fontSize: '11px',
-                            fontWeight: '900',
-                            padding: '3px 8px',
-                            borderRadius: '8px',
+                            fontWeight: '800',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '4px'
+                            gap: '5px'
                           }}>
-                            <span>👥</span>
-                            <span>{stats.clientCount} {stats.clientCount === 1 ? 'Client' : 'Clients'}</span>
+                            <span>{deptStyle.icon}</span>
+                            <span>{emp.department || 'Enterprise Sales'}</span>
                           </span>
-                          <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
-                            ({stats.activeLeads} Leads • {stats.wonDeals} Won)
+                        </td>
+
+                        {/* 4. Clients Handled */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span style={{
+                              backgroundColor: stats.clientCount > 0 ? '#ECFDF5' : '#F1F5F9',
+                              color: stats.clientCount > 0 ? '#047857' : '#64748B',
+                              border: stats.clientCount > 0 ? '1px solid #A7F3D0' : '1px solid #E2E8F0',
+                              fontSize: '11px',
+                              fontWeight: '800',
+                              padding: '3px 8px',
+                              borderRadius: '6px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px'
+                            }}>
+                              <span>👥</span>
+                              <span>{stats.clientCount} {stats.clientCount === 1 ? 'Client' : 'Clients'}</span>
+                            </span>
+                            <span style={{ fontSize: '11px', color: '#64748B', fontWeight: '700' }}>
+                              ({stats.activeLeads} Leads • {stats.wonDeals} Won)
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* 5. Status */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <span style={{
+                            backgroundColor: '#ECFDF5',
+                            border: '1px solid #A7F3D0',
+                            color: '#047857',
+                            fontSize: '10px',
+                            fontWeight: '900',
+                            padding: '3px 8px',
+                            borderRadius: '12px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            letterSpacing: '0.4px'
+                          }}>
+                            <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#10B981' }} />
+                            ACTIVE
                           </span>
-                        </div>
-                      </td>
+                        </td>
 
-                      <td style={{ padding: '10px 14px' }}>
-                        <span style={{
-                          backgroundColor: '#ECFDF5',
-                          border: '1px solid #A7F3D0',
-                          color: '#059669',
-                          fontSize: '10.5px',
-                          fontWeight: '800',
-                          padding: '2px 7px',
-                          borderRadius: '5px'
-                        }}>
-                          ● ACTIVE
-                        </span>
-                      </td>
-
-                      <td style={{ padding: '10px 14px', textAlign: 'right' }}>
-                        <div style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end' }}>
-                          <button
-                            onClick={() => openTargetModal(emp)}
-                            style={{
-                              backgroundColor: '#EFF6FF',
-                              border: '1px solid #93C5FD',
-                              color: '#1D4ED8',
-                              fontSize: '10.5px',
-                              fontWeight: '800',
-                              padding: '4px 8px',
-                              borderRadius: '5px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            🎯 Target ({emp.targetTasks ?? 20})
-                          </button>
-                          <button
-                            onClick={() => openEditModal(emp)}
-                            style={{
-                              backgroundColor: '#F5F3FF',
-                              border: '1px solid #DDD6FE',
-                              color: '#6D28D9',
-                              fontSize: '10.5px',
-                              fontWeight: '800',
-                              padding: '4px 8px',
-                              borderRadius: '5px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            ✏️ Edit
-                          </button>
-                          <button
-                            onClick={() => onDeleteEmployee(emp._id, emp.name)}
-                            style={{
-                              backgroundColor: '#FEE2E2',
-                              border: '1px solid #FCA5A5',
-                              color: '#DC2626',
-                              fontSize: '10.5px',
-                              fontWeight: '800',
-                              padding: '4px 8px',
-                              borderRadius: '5px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            Remove 🗑️
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
+                        {/* 6. Modern Actions Group */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle', textAlign: 'right' }}>
+                          <div style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end', alignItems: 'center' }}>
+                            <button
+                              onClick={() => openTargetModal(emp)}
+                              style={{
+                                backgroundColor: '#EEF2FF',
+                                border: '1.2px solid #C7D2FE',
+                                color: '#4338CA',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '4px',
+                                transition: 'all 0.15s ease'
+                              }}
+                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E0E7FF'}
+                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EEF2FF'}
+                            >
+                              <span>🎯 Target</span> ({emp.targetTasks ?? 20})
+                            </button>
+                            <button
+                              onClick={() => openEditModal(emp)}
+                              style={{
+                                backgroundColor: '#F8FAFC',
+                                border: '1.2px solid #CBD5E1',
+                                color: '#334155',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '3px',
+                                transition: 'all 0.15s ease'
+                              }}
+                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F1F5F9'}
+                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F8FAFC'}
+                            >
+                              ✏️ Edit
+                            </button>
+                            <button
+                              onClick={() => onDeleteEmployee(emp._id, emp.name)}
+                              style={{
+                                backgroundColor: '#FEF2F2',
+                                border: '1.2px solid #FECACA',
+                                color: '#DC2626',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '3px',
+                                transition: 'all 0.15s ease'
+                              }}
+                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FEE2E2'}
+                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEF2F2'}
+                            >
+                              🗑️
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 

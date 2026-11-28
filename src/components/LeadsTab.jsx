@@ -97,7 +97,7 @@ export default function LeadsTab({
 }) {
   const [filter, setFilter] = useState('All');
   const [search, setSearch] = useState('');
-  const [viewMode, setViewMode] = useState('cards'); // 'cards' (Bento grid) or 'table'
+  const [viewMode, setViewMode] = useState('table'); // 'cards' (Bento grid) or 'table'
 
   // Map of customers by _id for instant lookup when customerId is just a string ID
   const customerMap = React.useMemo(() => {
@@ -356,34 +356,35 @@ export default function LeadsTab({
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '12px',
-          background: 'linear-gradient(135deg, #064E3B 0%, #065F46 40%, #059669 75%, #10B981 100%)',
-          padding: '16px 20px',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
+          padding: '18px 22px',
           borderRadius: '16px',
           color: '#FFFFFF',
-          border: '1.5px solid rgba(167, 243, 208, 0.4)',
+          border: '1.5px solid rgba(255, 255, 255, 0.12)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.12)'
         }}
       >
-        {/* Animated Top Spectrum Line */}
+        {/* Animated Top Indigo Line */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           height: '4px',
-          background: 'linear-gradient(90deg, #10B981 0%, #34D399 25%, #F59E0B 50%, #6366F1 75%, #EC4899 100%)'
+          background: '#4338CA'
         }} />
 
-        <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '150px', height: '150px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(52, 211, 153, 0.4) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-25px', left: '20%', width: '120px', height: '120px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '150px', height: '150px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-25px', left: '20%', width: '120px', height: '120px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(67, 56, 202, 0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ 
             display: 'inline-flex', 
             alignItems: 'center', 
             gap: '6px', 
-            backgroundColor: 'rgba(255,255,255,0.18)', 
+            backgroundColor: 'rgba(255,255,255,0.12)', 
             backdropFilter: 'blur(8px)',
             padding: '4px 10px', 
             borderRadius: '16px', 
@@ -391,14 +392,14 @@ export default function LeadsTab({
             fontWeight: '900', 
             letterSpacing: '0.5px', 
             marginBottom: '6px',
-            border: '1px solid rgba(255,255,255,0.25)'
+            border: '1px solid rgba(255,255,255,0.2)'
           }}>
             <span>📋</span> REAL-TIME SALES PIPELINE • DUPLICATE DETECTION & SOURCE TRACKING
           </div>
           <h2 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             Customer Enquiries & Sales Leads
           </h2>
-          <p style={{ fontSize: '12px', margin: '3px 0 0 0', opacity: 0.95, color: '#D1FAE5' }}>
+          <p style={{ fontSize: '12px', margin: '3px 0 0 0', opacity: 0.9, color: '#C7D2FE' }}>
             Multi-channel inbound tracking, automated duplicate warnings, and instant specialist assignment.
           </p>
         </div>
@@ -407,23 +408,23 @@ export default function LeadsTab({
           {/* View Toggle */}
           <div style={{ 
             display: 'flex', 
-            backgroundColor: 'rgba(255,255,255,0.18)', 
+            backgroundColor: 'rgba(255,255,255,0.14)', 
             backdropFilter: 'blur(8px)',
             borderRadius: '10px', 
             padding: '3px', 
-            border: '1px solid rgba(255,255,255,0.3)' 
+            border: '1px solid rgba(255,255,255,0.25)' 
           }}>
             <button
               onClick={() => setViewMode('cards')}
               style={{
-                padding: '5px 12px',
+                padding: '6px 14px',
                 borderRadius: '7px',
                 fontSize: '11px',
                 fontWeight: '900',
                 border: 'none',
                 backgroundColor: viewMode === 'cards' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'cards' ? '#065F46' : '#FFFFFF',
-                boxShadow: viewMode === 'cards' ? '0 2px 6px rgba(0,0,0,0.18)' : 'none',
+                color: viewMode === 'cards' ? '#1E1B4B' : '#FFFFFF',
+                boxShadow: viewMode === 'cards' ? '0 2px 6px rgba(0,0,0,0.15)' : 'none',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
               }}
@@ -433,14 +434,14 @@ export default function LeadsTab({
             <button
               onClick={() => setViewMode('table')}
               style={{
-                padding: '5px 12px',
+                padding: '6px 14px',
                 borderRadius: '7px',
                 fontSize: '11px',
                 fontWeight: '900',
                 border: 'none',
                 backgroundColor: viewMode === 'table' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'table' ? '#065F46' : '#FFFFFF',
-                boxShadow: viewMode === 'table' ? '0 2px 6px rgba(0,0,0,0.18)' : 'none',
+                color: viewMode === 'table' ? '#1E1B4B' : '#FFFFFF',
+                boxShadow: viewMode === 'table' ? '0 2px 6px rgba(0,0,0,0.15)' : 'none',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
               }}
@@ -453,13 +454,13 @@ export default function LeadsTab({
             onClick={onOpenAddLead}
             style={{
               backgroundColor: '#FFFFFF',
-              color: '#065F46',
+              color: '#1E1B4B',
               fontSize: '12px',
               fontWeight: '900',
-              padding: '7px 16px',
+              padding: '8px 18px',
               borderRadius: '10px',
               border: 'none',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.18)',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
@@ -480,14 +481,14 @@ export default function LeadsTab({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
-        padding: '8px 12px',
-        borderRadius: '12px',
-        border: '1.2px solid var(--border)',
-        gap: '8px',
+        padding: '10px 14px',
+        borderRadius: '14px',
+        border: '1.2px solid #E2E8F0',
+        gap: '10px',
         flexWrap: 'wrap',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.02)'
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
       }}>
-        <div style={{ display: 'flex', gap: '5px', overflowX: 'auto', paddingBottom: '1px', flex: '1 1 auto' }}>
+        <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px', flex: '1 1 auto' }}>
           {[
             { id: 'All', label: 'All Leads', count: counts.all, color: '#4338CA', bg: '#EEF2FF' },
             { id: 'TodayCalls', label: '📞 Today Call Reminders', count: counts.todayCalls, color: '#DC2626', bg: '#FEE2E2' },
@@ -514,27 +515,39 @@ export default function LeadsTab({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '5px',
-                  padding: '4px 9px',
-                  borderRadius: '7px',
-                  fontSize: '10.5px',
+                  gap: '6px',
+                  padding: '5px 10px',
+                  borderRadius: '8px',
+                  fontSize: '11px',
                   fontWeight: '800',
-                  backgroundColor: isSelected ? tab.color : '#F8FAFC',
-                  border: isSelected ? `1.2px solid ${tab.color}` : '1.2px solid #E2E8F0',
+                  backgroundColor: isSelected ? tab.color : '#FFFFFF',
+                  border: isSelected ? `1.5px solid ${tab.color}` : '1.2px solid #E2E8F0',
                   color: isSelected ? '#FFFFFF' : '#475569',
                   whiteSpace: 'nowrap',
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease',
+                  transition: 'all 0.18s ease',
                   boxShadow: isSelected ? `0 2px 8px ${tab.color}35` : 'none'
+                }}
+                onMouseEnter={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#E2E8F0';
+                  }
                 }}
               >
                 <span>{tab.label}</span>
                 <span style={{
                   backgroundColor: isSelected ? 'rgba(255,255,255,0.25)' : tab.bg,
                   color: isSelected ? '#FFFFFF' : tab.color,
-                  fontSize: '9px',
+                  fontSize: '9.5px',
                   fontWeight: '900',
-                  padding: '1px 5px',
+                  padding: '1px 6px',
                   borderRadius: '8px'
                 }}>
                   {tab.count}
@@ -550,13 +563,16 @@ export default function LeadsTab({
           value={search}
           onChange={e => setSearch(e.target.value)}
           style={{
-            minWidth: '200px',
-            flex: '0 1 240px',
-            padding: '6px 10px',
-            borderRadius: '8px',
-            border: '1.2px solid #CBD5E1',
+            minWidth: '220px',
+            flex: '0 1 250px',
+            padding: '7px 12px',
+            borderRadius: '9px',
+            border: '1.5px solid #E2E8F0',
+            backgroundColor: '#F8FAFC',
             fontSize: '11.5px',
-            color: 'var(--text-dark)'
+            fontWeight: '600',
+            color: '#0F172A',
+            outline: 'none'
           }}
         />
       </div>
@@ -579,21 +595,11 @@ export default function LeadsTab({
               const isUrgent = l._priority === 'Urgent' || l._priority === 'High';
               const isDuplicate = l._isDuplicate;
 
-              const cardBorder = isDuplicate
-                ? '#F59E0B'
-                : isConverted ? '#C084FC' : isAssigned ? '#10B981' : '#CBD5E1';
+              const cardBorder = '#E2E8F0';
 
-              const cardGlow = isDuplicate
-                ? 'rgba(245, 158, 11, 0.25)'
-                : isConverted ? 'rgba(192, 132, 252, 0.2)' : isAssigned ? 'rgba(16, 185, 129, 0.18)' : 'rgba(0,0,0,0.04)';
+              const cardGlow = 'rgba(15, 23, 42, 0.04)';
 
-              const cardAccentTop = isDuplicate
-                ? 'linear-gradient(90deg, #F59E0B 0%, #D97706 100%)'
-                : isConverted
-                  ? 'linear-gradient(90deg, #8B5CF6 0%, #C084FC 100%)'
-                  : isAssigned
-                    ? 'linear-gradient(90deg, #10B981 0%, #34D399 100%)'
-                    : 'linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%)';
+              const cardAccentTop = '#4338CA';
 
               return (
                 <div
@@ -613,12 +619,12 @@ export default function LeadsTab({
                     animationDelay: `${Math.min(idx * 0.04, 0.4)}s`
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = isDuplicate ? '#D97706' : isConverted ? '#7C3AED' : isAssigned ? '#059669' : '#2563EB';
-                    e.currentTarget.style.boxShadow = `0 12px 28px ${cardGlow}`;
+                    e.currentTarget.style.borderColor = '#94A3B8';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = cardBorder;
-                    e.currentTarget.style.boxShadow = `0 4px 18px ${cardGlow}`;
+                    e.currentTarget.style.borderColor = '#E2E8F0';
+                    e.currentTarget.style.boxShadow = '0 4px 18px rgba(15, 23, 42, 0.04)';
                   }}
                 >
                   {/* Top Ambient Card Accent Stripe */}
@@ -1026,9 +1032,9 @@ export default function LeadsTab({
       {viewMode === 'table' && (
         <div style={{
           backgroundColor: '#FFFFFF',
-          borderRadius: '14px',
-          border: '1.2px solid #E2E8F0',
-          boxShadow: '0 2px 10px rgba(15, 23, 42, 0.03)',
+          borderRadius: '16px',
+          border: '1.5px solid #E2E8F0',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
           overflow: 'hidden'
         }}>
           <div style={{ overflowX: 'auto' }}>
@@ -1038,25 +1044,25 @@ export default function LeadsTab({
                   backgroundColor: '#F8FAFC',
                   borderBottom: '1.5px solid #E2E8F0'
                 }}>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     # ENQUIRY ID
                   </th>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     CLIENT & COMPANY
                   </th>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     SERVICE & CHANNEL
                   </th>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     STATUS
                   </th>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     ESTIMATE
                   </th>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                     ASSIGNED SPECIALIST
                   </th>
-                  <th style={{ padding: '12px 16px', fontSize: '11px', fontWeight: '800', color: '#475569', letterSpacing: '0.4px', textAlign: 'center' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'center' }}>
                     ACTIONS
                   </th>
                 </tr>
@@ -1064,8 +1070,8 @@ export default function LeadsTab({
               <tbody>
                 {filtered.length === 0 ? (
                   <tr>
-                    <td colSpan="7" style={{ padding: '36px', textAlign: 'center', color: '#64748B', fontSize: '13px', fontWeight: '600' }}>
-                      <div style={{ fontSize: '28px', marginBottom: '6px' }}>📋</div>
+                    <td colSpan="7" style={{ padding: '40px', textAlign: 'center', color: '#64748B', fontSize: '13px', fontWeight: '600' }}>
+                      <div style={{ fontSize: '32px', marginBottom: '8px' }}>📋</div>
                       No leads found matching your selected filter.
                     </td>
                   </tr>
@@ -1080,26 +1086,26 @@ export default function LeadsTab({
                         style={{
                           borderBottom: '1px solid #F1F5F9',
                           backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC',
-                          transition: 'background-color 0.12s ease'
+                          transition: 'all 0.18s ease'
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#F8FAFC';
+                          e.currentTarget.style.backgroundColor = '#F1F5F9';
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.backgroundColor = isEven ? '#FFFFFF' : '#FAFAFC';
                         }}
                       >
                         {/* 1. Tracking ID */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
                           <span style={{
                             display: 'inline-block',
                             backgroundColor: '#EEF2FF',
                             color: '#4338CA',
                             fontWeight: '900',
                             fontSize: '12px',
-                            padding: '3px 8px',
-                            borderRadius: '6px',
-                            border: '1px solid #C7D2FE',
+                            padding: '3px 9px',
+                            borderRadius: '7px',
+                            border: '1.2px solid #C7D2FE',
                             letterSpacing: '0.3px'
                           }}>
                             #{l.enquiryId || (l._id ? l._id.slice(-6).toUpperCase() : 'LEAD')}
@@ -1111,8 +1117,8 @@ export default function LeadsTab({
                               color: '#B45309',
                               fontSize: '9.5px',
                               fontWeight: '900',
-                              padding: '1px 6px',
-                              borderRadius: '4px',
+                              padding: '2px 7px',
+                              borderRadius: '5px',
                               border: '1px solid #FDE68A',
                               marginTop: '3px',
                               marginLeft: '4px'
@@ -1123,29 +1129,30 @@ export default function LeadsTab({
                         </td>
 
                         {/* 2. Client & Company */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             <div style={{
-                              width: '32px',
-                              height: '32px',
-                              borderRadius: '16px',
+                              width: '34px',
+                              height: '34px',
+                              borderRadius: '10px',
                               backgroundColor: '#EEF2FF',
-                              border: '1px solid #C7D2FE',
+                              border: '1.2px solid #C7D2FE',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
                               fontSize: '13px',
                               fontWeight: '900',
                               color: '#4338CA',
+                              boxShadow: '0 2px 6px rgba(67, 56, 202, 0.1)',
                               flexShrink: 0
                             }}>
                               {String(l._clientName || 'C').charAt(0).toUpperCase()}
                             </div>
                             <div>
-                              <div style={{ fontSize: '13px', fontWeight: '800', color: '#0F172A' }}>
+                              <div style={{ fontSize: '13.5px', fontWeight: '800', color: '#0F172A' }}>
                                 {l._clientName}
                               </div>
-                              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', marginTop: '1px' }}>
+                              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', marginTop: '2px' }}>
                                 {l.company || (l.customerId && l.customerId.company) ? `🏢 ${l.company || l.customerId.company}` : (l._clientPhone || 'Client')}
                               </div>
                             </div>
@@ -1153,8 +1160,8 @@ export default function LeadsTab({
                         </td>
 
                         {/* 3. Service & Channel */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle' }}>
-                          <div style={{ fontSize: '12.5px', fontWeight: '700', color: '#1E293B', marginBottom: '3px' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ fontSize: '12.5px', fontWeight: '800', color: '#1E293B', marginBottom: '4px' }}>
                             {l._reqSubject}
                           </div>
                           <div style={{ display: 'inline-flex' }}>
@@ -1163,17 +1170,17 @@ export default function LeadsTab({
                         </td>
 
                         {/* 4. Status (Clean capsule badge) */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
                           <span style={{
                             display: 'inline-flex',
                             alignItems: 'center',
                             gap: '5px',
                             backgroundColor: stBadge.bg,
-                            border: `1px solid ${stBadge.border}`,
+                            border: `1.2px solid ${stBadge.border}`,
                             color: stBadge.text,
                             fontSize: '11px',
                             fontWeight: '800',
-                            padding: '3px 9px',
+                            padding: '4px 10px',
                             borderRadius: '12px'
                           }}>
                             <span style={{
@@ -1187,36 +1194,36 @@ export default function LeadsTab({
                         </td>
 
                         {/* 5. Budget Estimate */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
                           <span style={{
                             display: 'inline-block',
                             backgroundColor: '#ECFDF5',
-                            border: '1px solid #A7F3D0',
+                            border: '1.2px solid #A7F3D0',
                             color: '#047857',
-                            fontSize: '12.5px',
+                            fontSize: '13px',
                             fontWeight: '900',
-                            padding: '3px 9px',
-                            borderRadius: '6px'
+                            padding: '4px 10px',
+                            borderRadius: '7px'
                           }}>
                             {l._budgetVal}
                           </span>
                         </td>
 
                         {/* 6. Assigned Specialist */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
                           {l._specialistName ? (
                             <div>
                               <div style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
-                                gap: '4px',
+                                gap: '5px',
                                 backgroundColor: '#F0FDF4',
-                                border: '1px solid #86EFAC',
+                                border: '1.2px solid #86EFAC',
                                 color: '#15803D',
-                                fontSize: '11.5px',
+                                fontSize: '12px',
                                 fontWeight: '800',
-                                padding: '3px 8px',
-                                borderRadius: '6px'
+                                padding: '4px 10px',
+                                borderRadius: '7px'
                               }}>
                                 <span>🎯</span> {l._specialistName}
                               </div>
@@ -1230,12 +1237,12 @@ export default function LeadsTab({
                             <span style={{
                               display: 'inline-block',
                               backgroundColor: '#FFFBEB',
-                              border: '1px solid #FDE68A',
+                              border: '1.2px solid #FDE68A',
                               color: '#B45309',
-                              fontSize: '11px',
+                              fontSize: '11.5px',
                               fontWeight: '800',
-                              padding: '3px 8px',
-                              borderRadius: '6px'
+                              padding: '4px 10px',
+                              borderRadius: '7px'
                             }}>
                               ⏳ Unassigned
                             </span>
@@ -1243,29 +1250,32 @@ export default function LeadsTab({
                         </td>
 
                         {/* 7. Action Buttons */}
-                        <td style={{ padding: '13px 16px', verticalAlign: 'middle', textAlign: 'center' }}>
-                          <div style={{ display: 'inline-flex', gap: '6px' }}>
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle', textAlign: 'center' }}>
+                          <div style={{ display: 'inline-flex', gap: '8px' }}>
                             <button
                               onClick={() => onOpenLeadDetails && onOpenLeadDetails(l)}
                               style={{
                                 backgroundColor: '#FFFFFF',
                                 color: '#334155',
                                 border: '1.2px solid #CBD5E1',
-                                padding: '5px 11px',
-                                borderRadius: '7px',
-                                fontSize: '11px',
+                                padding: '6px 12px',
+                                borderRadius: '8px',
+                                fontSize: '11.5px',
                                 fontWeight: '800',
                                 cursor: 'pointer',
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 gap: '4px',
-                                transition: 'all 0.15s ease'
+                                transition: 'all 0.18s ease',
+                                boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = '#F1F5F9';
+                                e.currentTarget.style.backgroundColor = '#F8FAFC';
+                                e.currentTarget.style.borderColor = '#94A3B8';
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.backgroundColor = '#FFFFFF';
+                                e.currentTarget.style.borderColor = '#CBD5E1';
                               }}
                             >
                               <span>👁️</span> View
@@ -1274,24 +1284,35 @@ export default function LeadsTab({
                             <button
                               onClick={() => onOpenAssignModal(l)}
                               style={{
-                                backgroundColor: l._specialistName ? '#EEF2FF' : '#4338CA',
+                                background: l._specialistName ? '#EEF2FF' : 'linear-gradient(135deg, #312E81 0%, #4338CA 100%)',
                                 color: l._specialistName ? '#4338CA' : '#FFFFFF',
-                                border: l._specialistName ? '1.2px solid #C7D2FE' : '1.2px solid #312E81',
-                                padding: '5px 11px',
-                                borderRadius: '7px',
-                                fontSize: '11px',
-                                fontWeight: '800',
+                                border: l._specialistName ? '1.2px solid #C7D2FE' : 'none',
+                                padding: '6px 14px',
+                                borderRadius: '8px',
+                                fontSize: '11.5px',
+                                fontWeight: '900',
                                 cursor: 'pointer',
                                 display: 'inline-flex',
                                 alignItems: 'center',
                                 gap: '4px',
-                                transition: 'all 0.15s ease'
+                                boxShadow: l._specialistName ? 'none' : '0 2px 8px rgba(67, 56, 202, 0.28)',
+                                transition: 'all 0.18s ease'
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.opacity = '0.9';
+                                if (!l._specialistName) {
+                                  e.currentTarget.style.transform = 'translateY(-1px)';
+                                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(67, 56, 202, 0.38)';
+                                } else {
+                                  e.currentTarget.style.backgroundColor = '#E0E7FF';
+                                }
                               }}
                               onMouseLeave={(e) => {
-                                e.currentTarget.style.opacity = '1';
+                                if (!l._specialistName) {
+                                  e.currentTarget.style.transform = 'translateY(0)';
+                                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(67, 56, 202, 0.28)';
+                                } else {
+                                  e.currentTarget.style.backgroundColor = '#EEF2FF';
+                                }
                               }}
                             >
                               <span>🎯</span>

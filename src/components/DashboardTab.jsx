@@ -165,7 +165,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
 
   // 🌟 Overall Cross-Platform Intelligence Interactive Visualizer State
   // Chart Modes: 'bar' | 'stacked' | 'area' | 'line' | 'scatter'
-  const [overallChartType, setOverallChartType] = useState('bar');
+  const [overallChartType, setOverallChartType] = useState('area');
   // Timeframe: 'today' | 'weekly' | 'monthly' | 'yearly'
   const [overallTimeframe, setOverallTimeframe] = useState('monthly');
   const [hoveredPoint, setHoveredPoint] = useState(null);
@@ -565,7 +565,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
       <div
         className="dash-hero-banner"
         style={{
-          background: 'linear-gradient(135deg, #1E1B4B 0%, #312E81 40%, #4338CA 75%, #6366F1 100%)',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
           borderRadius: '16px',
           padding: '16px 20px',
           color: '#FFFFFF',
@@ -752,10 +752,10 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #C7D2FE',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(99, 102, 241, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #EEF2FF 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -764,12 +764,12 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             animationDelay: '0.05s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#6366F1';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(99, 102, 241, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#C7D2FE';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(99, 102, 241, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -777,8 +777,8 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -791,7 +791,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(99, 102, 241, 0.35)',
+              boxShadow: '0 4px 12px rgba(99, 102, 241, 0.25)',
               flexShrink: 0
             }}>
               👥
@@ -800,7 +800,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               fontSize: '10.5px',
               fontWeight: '800',
               color: '#4338CA',
-              backgroundColor: '#E0E7FF',
+              backgroundColor: '#EEF2FF',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #C7D2FE',
@@ -811,11 +811,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           </div>
 
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#6366F1', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Specialists
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#1E1B4B', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {employees.length || kpis.totalEmployees || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -833,10 +833,10 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #A7F3D0',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(16, 185, 129, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5FDF8 50%, #ECFDF5 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -845,12 +845,12 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             animationDelay: '0.1s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#10B981';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(16, 185, 129, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#A7F3D0';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(16, 185, 129, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -858,21 +858,21 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #059669 0%, #10B981 50%, #34D399 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
               width: '46px',
               height: '46px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #047857 0%, #10B981 100%)',
+              background: 'linear-gradient(135deg, #059669 0%, #10B981 100%)',
               color: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)',
+              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.25)',
               flexShrink: 0
             }}>
               📋
@@ -880,8 +880,8 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#047857',
-              backgroundColor: '#D1FAE5',
+              color: '#059669',
+              backgroundColor: '#ECFDF5',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #A7F3D0',
@@ -892,11 +892,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           </div>
 
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#10B981', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Pipeline Leads
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#064E3B', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {leads.length || kpis.totalLeads || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -914,10 +914,10 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #FDE68A',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(245, 158, 11, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFDF7 50%, #FEF3C7 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -926,12 +926,12 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             animationDelay: '0.15s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#F59E0B';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(245, 158, 11, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#FDE68A';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(245, 158, 11, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -939,21 +939,21 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
               width: '46px',
               height: '46px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #B45309 0%, #F59E0B 100%)',
+              background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 100%)',
               color: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(245, 158, 11, 0.35)',
+              boxShadow: '0 4px 12px rgba(245, 158, 11, 0.25)',
               flexShrink: 0
             }}>
               💼
@@ -961,8 +961,8 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#B45309',
-              backgroundColor: '#FEF3C7',
+              color: '#D97706',
+              backgroundColor: '#FFFBEB',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #FDE68A',
@@ -973,11 +973,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           </div>
 
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#D97706', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Booked Deals
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#78350F', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {deals.length || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -995,10 +995,10 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #FECDD3',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(244, 63, 94, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF7F8 50%, #FFE4E6 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -1007,12 +1007,12 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             animationDelay: '0.2s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#F43F5E';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(244, 63, 94, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#FECDD3';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(244, 63, 94, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -1020,21 +1020,21 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #E11D48 0%, #F43F5E 50%, #FB7185 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
               width: '46px',
               height: '46px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #BE123C 0%, #F43F5E 100%)',
+              background: 'linear-gradient(135deg, #E11D48 0%, #F43F5E 100%)',
               color: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(244, 63, 94, 0.35)',
+              boxShadow: '0 4px 12px rgba(244, 63, 94, 0.25)',
               flexShrink: 0
             }}>
               🏢
@@ -1042,8 +1042,8 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#BE123C',
-              backgroundColor: '#FFE4E6',
+              color: '#E11D48',
+              backgroundColor: '#FFF1F2',
               padding: '3px 8px',
               borderRadius: '7px',
               border: '1px solid #FECDD3',
@@ -1054,11 +1054,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           </div>
 
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#F43F5E', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Clients
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#881337', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {kpis.totalCustomers || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -1456,12 +1456,17 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
         const platformSeries = platformDefinitions.map(p => {
           const pLeads = leads.filter(l => normalizeSource(l.source || l.sourcePlatform || l.channel || 'Website') === p.key);
           const pts = getDynamicLeadTrendPoints(pLeads, overallTimeframe);
+          const timeframeSum = pts.reduce((acc, pt) => acc + (pt.count || 0), 0);
           return {
             ...p,
             totalCount: pLeads.length,
+            timeframeSum,
             points: pts
           };
         });
+
+        // Total leads dynamically computed for the active timeframe (Today / Weekly / Monthly / Yearly)
+        const timeframeTotalLeads = platformSeries.reduce((acc, p) => acc + p.timeframeSum, 0);
 
         // Compute cross-platform max aggregate values for scaling
         const maxSingleValue = Math.max(
@@ -1495,14 +1500,14 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             position: 'relative',
             overflow: 'hidden'
           }}>
-            {/* Top Multi-Color Vibrant Accent Line */}
+            {/* Top Subtle Royal Indigo Accent Line */}
             <div style={{
               position: 'absolute',
               top: 0,
               left: 0,
               right: 0,
-              height: '4px',
-              background: 'linear-gradient(90deg, #6366F1 0%, #10B981 25%, #0EA5E9 50%, #F59E0B 75%, #EC4899 100%)'
+              height: '3.5px',
+              background: '#4338CA'
             }} />
 
             {/* Header: Title + Mode Buttons + Timeframe Pills */}
@@ -1673,31 +1678,42 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               ))}
             </div>
 
-            {/* Main Interactive SVG Canvas */}
-            <div style={{ width: '100%', overflowX: 'auto', position: 'relative' }}>
-              <svg
-                viewBox={`0 0 ${svgW} ${svgH}`}
-                style={{ width: '100%', minWidth: '550px', height: 'auto', display: 'block', overflow: 'visible' }}
-              >
-                <defs>
-                  {/* Subtle Grid Pattern */}
-                  <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F1F5F9" strokeWidth="1" />
-                  </pattern>
+            {/* Main Interactive Charts Layout: Area Graph + Side Pie Chart */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.85fr) minmax(280px, 1fr)', gap: '16px', alignItems: 'stretch' }}>
+              
+              {/* Left Box: Main Interactive SVG Canvas */}
+              <div style={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '14px',
+                border: '1.2px solid #E2E8F0',
+                padding: '12px 14px',
+                position: 'relative',
+                overflowX: 'auto',
+                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
+              }}>
+                <svg
+                  viewBox={`0 0 ${svgW} ${svgH}`}
+                  style={{ width: '100%', minWidth: '480px', height: 'auto', display: 'block', overflow: 'visible' }}
+                >
+                  <defs>
+                    {/* Subtle Grid Pattern */}
+                    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F1F5F9" strokeWidth="1" />
+                    </pattern>
 
-                  {/* Gradient definitions for all platforms */}
-                  {platformSeries.map(p => (
-                    <linearGradient key={`grad-${p.key}`} id={`overall-grad-${p.key}`} x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={p.color} stopOpacity="0.4" />
-                      <stop offset="100%" stopColor={p.color} stopOpacity="0.0" />
-                    </linearGradient>
-                  ))}
-                </defs>
+                    {/* Gradient definitions for all platforms */}
+                    {platformSeries.map(p => (
+                      <linearGradient key={`grad-${p.key}`} id={`overall-grad-${p.key}`} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor={p.color} stopOpacity="0.45" />
+                        <stop offset="100%" stopColor={p.color} stopOpacity="0.02" />
+                      </linearGradient>
+                    ))}
+                  </defs>
 
-                {/* Background Grid */}
-                <rect x={padLeft} y={padTop} width={chartW} height={chartH} fill="url(#grid-pattern)" rx="6" />
+                  {/* Background Grid */}
+                  <rect x={padLeft} y={padTop} width={chartW} height={chartH} fill="url(#grid-pattern)" rx="6" />
 
-                {/* Horizontal Guide Lines */}
+                  {/* Horizontal Guide Lines */}
                 {[0, 0.25, 0.5, 0.75, 1].map((pct, i) => {
                   const y = padTop + chartH * (1 - pct);
                   const val = overallChartType === 'stacked'
@@ -1910,52 +1926,54 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
                   });
                 })()}
 
-                {/* 5️⃣ MODE: SCATTER PLOT (Bubble Circles where radius & opacity scale with lead volume) */}
+                {/* 5️⃣ MODE: SCATTER PLOT (Crisp, Elegant & Ultra-Attractive Glowing Micro-Nodes) */}
                 {overallChartType === 'scatter' && (() => {
                   const stepX = chartW / (timeBuckets.length - 1 || 1);
 
                   return platformSeries.map((series, sIdx) => {
                     return series.points.map((pt, idx) => {
-                      const x = padLeft + idx * stepX + (sIdx - (platformSeries.length / 2)) * 3;
+                      if (pt.count === 0) return null;
+                      const x = padLeft + idx * stepX + (sIdx - (platformSeries.length / 2)) * 4.5;
                       const y = padTop + chartH - (pt.count / maxSingleValue) * chartH;
-                      // Radius proportional to count
-                      const radius = Math.max(4, Math.min(18, (pt.count / maxSingleValue) * 16));
+                      // Sleek, refined small dot radius between 4px and 7px
+                      const radius = Math.max(3.8, Math.min(7.5, 3.8 + (pt.count / maxSingleValue) * 3.7));
 
                       return (
-                        <g key={`${sIdx}-${idx}`}>
-                          {/* Glow halo */}
+                        <g key={`${sIdx}-${idx}`} className="scatter-point-group">
+                          {/* Ambient soft glow aura */}
                           <circle
                             cx={x}
                             cy={y}
-                            r={radius + 4}
+                            r={radius + 3}
                             fill={series.color}
-                            opacity="0.18"
+                            opacity="0.22"
                           />
-                          {/* Solid Node */}
+                          {/* Outer thin ring */}
+                          <circle
+                            cx={x}
+                            cy={y}
+                            r={radius + 1.2}
+                            fill="none"
+                            stroke={series.color}
+                            strokeWidth="1"
+                            opacity="0.6"
+                          />
+                          {/* Core Crisp Vibrant Dot */}
                           <circle
                             cx={x}
                             cy={y}
                             r={radius}
                             fill={series.color}
                             stroke="#FFFFFF"
-                            strokeWidth="1.5"
-                            opacity="0.85"
-                            style={{ cursor: 'pointer', transition: 'all 0.2s ease' }}
+                            strokeWidth="1.6"
+                            style={{
+                              cursor: 'pointer',
+                              filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.18))',
+                              transition: 'transform 0.2s ease'
+                            }}
                           >
-                            <title>{`${series.label} (${pt.label}): ${pt.count} leads`}</title>
+                            <title>{`${series.label} • ${pt.label}: ${pt.count} Inquiries`}</title>
                           </circle>
-                          {radius > 8 && (
-                            <text
-                              x={x}
-                              y={y + 3}
-                              textAnchor="middle"
-                              fontSize="8"
-                              fontWeight="900"
-                              fill="#FFFFFF"
-                            >
-                              {pt.count}
-                            </text>
-                          )}
                         </g>
                       );
                     });
@@ -1986,6 +2004,167 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
                 })}
               </svg>
             </div>
+
+            {/* Right Box: Dynamic Channel Breakdown Pie / Donut Chart */}
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '14px',
+              border: '1.2px solid #E2E8F0',
+              padding: '16px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
+            }}>
+              {/* Header */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ fontSize: '15px' }}>🥧</span>
+                  <h4 style={{ fontSize: '13px', fontWeight: '900', color: '#0F172A', margin: 0 }}>
+                    Channel Share Ratio
+                  </h4>
+                </div>
+                <span style={{
+                  fontSize: '9.5px',
+                  fontWeight: '900',
+                  color: '#4338CA',
+                  backgroundColor: '#EEF2FF',
+                  padding: '2px 7px',
+                  borderRadius: '6px',
+                  border: '1px solid #C7D2FE',
+                  textTransform: 'capitalize'
+                }}>
+                  {timeframeTotalLeads} Leads ({overallTimeframe})
+                </span>
+              </div>
+
+              {/* Donut SVG Visualizer */}
+              {(() => {
+                const totalLeadsInSeries = timeframeTotalLeads || 1;
+                const pieSize = 130;
+                const center = pieSize / 2;
+                const radius = 50;
+                const strokeWidth = 18;
+                const circumference = 2 * Math.PI * radius;
+                let accumulatedPercent = 0;
+
+                return (
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ position: 'relative', width: pieSize, height: pieSize }}>
+                      <svg width={pieSize} height={pieSize} viewBox={`0 0 ${pieSize} ${pieSize}`}>
+                        {/* Background track circle */}
+                        <circle
+                          cx={center}
+                          cy={center}
+                          r={radius}
+                          fill="transparent"
+                          stroke="#F1F5F9"
+                          strokeWidth={strokeWidth}
+                        />
+
+                        {/* Data arc segments according to selected timeframe */}
+                        {timeframeTotalLeads === 0 ? (
+                          <circle
+                            cx={center}
+                            cy={center}
+                            r={radius}
+                            fill="transparent"
+                            stroke="#E2E8F0"
+                            strokeWidth={strokeWidth}
+                          />
+                        ) : (
+                          platformSeries.map(p => {
+                            const pct = p.timeframeSum / totalLeadsInSeries;
+                            if (pct <= 0) return null;
+                            const strokeDasharray = `${pct * circumference} ${circumference}`;
+                            const strokeDashoffset = -(accumulatedPercent * circumference);
+                            accumulatedPercent += pct;
+
+                            return (
+                              <circle
+                                key={p.key}
+                                cx={center}
+                                cy={center}
+                                r={radius}
+                                fill="transparent"
+                                stroke={p.color}
+                                strokeWidth={strokeWidth}
+                                strokeDasharray={strokeDasharray}
+                                strokeDashoffset={strokeDashoffset}
+                                style={{
+                                  transform: 'rotate(-90deg)',
+                                  transformOrigin: 'center',
+                                  transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                <title>{`${p.label}: ${p.timeframeSum} leads (${Math.round(pct * 100)}%) in ${overallTimeframe}`}</title>
+                              </circle>
+                            );
+                          })
+                        )}
+                      </svg>
+
+                      {/* Center Stat Badge */}
+                      <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        pointerEvents: 'none'
+                      }}>
+                        <span style={{ fontSize: '18px', fontWeight: '900', color: '#0F172A', lineHeight: 1 }}>
+                          {timeframeTotalLeads}
+                        </span>
+                        <span style={{ fontSize: '8.5px', fontWeight: '800', color: '#64748B', marginTop: '2px', textTransform: 'uppercase' }}>
+                          {overallTimeframe}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Compact List Breakdown */}
+                    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                      {platformSeries.map(p => {
+                        const pct = timeframeTotalLeads > 0 ? Math.round((p.timeframeSum / timeframeTotalLeads) * 100) : 0;
+                        return (
+                          <div
+                            key={p.key}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              fontSize: '10.5px',
+                              padding: '3px 6px',
+                              borderRadius: '6px',
+                              backgroundColor: p.timeframeSum > 0 ? p.bg : '#F8FAFC',
+                              border: `1px solid ${p.timeframeSum > 0 ? p.color + '30' : '#E2E8F0'}`
+                            }}
+                          >
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: p.color }} />
+                              <span style={{ fontWeight: '800', color: '#1E293B' }}>{p.label}</span>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                              <span style={{ fontWeight: '900', color: p.color }}>{p.timeframeSum}</span>
+                              <span style={{ fontWeight: '700', color: '#64748B', fontSize: '9.5px', minWidth: '28px', textAlign: 'right' }}>
+                                {pct}%
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+
+          </div>
           </div>
         );
       })()}

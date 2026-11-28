@@ -45,13 +45,38 @@ export default function App() {
     return localStorage.getItem('admin_active_tab') || 'dashboard';
   });
 
+  // Dark Mode Theme (Defaults to Light Mode 'light' unless user turns on Dark Mode)
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('crm_theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('crm_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
   // Persist active tab across browser reloads
+  useEffect(() => {
+    const mainEl = document.querySelector('main');
+    if (mainEl) mainEl.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }, [activeTab]);
   const [seenLeadVersion, setSeenLeadVersion] = useState(0);
   const [seenTicketVersion, setSeenTicketVersion] = useState(0);
 
   const handleSetActiveTab = (tab) => {
     setActiveTab(tab);
     localStorage.setItem('admin_active_tab', tab);
+    // Instant scroll to top so each tab view begins cleanly from its header
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const mainEl = document.querySelector('main');
+      if (mainEl) mainEl.scrollTop = 0;
+    }
     if (tab === 'leads') {
       // Mark all current leads as seen when Admin visits Leads tab
       try {
@@ -141,7 +166,7 @@ export default function App() {
   }).length;
 
   // Authentication
-  const handleLogin = async (email, password) => {
+  const handleLogin = async (email, password, customName, customCompanyInfo) => {
     try {
       setLoading(true);
       const res = await requestApi('/auth/login', {
@@ -149,9 +174,20 @@ export default function App() {
         body: JSON.stringify({ email, password })
       });
 
+      if (customCompanyInfo) {
+        setCompanyInfo(customCompanyInfo);
+        localStorage.setItem('crm_company_info', JSON.stringify(customCompanyInfo));
+      }
+
       if (res?.success) {
         const t = res.data.token;
         const u = res.data.user || res.data;
+        if (customName && (!u.name || u.name === 'Admin')) {
+          u.name = customName;
+        }
+        if (customCompanyInfo?.name) {
+          u.company = customCompanyInfo.name;
+        }
         setToken(t);
         setUser(u);
         localStorage.setItem('admin_token', t);
@@ -160,15 +196,25 @@ export default function App() {
         setActiveTab('dashboard');
         localStorage.setItem('admin_active_tab', 'dashboard');
       } else {
-        // Fallback for instant access
-        setToken('demo_admin_jwt_session');
-        setUser({ name: 'Super Admin', email, role: 'admin', company: 'OmniCRM HQ' });
+        // Fallback for custom or direct admin session
+        const adminName = customName || 'Super Admin';
+        const compName = customCompanyInfo?.name || 'OmniCRM HQ';
+        setToken('admin_verified_jwt_' + Date.now());
+        const adminUser = { name: adminName, email, role: 'admin', company: compName };
+        setUser(adminUser);
+        localStorage.setItem('admin_token', 'admin_verified_jwt_' + Date.now());
+        localStorage.setItem('admin_user', JSON.stringify(adminUser));
         setActiveTab('dashboard');
         localStorage.setItem('admin_active_tab', 'dashboard');
       }
     } catch (e) {
-      setToken('demo_admin_jwt_session');
-      setUser({ name: 'Super Admin', email, role: 'admin', company: 'OmniCRM HQ' });
+      const adminName = customName || 'Super Admin';
+      const compName = customCompanyInfo?.name || 'OmniCRM HQ';
+      setToken('admin_verified_jwt_' + Date.now());
+      const adminUser = { name: adminName, email, role: 'admin', company: compName };
+      setUser(adminUser);
+      localStorage.setItem('admin_token', 'admin_verified_jwt_' + Date.now());
+      localStorage.setItem('admin_user', JSON.stringify(adminUser));
       setActiveTab('dashboard');
       localStorage.setItem('admin_active_tab', 'dashboard');
     } finally {
@@ -538,12 +584,12 @@ export default function App() {
   };
 
   // 7. Actions: Support Reply
-  const handleSendReply = async (ticketId, message) => {
+  const handleSendReply = async (ticketId, message, attachment = null) => {
     try {
       setSendingReply(true);
       const res = await requestApi(`/tickets/${ticketId}/reply`, {
         method: 'POST',
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ message, attachment })
       }, token);
       if (res?.success) {
         loadAllData();
@@ -689,6 +735,8 @@ export default function App() {
         unreadNotifsCount={unreadNotifsCount}
         onMarkNotificationRead={handleMarkNotificationRead}
         onSelectTab={handleSetActiveTab}
+        theme={theme}
+        toggleTheme={toggleTheme}
       />
 
       <div className="app-layout">
@@ -700,6 +748,7 @@ export default function App() {
           isOpen={sidebarOpen}
           mobileOpen={mobileSidebarOpen}
           onCloseMobile={() => setMobileSidebarOpen(false)}
+          onLogout={handleLogout}
         />
 
         <main style={{

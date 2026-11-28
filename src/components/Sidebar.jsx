@@ -40,7 +40,7 @@ const MENU_SECTIONS = [
   }
 ];
 
-export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, isOpen = true, mobileOpen = false, onCloseMobile }) {
+export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, isOpen = true, mobileOpen = false, onCloseMobile, onLogout }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   // Collapsible state for each section (Persisted in localStorage)
@@ -98,18 +98,18 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#F8FAFC',
           borderRadius: '12px',
           border: '1.5px solid #E2E8F0',
           padding: '4px 10px',
           transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-          boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
+          boxShadow: '0 1px 3px rgba(15, 23, 42, 0.03)'
         }}>
           <div style={{
             width: '24px',
             height: '24px',
-            borderRadius: '6px',
-            background: 'linear-gradient(135deg, #1E1B4B 0%, #312E81 100%)',
+            borderRadius: '7px',
+            background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #4338CA 100%)',
             color: '#FFFFFF',
             display: 'flex',
             alignItems: 'center',
@@ -117,7 +117,7 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
             fontSize: '11px',
             marginRight: '8px',
             flexShrink: 0,
-            boxShadow: '0 2px 6px rgba(30, 27, 75, 0.2)'
+            boxShadow: '0 2px 6px rgba(67, 56, 202, 0.25)'
           }}>
             🔍
           </div>
@@ -142,9 +142,9 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
             <button
               onClick={() => setSearchQuery('')}
               style={{
-                background: '#F1F5F9',
+                background: '#E2E8F0',
                 border: 'none',
-                color: '#64748B',
+                color: '#475569',
                 fontSize: '11px',
                 cursor: 'pointer',
                 borderRadius: '50%',
@@ -153,7 +153,8 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                transition: 'background 0.2s'
               }}
               title="Clear search"
             >
@@ -164,30 +165,30 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
 
         {/* 🌟 2. Mini Live Pulse Status Capsule */}
         <div style={{
-          background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
           borderRadius: '12px',
-          padding: '9px 12px',
+          padding: '10px 14px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           color: '#FFFFFF',
-          boxShadow: '0 4px 14px rgba(15, 23, 42, 0.15)',
-          border: '1px solid rgba(255, 255, 255, 0.08)'
+          boxShadow: '0 4px 14px rgba(67, 56, 202, 0.2)',
+          border: '1px solid rgba(255, 255, 255, 0.12)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
             <span style={{
               width: '8px',
               height: '8px',
               borderRadius: '50%',
               backgroundColor: '#10B981',
               display: 'inline-block',
-              boxShadow: '0 0 8px #10B981'
+              boxShadow: '0 0 10px #10B981'
             }} />
             <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
-              <span style={{ fontSize: '11px', fontWeight: '900', letterSpacing: '0.2px', color: '#F8FAFC', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '140px' }}>
+              <span style={{ fontSize: '11.5px', fontWeight: '900', letterSpacing: '0.2px', color: '#FFFFFF', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '140px' }}>
                 {companyInfo?.name || 'OmniCRM Suite'}
               </span>
-              <span style={{ fontSize: '9.5px', color: '#94A3B8', fontWeight: '600' }}>
+              <span style={{ fontSize: '9.5px', color: '#C7D2FE', fontWeight: '700' }}>
                 Atlas v2.0 • Live Cloud
               </span>
             </div>
@@ -198,9 +199,10 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
               color: '#FFFFFF',
               fontSize: '10px',
               fontWeight: '900',
-              padding: '2px 7px',
+              padding: '2px 8px',
               borderRadius: '12px',
-              boxShadow: '0 2px 6px rgba(239, 68, 68, 0.4)'
+              boxShadow: '0 2px 8px rgba(239, 68, 68, 0.45)',
+              border: '1px solid rgba(255, 255, 255, 0.3)'
             }}>
               {totalAlerts} New
             </span>
@@ -208,7 +210,7 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
         </div>
 
         {/* 🌟 3. Navigation Categories with Collapsible Headers */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', flex: 1 }}>
           {filteredSections.length > 0 ? (
             filteredSections.map((section) => {
               const isCollapsed = Boolean(collapsedSections[section.id]);
@@ -216,7 +218,7 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
               const hasActiveItem = section.items.some(it => it.id === activeTab);
 
               return (
-                <div key={section.id} style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                <div key={section.id} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                   
                   {/* Interactive Section Header (Click to collapse / expand subheadings) */}
                   <div
@@ -232,7 +234,7 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                       userSelect: 'none',
                       transition: 'background-color 0.15s ease'
                     }}
-                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#EDE9FE'}
+                    onMouseEnter={e => e.currentTarget.style.backgroundColor = '#F1F5F9'}
                     onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -251,7 +253,8 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                           height: '6px',
                           borderRadius: '50%',
                           backgroundColor: '#4338CA',
-                          display: 'inline-block'
+                          display: 'inline-block',
+                          boxShadow: '0 0 6px #4338CA'
                         }} />
                       )}
                     </div>
@@ -290,19 +293,32 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                               justifyContent: 'space-between',
                               padding: '8px 10px',
                               borderRadius: '10px',
-                              backgroundColor: isActive ? item.lightBg : 'transparent',
-                              border: isActive ? `1.5px solid ${item.border}` : '1.5px solid transparent',
-                              color: isActive ? item.text : '#334155',
+                              backgroundColor: isActive ? '#EEF2FF' : 'transparent',
+                              border: isActive ? '1.5px solid #C7D2FE' : '1.5px solid transparent',
+                              color: isActive ? '#312E81' : '#334155',
                               fontWeight: isActive ? '900' : '700',
                               fontSize: '12.5px',
                               cursor: 'pointer',
                               outline: 'none',
                               textAlign: 'left',
-                              boxShadow: isActive ? `0 4px 14px ${item.border}` : 'none',
+                              boxShadow: isActive ? '0 4px 12px rgba(67, 56, 202, 0.12)' : 'none',
                               transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
                               position: 'relative'
                             }}
                           >
+                            {/* Left Active Indicator Bar */}
+                            {isActive && (
+                              <div style={{
+                                position: 'absolute',
+                                left: 0,
+                                top: '6px',
+                                bottom: '6px',
+                                width: '3.5px',
+                                borderRadius: '0 4px 4px 0',
+                                backgroundColor: '#4338CA'
+                              }} />
+                            )}
+
                             {/* Left icon and label */}
                             <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0 }}>
                               <span
@@ -312,19 +328,19 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                                   display: 'flex',
                                   alignItems: 'center',
                                   justifyContent: 'center',
-                                  width: '28px',
-                                  height: '28px',
+                                  width: '30px',
+                                  height: '30px',
                                   borderRadius: '8px',
-                                  backgroundColor: isActive ? '#FFFFFF' : '#F1F5F9',
-                                  border: isActive ? `1.5px solid ${item.border}` : '1px solid transparent',
-                                  boxShadow: isActive ? '0 2px 6px rgba(0,0,0,0.06)' : 'none',
+                                  backgroundColor: isActive ? '#FFFFFF' : '#F8FAFC',
+                                  border: isActive ? '1.5px solid #C7D2FE' : '1px solid #E2E8F0',
+                                  boxShadow: isActive ? '0 2px 8px rgba(67, 56, 202, 0.12)' : '0 1px 2px rgba(0,0,0,0.02)',
                                   flexShrink: 0
                                 }}
                               >
                                 {item.icon}
                               </span>
                               <span style={{
-                                color: isActive ? item.text : '#334155',
+                                color: isActive ? '#1E1B4B' : '#334155',
                                 letterSpacing: '-0.1px',
                                 whiteSpace: 'nowrap',
                                 overflow: 'hidden',
@@ -344,15 +360,15 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                                 <span
                                   className={item.alertBadge && count > 0 ? 'menu-badge-pulse' : ''}
                                   style={{
-                                    backgroundColor: item.alertBadge && count > 0 ? '#FEE2E2' : isActive ? item.themeColor : '#E2E8F0',
-                                    color: item.alertBadge && count > 0 ? '#DC2626' : isActive ? '#FFFFFF' : '#475569',
+                                    backgroundColor: item.alertBadge && count > 0 ? '#FEE2E2' : isActive ? '#4338CA' : '#F1F5F9',
+                                    color: item.alertBadge && count > 0 ? '#DC2626' : isActive ? '#FFFFFF' : '#64748B',
                                     fontSize: '10.5px',
                                     fontWeight: '900',
                                     padding: '2px 7px',
-                                    borderRadius: '10px',
+                                    borderRadius: '8px',
                                     minWidth: '20px',
                                     textAlign: 'center',
-                                    border: item.alertBadge && count > 0 ? '1px solid #FCA5A5' : 'none',
+                                    border: item.alertBadge && count > 0 ? '1px solid #FCA5A5' : isActive ? 'none' : '1px solid #E2E8F0',
                                     boxShadow: item.alertBadge && count > 0 ? '0 2px 6px rgba(220, 38, 38, 0.25)' : 'none'
                                   }}
                                 >
@@ -365,10 +381,10 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
                                   fontSize: '9px',
                                   fontWeight: '900',
                                   backgroundColor: '#FFFFFF',
-                                  color: item.text,
-                                  padding: '1px 5px',
+                                  color: '#4338CA',
+                                  padding: '1px 6px',
                                   borderRadius: '5px',
-                                  border: `1px solid ${item.border}`
+                                  border: '1px solid #C7D2FE'
                                 }}>
                                   {item.tag}
                                 </span>
@@ -396,58 +412,58 @@ export default function Sidebar({ activeTab, setActiveTab, counts, companyInfo, 
           )}
         </div>
 
-        {/* 🌟 4. Bottom Executive Quick Shortcuts & Live Telemetry Tile */}
+        {/* 🌟 4. Bottom Logout Button */}
         <div style={{
           marginTop: 'auto',
-          backgroundColor: '#FFFFFF',
-          border: '1.5px solid #E2E8F0',
-          borderRadius: '12px',
-          padding: '10px 12px',
-          boxShadow: '0 2px 10px rgba(15, 23, 42, 0.04)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px'
+          paddingTop: '8px'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{
-                width: '7px',
-                height: '7px',
-                borderRadius: '50%',
-                backgroundColor: '#10B981',
-                display: 'inline-block',
-                boxShadow: '0 0 6px #10B981'
-              }} />
-              <span style={{ fontSize: '11px', fontWeight: '800', color: '#0F172A' }}>
-                All Nodes Active
-              </span>
-            </div>
-            <span style={{
-              fontSize: '9.5px',
+          <button
+            onClick={() => {
+              if (onLogout) {
+                onLogout();
+              } else {
+                localStorage.removeItem('admin_token');
+                localStorage.removeItem('admin_user');
+                window.location.reload();
+              }
+            }}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              padding: '11px 16px',
+              borderRadius: '12px',
+              background: 'linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%)',
+              border: '1.5px solid #FECACA',
+              color: '#DC2626',
+              fontSize: '13px',
               fontWeight: '900',
-              color: '#059669',
-              backgroundColor: '#ECFDF5',
-              padding: '1px 6px',
-              borderRadius: '5px',
-              border: '1px solid #A7F3D0'
-            }}>
-              100% SLA
-            </span>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            fontSize: '10px',
-            color: '#64748B',
-            fontWeight: '600',
-            borderTop: '1px dashed #E2E8F0',
-            paddingTop: '6px'
-          }}>
-            <span>🔒 TLS 1.3 Encryption</span>
-            <span>⚡ 24ms Latency</span>
-          </div>
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(220, 38, 38, 0.08)',
+              transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
+              letterSpacing: '0.3px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)';
+              e.currentTarget.style.color = '#FFFFFF';
+              e.currentTarget.style.borderColor = '#B91C1C';
+              e.currentTarget.style.boxShadow = '0 6px 18px rgba(220, 38, 38, 0.35)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%)';
+              e.currentTarget.style.color = '#DC2626';
+              e.currentTarget.style.borderColor = '#FECACA';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(220, 38, 38, 0.08)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            title="Sign out of Admin Portal"
+          >
+            <span style={{ fontSize: '16px' }}>🚪</span>
+            <span>Logout Session</span>
+          </button>
         </div>
       </aside>
     </>

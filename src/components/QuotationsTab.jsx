@@ -272,7 +272,7 @@ export default function QuotationsTab({
       <div 
         className="quotes-hero-banner"
         style={{
-          background: 'linear-gradient(135deg, #064E3B 0%, #047857 40%, #059669 75%, #10B981 100%)',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
           borderRadius: '16px',
           padding: '18px 22px',
           color: '#FFFFFF',
@@ -281,31 +281,32 @@ export default function QuotationsTab({
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '12px',
-          border: '1.5px solid rgba(167, 243, 208, 0.4)',
+          border: '1.5px solid rgba(255, 255, 255, 0.12)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.12)'
         }}
       >
-        {/* Animated Top Spectrum Line */}
+        {/* Animated Top Indigo Spectrum Line */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           height: '4px',
-          background: 'linear-gradient(90deg, #10B981 0%, #34D399 25%, #F59E0B 50%, #6366F1 75%, #EC4899 100%)'
+          background: '#4338CA'
         }} />
 
         {/* Ambient Glow Orbs */}
-        <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '160px', height: '160px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(52, 211, 153, 0.45) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-30px', left: '20%', width: '130px', height: '130px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '160px', height: '160px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-30px', left: '20%', width: '130px', height: '130px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(67, 56, 202, 0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255, 255, 255, 0.18)',
+            background: 'rgba(255, 255, 255, 0.12)',
             backdropFilter: 'blur(8px)',
             padding: '4px 10px',
             borderRadius: '16px',
@@ -313,14 +314,14 @@ export default function QuotationsTab({
             fontWeight: '900',
             letterSpacing: '0.5px',
             marginBottom: '6px',
-            border: '1px solid rgba(255, 255, 255, 0.25)'
+            border: '1px solid rgba(255, 255, 255, 0.2)'
           }}>
             <span>📜</span> ENTERPRISE COMMERCIAL PROPOSAL ENGINE
           </div>
           <h2 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             Quotation & Proposal Management Console
           </h2>
-          <p style={{ fontSize: '12px', color: '#D1FAE5', margin: '3px 0 0 0', fontWeight: '500', opacity: 0.95 }}>
+          <p style={{ fontSize: '12px', color: '#C7D2FE', margin: '3px 0 0 0', fontWeight: '500', opacity: 0.9 }}>
             Multi-version estimation generator, Admin review gateway, verified single-recipient dispatch & tracking
           </p>
         </div>
@@ -333,23 +334,23 @@ export default function QuotationsTab({
             }}
             style={{
               background: '#FFFFFF',
-              color: '#065F46',
+              color: '#1E1B4B',
               border: 'none',
               borderRadius: '10px',
-              padding: '10px 20px',
-              fontSize: '12.5px',
+              padding: '8px 18px',
+              fontSize: '12px',
               fontWeight: '900',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
               transition: 'transform 0.15s ease'
             }}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-1px)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
-            <span style={{ fontSize: '15px' }}>➕</span> Create New Quotation
+            <span style={{ fontSize: '14px' }}>➕</span> Create New Quotation
           </button>
         </div>
       </div>
@@ -357,18 +358,18 @@ export default function QuotationsTab({
       {/* 🌟 2. Comprehensive 8-Card Summary Intelligence Tiles (Spacious Bento Grid) */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(145px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))',
         gap: '12px'
       }}>
         {[
-          { label: 'Total Quotes', val: summary.total, color: '#1E1B4B', bg: '#EEF2FF', icon: '📊', border: '#C7D2FE' },
+          { label: 'Total Quotes', val: summary.total, color: '#4338CA', bg: '#EEF2FF', icon: '📊', border: '#C7D2FE' },
           { label: 'Drafts', val: summary.drafts, color: '#475569', bg: '#F1F5F9', icon: '📝', border: '#CBD5E1' },
           { label: 'Pending Review', val: summary.pending, color: '#B45309', bg: '#FEF3C7', icon: '⏳', border: '#FDE68A', pulse: summary.pending > 0 },
-          { label: 'Sent to Client', val: summary.sent, color: '#4338CA', bg: '#EEF2FF', icon: '📤', border: '#C7D2FE' },
+          { label: 'Sent to Client', val: summary.sent, color: '#2563EB', bg: '#EFF6FF', icon: '📤', border: '#BFDBFE' },
           { label: 'Accepted (Won)', val: summary.accepted, color: '#047857', bg: '#ECFDF5', icon: '✓', border: '#A7F3D0' },
           { label: 'Declined', val: summary.rejected, color: '#DC2626', bg: '#FEF2F2', icon: '✕', border: '#FECACA' },
           { label: 'Expired', val: summary.expired, color: '#64748B', bg: '#F8FAFC', icon: '⌛', border: '#E2E8F0' },
-          { label: 'Pipeline Value', val: `₹${(summary.totalVal / 100000).toFixed(1)}L`, color: '#065F46', bg: '#F0FDF4', icon: '💰', border: '#86EFAC' }
+          { label: 'Pipeline Value', val: `₹${(summary.totalVal / 100000).toFixed(1)}L`, color: '#059669', bg: '#ECFDF5', icon: '💰', border: '#A7F3D0' }
         ].map((card, idx) => (
           <div 
             key={idx} 
@@ -376,23 +377,25 @@ export default function QuotationsTab({
             style={{
               backgroundColor: '#FFFFFF',
               borderRadius: '14px',
-              border: `1.5px solid ${card.border || '#E2E8F0'}`,
+              border: '1.5px solid #E2E8F0',
               padding: '12px 14px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
+              boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)',
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
               position: 'relative',
               overflow: 'hidden',
-              animationDelay: `${Math.min(idx * 0.04, 0.35)}s`
+              transition: 'all 0.25s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = card.color;
-              e.currentTarget.style.boxShadow = `0 8px 20px ${card.color}25`;
+              e.currentTarget.style.borderColor = '#4338CA';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 8px 20px rgba(67, 56, 202, 0.12)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = card.border || '#E2E8F0';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.03)';
+              e.currentTarget.style.borderColor = '#E2E8F0';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(15, 23, 42, 0.03)';
             }}
           >
             {/* Ambient Card Accent Stripe */}
@@ -401,12 +404,12 @@ export default function QuotationsTab({
               top: 0,
               left: 0,
               right: 0,
-              height: '3px',
-              background: card.color
+              height: '3.5px',
+              background: '#4338CA'
             }} />
             <div style={{
-              width: '36px',
-              height: '36px',
+              width: '38px',
+              height: '38px',
               borderRadius: '10px',
               backgroundColor: card.bg,
               color: card.color,
@@ -415,8 +418,8 @@ export default function QuotationsTab({
               justifyContent: 'center',
               fontSize: '17px',
               fontWeight: 'bold',
-              flexShrink: 0,
-              boxShadow: `0 2px 6px ${card.color}20`
+              border: `1px solid ${card.border}`,
+              flexShrink: 0
             }}>
               {card.icon}
             </div>
@@ -424,7 +427,7 @@ export default function QuotationsTab({
               <div style={{ fontSize: '10px', color: '#64748B', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {card.label}
               </div>
-              <div style={{ fontSize: '17px', fontWeight: '900', color: card.color, lineHeight: '1.2' }}>
+              <div style={{ fontSize: '17px', fontWeight: '900', color: '#0F172A', lineHeight: '1.2', marginTop: '1px' }}>
                 {card.val}
               </div>
             </div>
@@ -448,14 +451,14 @@ export default function QuotationsTab({
       <div style={{
         background: '#FFFFFF',
         borderRadius: '14px',
-        padding: '12px 16px',
-        border: '1.2px solid #E2E8F0',
+        padding: '10px 14px',
+        border: '1.5px solid #E2E8F0',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         alignItems: 'center',
-        gap: '12px',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
+        gap: '10px',
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
       }}>
         {/* Search */}
         <div style={{ position: 'relative', flex: '1 1 240px', maxWidth: '340px' }}>
@@ -467,12 +470,14 @@ export default function QuotationsTab({
             onChange={e => setSearch(e.target.value)}
             style={{
               width: '100%',
-              padding: '8px 12px 8px 32px',
+              padding: '7px 12px 7px 32px',
               borderRadius: '9px',
-              border: '1.2px solid #CBD5E1',
-              fontSize: '12px',
+              border: '1.5px solid #E2E8F0',
+              fontSize: '11.5px',
+              fontWeight: '600',
               outline: 'none',
               backgroundColor: '#F8FAFC',
+              color: '#0F172A',
               boxSizing: 'border-box'
             }}
           />
@@ -480,24 +485,41 @@ export default function QuotationsTab({
 
         {/* Quick Filter Status Pills */}
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-          {['All', 'Draft', 'Pending', 'Approved', 'Sent', 'Accepted', 'Rejected'].map(s => (
-            <button
-              key={s}
-              onClick={() => setFilterStatus(s)}
-              style={{
-                padding: '5px 12px',
-                borderRadius: '8px',
-                fontSize: '11px',
-                fontWeight: filterStatus === s ? '800' : '600',
-                backgroundColor: filterStatus === s ? '#047857' : '#F1F5F9',
-                color: filterStatus === s ? '#FFFFFF' : '#475569',
-                border: filterStatus === s ? '1px solid #047857' : '1px solid #E2E8F0',
-                cursor: 'pointer'
-              }}
-            >
-              {s}
-            </button>
-          ))}
+          {['All', 'Draft', 'Pending', 'Approved', 'Sent', 'Accepted', 'Rejected'].map(s => {
+            const isSelected = filterStatus === s;
+            return (
+              <button
+                key={s}
+                onClick={() => setFilterStatus(s)}
+                style={{
+                  padding: '5px 12px',
+                  borderRadius: '8px',
+                  fontSize: '11px',
+                  fontWeight: '800',
+                  backgroundColor: isSelected ? '#4338CA' : '#FFFFFF',
+                  color: isSelected ? '#FFFFFF' : '#475569',
+                  border: isSelected ? '1.5px solid #4338CA' : '1.2px solid #E2E8F0',
+                  cursor: 'pointer',
+                  transition: 'all 0.18s ease',
+                  boxShadow: isSelected ? '0 2px 8px rgba(67, 56, 202, 0.3)' : 'none'
+                }}
+                onMouseEnter={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#E2E8F0';
+                  }
+                }}
+              >
+                {s}
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -507,33 +529,48 @@ export default function QuotationsTab({
         borderRadius: '16px',
         border: '1.5px solid #E2E8F0',
         overflow: 'hidden',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.02)'
+        boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)'
       }}>
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '12px' }}>
             <thead>
-              <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid #E2E8F0', color: '#475569', fontWeight: '800' }}>
-                <th style={{ padding: '12px 14px' }}>QUOTATION #</th>
-                <th style={{ padding: '12px 14px' }}>SENT TO (CLIENT)</th>
-                <th style={{ padding: '12px 14px' }}>PREPARED / SENT BY</th>
-                <th style={{ padding: '12px 14px' }}>TOTAL VALUE</th>
-                <th style={{ padding: '12px 14px' }}>DATE & TIME</th>
-                <th style={{ padding: '12px 14px' }}>STATUS</th>
-                <th style={{ padding: '12px 14px', textAlign: 'right' }}>ACTIONS</th>
+              <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid #E2E8F0', color: '#64748B', fontWeight: '800' }}>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase' }}>QUOTATION #</th>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase' }}>SENT TO (CLIENT)</th>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase' }}>PREPARED / SENT BY</th>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase' }}>TOTAL VALUE</th>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase' }}>DATE & TIME</th>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase' }}>STATUS</th>
+                <th style={{ padding: '14px 18px', fontSize: '11px', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'right' }}>ACTIONS</th>
               </tr>
             </thead>
             <tbody>
               {filteredList.length > 0 ? (
-                filteredList.map(q => {
+                filteredList.map((q, index) => {
                   const badge = getStatusBadge(q.status);
                   const isHighValue = (Number(q.totalAmount) || 0) >= 500000;
+                  const isEven = index % 2 === 0;
 
                   return (
-                    <tr key={q._id} className="quote-table-row" style={{ borderBottom: '1px solid #F1F5F9', transition: 'all 0.15s ease' }}>
+                    <tr 
+                      key={q._id} 
+                      className="quote-table-row" 
+                      style={{ 
+                        borderBottom: '1px solid #F1F5F9', 
+                        backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC',
+                        transition: 'all 0.18s ease' 
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#F1F5F9';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = isEven ? '#FFFFFF' : '#FAFAFC';
+                      }}
+                    >
                       {/* Quotation Number & Version */}
-                      <td style={{ padding: '12px 14px' }}>
+                      <td style={{ padding: '14px 18px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <span style={{ fontWeight: '900', color: '#047857' }}>
+                          <span style={{ fontWeight: '900', color: '#4338CA', fontSize: '12.5px' }}>
                             {q.quotationNumber}
                           </span>
                           <span style={{
@@ -541,39 +578,39 @@ export default function QuotationsTab({
                             color: '#4338CA',
                             fontSize: '9.5px',
                             fontWeight: '900',
-                            padding: '1px 5px',
-                            borderRadius: '4px',
+                            padding: '1px 6px',
+                            borderRadius: '5px',
                             border: '1px solid #C7D2FE'
                           }}>
                             {q.version || 'v1.0'}
                           </span>
                         </div>
-                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px', maxWidth: '220px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px', maxWidth: '220px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', fontWeight: '600' }}>
                           {q.title}
                         </div>
                       </td>
 
                       {/* Customer / Company */}
-                      <td style={{ padding: '12px 14px' }}>
-                        <div style={{ fontWeight: '800', color: '#0F172A' }}>
+                      <td style={{ padding: '14px 18px' }}>
+                        <div style={{ fontWeight: '800', color: '#0F172A', fontSize: '13px' }}>
                           👤 {q.customerId?.name || q.customerId?.customerName || 'Customer'}
                         </div>
-                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '1px' }}>
+                        <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px', fontWeight: '600' }}>
                           🏢 {q.customerId?.company || q.customerId?.email || 'Enterprise Client'}
                         </div>
                         {q.customerId?.phone && (
-                          <div style={{ fontSize: '10.5px', color: '#94A3B8' }}>
+                          <div style={{ fontSize: '10.5px', color: '#94A3B8', marginTop: '1px' }}>
                             📞 {q.customerId.phone}
                           </div>
                         )}
                       </td>
 
                       {/* Prepared / Sent By (Sales Employee or Admin) */}
-                      <td style={{ padding: '12px 14px' }}>
-                        <div style={{ fontWeight: '700', color: '#334155' }}>
+                      <td style={{ padding: '14px 18px' }}>
+                        <div style={{ fontWeight: '800', color: '#1E293B', fontSize: '12.5px' }}>
                           🎯 {q.createdBy?.name || q.createdByName || q.assignedSales?.name || (q.createdByRole === 'admin' ? 'Super Admin' : 'Sales Team')}
                         </div>
-                        <div style={{ fontSize: '10.5px', color: '#6366F1', fontWeight: '800' }}>
+                        <div style={{ fontSize: '10.5px', color: '#4338CA', fontWeight: '700', marginTop: '1px' }}>
                           {q.createdBy?.designation || (q.createdByRole === 'admin' ? 'Managing Director / Admin' : 'Sales Consultant')}
                         </div>
                         <div style={{ fontSize: '10px', color: '#94A3B8', marginTop: '2px' }}>
@@ -582,8 +619,8 @@ export default function QuotationsTab({
                       </td>
 
                       {/* Amount */}
-                      <td style={{ padding: '12px 14px' }}>
-                        <div style={{ fontWeight: '900', color: '#0F172A', fontSize: '13px' }}>
+                      <td style={{ padding: '14px 18px' }}>
+                        <div style={{ fontWeight: '900', color: '#0F172A', fontSize: '13.5px' }}>
                           ₹{Number(q.totalAmount || 0).toLocaleString('en-IN')}
                         </div>
                         {isHighValue && (
@@ -592,8 +629,11 @@ export default function QuotationsTab({
                             fontWeight: '800',
                             backgroundColor: '#FEF3C7',
                             color: '#B45309',
-                            padding: '1px 4px',
-                            borderRadius: '4px'
+                            padding: '1px 5px',
+                            borderRadius: '4px',
+                            border: '1px solid #FDE68A',
+                            display: 'inline-block',
+                            marginTop: '2px'
                           }}>
                             ⚡ High Value
                           </span>
@@ -601,28 +641,28 @@ export default function QuotationsTab({
                       </td>
 
                       {/* Validity, Date & Time */}
-                      <td style={{ padding: '12px 14px' }}>
+                      <td style={{ padding: '14px 18px' }}>
                         <div style={{ color: '#0F172A', fontSize: '11px', fontWeight: '700' }}>
                           🕒 {q.createdAt ? new Date(q.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) + ' ' + new Date(q.createdAt).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true }) : 'N/A'}
                         </div>
-                        <div style={{ color: '#64748B', fontSize: '10.5px', marginTop: '2px' }}>
+                        <div style={{ color: '#64748B', fontSize: '10.5px', marginTop: '2px', fontWeight: '600' }}>
                           Valid: {q.validUntil ? new Date(q.validUntil).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '30 Days'}
                         </div>
                       </td>
 
                       {/* Status */}
-                      <td style={{ padding: '12px 14px' }}>
+                      <td style={{ padding: '14px 18px' }}>
                         <span style={{
                           backgroundColor: badge.bg,
                           color: badge.color,
-                          border: `1px solid ${badge.border}`,
-                          padding: '3px 8px',
-                          borderRadius: '8px',
-                          fontSize: '10.5px',
+                          border: `1.2px solid ${badge.border}`,
+                          padding: '4px 10px',
+                          borderRadius: '12px',
+                          fontSize: '11px',
                           fontWeight: '800',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '4px'
+                          gap: '5px'
                         }}>
                           <span>{badge.icon}</span>
                           <span>{badge.text}</span>
@@ -630,22 +670,28 @@ export default function QuotationsTab({
                       </td>
 
                       {/* Actions */}
-                      <td style={{ padding: '12px 14px', textAlign: 'right' }}>
+                      <td style={{ padding: '14px 18px', textAlign: 'right' }}>
                         <div style={{ display: 'inline-flex', gap: '6px', alignItems: 'center' }}>
                           {/* Preview / View PDF */}
                           <button
                             onClick={() => setViewQuotationModal(q)}
                             title="Preview PDF Style Quotation"
                             style={{
-                              backgroundColor: '#EEF2FF',
-                              color: '#4338CA',
-                              border: '1px solid #C7D2FE',
+                              backgroundColor: '#FFFFFF',
+                              color: '#334155',
+                              border: '1.2px solid #CBD5E1',
                               borderRadius: '7px',
-                              padding: '5px 8px',
+                              padding: '5px 9px',
                               fontSize: '11px',
                               fontWeight: '800',
-                              cursor: 'pointer'
+                              cursor: 'pointer',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px',
+                              transition: 'all 0.15s ease'
                             }}
+                            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#F8FAFC'}
+                            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#FFFFFF'}
                           >
                             👁️ View PDF
                           </button>
@@ -657,9 +703,9 @@ export default function QuotationsTab({
                               style={{
                                 backgroundColor: '#FEF3C7',
                                 color: '#92400E',
-                                border: '1px solid #FCD34D',
+                                border: '1.2px solid #FCD34D',
                                 borderRadius: '7px',
-                                padding: '5px 8px',
+                                padding: '5px 9px',
                                 fontSize: '11px',
                                 fontWeight: '800',
                                 cursor: 'pointer'
@@ -674,15 +720,22 @@ export default function QuotationsTab({
                             onClick={() => setSendConfirmModal(q)}
                             title="Share quotation with customer via Email or WhatsApp"
                             style={{
-                              backgroundColor: '#ECFDF5',
-                              color: '#047857',
-                              border: '1px solid #A7F3D0',
+                              background: 'linear-gradient(135deg, #059669 0%, #10B981 100%)',
+                              color: '#FFFFFF',
+                              border: 'none',
                               borderRadius: '7px',
-                              padding: '5px 8px',
+                              padding: '5px 10px',
                               fontSize: '11px',
                               fontWeight: '900',
-                              cursor: 'pointer'
+                              cursor: 'pointer',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px',
+                              boxShadow: '0 2px 6px rgba(16, 185, 129, 0.3)',
+                              transition: 'transform 0.15s ease'
                             }}
+                            onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-1px)'}
+                            onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
                           >
                             📤 Share
                           </button>
@@ -698,9 +751,9 @@ export default function QuotationsTab({
                               style={{
                                 backgroundColor: '#FFF7ED',
                                 color: '#C2410C',
-                                border: '1px solid #FFEDD5',
+                                border: '1.2px solid #FED7AA',
                                 borderRadius: '7px',
-                                padding: '5px 8px',
+                                padding: '5px 9px',
                                 fontSize: '11px',
                                 fontWeight: '800',
                                 cursor: 'pointer'
@@ -715,15 +768,17 @@ export default function QuotationsTab({
                             onClick={() => setTimelineModal(q)}
                             title="Quotation Lifecycle & Audit Timeline"
                             style={{
-                              backgroundColor: '#F8FAFC',
+                              backgroundColor: '#FFFFFF',
                               color: '#64748B',
-                              border: '1px solid #E2E8F0',
+                              border: '1.2px solid #CBD5E1',
                               borderRadius: '7px',
                               padding: '5px 8px',
                               fontSize: '11px',
-                              fontWeight: '700',
+                              fontWeight: '800',
                               cursor: 'pointer'
                             }}
+                            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#F8FAFC'}
+                            onMouseLeave={e => e.currentTarget.style.backgroundColor = '#FFFFFF'}
                           >
                             ⏱️ Tracker
                           </button>
@@ -736,7 +791,7 @@ export default function QuotationsTab({
                               style={{
                                 backgroundColor: '#EFF6FF',
                                 color: '#2563EB',
-                                border: '1px solid #BFDBFE',
+                                border: '1.2px solid #BFDBFE',
                                 borderRadius: '7px',
                                 padding: '5px 8px',
                                 fontSize: '11px',
@@ -756,7 +811,7 @@ export default function QuotationsTab({
                               style={{
                                 backgroundColor: '#FEF2F2',
                                 color: '#DC2626',
-                                border: '1px solid #FECACA',
+                                border: '1.2px solid #FECACA',
                                 borderRadius: '7px',
                                 padding: '5px 8px',
                                 fontSize: '11px',
@@ -774,10 +829,10 @@ export default function QuotationsTab({
                 })
               ) : (
                 <tr>
-                  <td colSpan={7} style={{ padding: '36px', textAlign: 'center', color: '#94A3B8' }}>
-                    <span style={{ fontSize: '32px', display: 'block', marginBottom: '6px' }}>📜</span>
-                    <strong style={{ color: '#334155' }}>No quotations matched your filters.</strong>
-                    <div style={{ fontSize: '11.5px', marginTop: '4px' }}>Click "Create New Quotation" to start a multi-item proposal.</div>
+                  <td colSpan={7} style={{ padding: '40px', textAlign: 'center', color: '#64748B', fontSize: '13px', fontWeight: '600' }}>
+                    <span style={{ fontSize: '32px', display: 'block', marginBottom: '8px' }}>📜</span>
+                    <strong style={{ color: '#0F172A' }}>No quotations matched your filters.</strong>
+                    <div style={{ fontSize: '11.5px', marginTop: '4px', color: '#64748B' }}>Click "Create New Quotation" to start a multi-item proposal.</div>
                   </td>
                 </tr>
               )}

@@ -123,43 +123,141 @@ export default function IntegrationsTab() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative' }}>
       
-      {/* 🌟 CSS Keyframe Animations */}
+      {/* 🌟 CSS Keyframe Animations & Micro-interactions */}
       <style>{`
         @keyframes pulseIntegAmbient {
-          0% { transform: scale(0.98); opacity: 0.8; }
-          50% { transform: scale(1.02); opacity: 1; }
-          100% { transform: scale(0.98); opacity: 0.8; }
+          0%, 100% { transform: scale(1); opacity: 0.6; }
+          50% { transform: scale(1.1); opacity: 0.85; }
         }
         @keyframes subtleIntegFadeUp {
-          from { opacity: 0; transform: translateY(8px); }
+          from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes shimmerIntegAccent {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        .integration-hero-banner {
+          animation: subtleIntegFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .integration-metric-card {
+          animation: subtleIntegFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+          transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+          box-sizing: border-box;
+        }
+        .integration-metric-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08) !important;
+          border-color: #CBD5E1 !important;
+        }
         .integration-bento-card {
-          transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+          box-sizing: border-box;
         }
         .integration-bento-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08) !important;
-          border-color: #94A3B8 !important;
+          box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
+          border-color: #CBD5E1 !important;
+        }
+        .integration-metrics-grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 12px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .integration-cards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 14px;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .integration-bento-card {
+          transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .integration-bento-card:hover {
+          transform: translateY(-4px) !important;
+          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12) !important;
+        }
+        .integ-btn-glow {
+          transition: all 0.2s ease !important;
+        }
+        .integ-btn-glow:hover {
+          transform: translateY(-1px) scale(1.02) !important;
+          opacity: 0.95 !important;
+        }
+
+        /* Mobile & Tablet Responsive */
+        @media (max-width: 900px) {
+          .integration-metrics-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 10px !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .integration-hero-banner {
+            padding: 14px 16px !important;
+          }
+          .integration-hero-title {
+            font-size: 18px !important;
+          }
+          .integration-metrics-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 8px !important;
+          }
+          .integration-cards-grid {
+            grid-template-columns: 1fr !important;
+            gap: 10px !important;
+          }
+          .integration-metric-card {
+            padding: 10px 12px !important;
+            min-height: 80px !important;
+          }
+          .integration-metric-val {
+            font-size: 18px !important;
+          }
+          .integration-metric-icon {
+            width: 32px !important;
+            height: 32px !important;
+            font-size: 15px !important;
+          }
         }
       `}</style>
 
       {/* 🌟 1. Compact Sleek Multi-Channel Billboard Banner */}
-      <div style={{
-        background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%)',
-        borderRadius: '16px',
-        padding: '18px 24px',
-        color: '#FFFFFF',
-        boxShadow: '0 10px 30px rgba(15, 23, 42, 0.25)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '14px',
-        border: '1.5px solid rgba(148, 163, 184, 0.25)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      <div 
+        className="integration-hero-banner"
+        style={{
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
+          borderRadius: '16px',
+          padding: '20px 24px',
+          color: '#FFFFFF',
+          boxShadow: '0 8px 30px rgba(15, 23, 42, 0.22)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '14px',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Shimmer Accent Line */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3.5px',
+          background: 'linear-gradient(90deg, #4338CA, #6366F1, #818CF8, #4338CA)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmerIntegAccent 3.5s linear infinite'
+        }} />
+
         {/* Glow ambient background sphere */}
         <div style={{
           position: 'absolute',
@@ -168,7 +266,7 @@ export default function IntegrationsTab() {
           width: '180px',
           height: '180px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(148, 163, 184, 0.35) 0%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(circle, rgba(129, 140, 248, 0.3) 0%, rgba(0,0,0,0) 70%)',
           pointerEvents: 'none',
           animation: 'pulseIntegAmbient 5s ease-in-out infinite'
         }} />
@@ -178,22 +276,24 @@ export default function IntegrationsTab() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.18)',
-            padding: '3px 12px',
+            background: 'rgba(255,255,255,0.12)',
+            padding: '4px 12px',
             borderRadius: '20px',
-            fontSize: '11px',
+            fontSize: '10.5px',
             fontWeight: '900',
             letterSpacing: '0.6px',
-            marginBottom: '5px',
-            backdropFilter: 'blur(6px)'
+            marginBottom: '6px',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.18)',
+            color: '#E0E7FF'
           }}>
             <span>🔌</span> OMNICHANNEL PLATFORM INTEGRATIONS
           </div>
-          <h2 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.4px', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+          <h2 className="integration-hero-title" style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.4px', color: '#FFFFFF' }}>
             Multi-Source Webhook & Lead Connectors
           </h2>
-          <p style={{ fontSize: '12.5px', color: '#CBD5E1', margin: '4px 0 0 0', fontWeight: '500', maxWidth: '580px' }}>
-            Connect WhatsApp Business, Meta Ads, Instagram, LinkedIn & Website Webhooks for zero-delay lead sync
+          <p style={{ fontSize: '12px', color: '#C7D2FE', margin: '4px 0 0 0', fontWeight: '500', maxWidth: '580px' }}>
+            Connect WhatsApp Business, Meta Ads, Instagram, LinkedIn & Website Webhooks for zero-delay lead sync.
           </p>
         </div>
 
@@ -205,24 +305,23 @@ export default function IntegrationsTab() {
           zIndex: 2
         }}>
           <div style={{
-            background: 'rgba(255,255,255,0.12)',
+            background: 'rgba(236, 253, 245, 0.15)',
+            border: '1px solid rgba(167, 243, 208, 0.35)',
             borderRadius: '12px',
-            padding: '9px 18px',
+            padding: '8px 16px',
             textAlign: 'center',
-            border: '1px solid rgba(255,255,255,0.2)',
-            backdropFilter: 'blur(8px)',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.12)'
+            backdropFilter: 'blur(8px)'
           }}>
-            <span style={{ fontSize: '10px', color: '#94A3B8', fontWeight: '800', textTransform: 'uppercase', display: 'block', letterSpacing: '0.4px' }}>Active Connectors</span>
-            <span style={{ fontSize: '22px', fontWeight: '900', color: '#34D399' }}>
-              {connectedCount} / {integrations.length}
+            <span style={{ fontSize: '10px', color: '#A7F3D0', fontWeight: '800', textTransform: 'uppercase', display: 'block', letterSpacing: '0.4px' }}>Active Connectors</span>
+            <span style={{ fontSize: '20px', fontWeight: '900', color: '#FFFFFF' }}>
+              {connectedCount} <span style={{ fontSize: '13px', color: '#A7F3D0' }}>/ {integrations.length}</span>
             </span>
           </div>
         </div>
       </div>
 
       {/* 🌟 2. Spacious 4-Col KPI Metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+      <div className="integration-metrics-grid">
         
         {/* Metric 1 */}
         <div style={{
@@ -515,11 +614,7 @@ export default function IntegrationsTab() {
       </div>
 
       {/* 🌟 4. Integration Bento Cards Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-        gap: '14px'
-      }}>
+      <div className="integration-cards-grid">
         {filteredIntegrations.length === 0 ? (
           <div style={{
             gridColumn: '1 / -1',
@@ -548,53 +643,69 @@ export default function IntegrationsTab() {
                 key={integ.id}
                 className="integration-bento-card"
                 style={{
-                  background: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: isConnected ? '1.5px solid #E2E8F0' : '1.5px solid #FECACA',
-                  padding: '16px',
-                  boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+                  background: isConnected 
+                    ? 'linear-gradient(180deg, #FFFFFF 0%, #FAFCFF 100%)' 
+                    : 'linear-gradient(180deg, #FFFFFF 0%, #FFF5F5 100%)',
+                  borderRadius: '18px',
+                  border: isConnected ? `1.5px solid ${integ.color}35` : '1.5px solid #FDA4AF',
+                  padding: '18px 20px',
+                  boxShadow: isConnected 
+                    ? `0 6px 20px rgba(15, 23, 42, 0.05), 0 0 0 1px ${integ.color}15`
+                    : '0 6px 20px rgba(239, 68, 68, 0.05)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  gap: '12px',
+                  gap: '14px',
                   position: 'relative',
                   overflow: 'hidden',
                   animation: `subtleIntegFadeUp 0.4s ease-out ${idx * 0.05}s both`
                 }}
               >
-                {/* Top Colorful Accent Line */}
+                {/* Top Colorful Accent Line with Dynamic Glow */}
                 <div style={{
                   position: 'absolute',
                   top: 0,
                   left: 0,
                   right: 0,
                   height: '4px',
-                  background: isConnected ? integ.color : '#94A3B8'
+                  background: isConnected 
+                    ? `linear-gradient(90deg, ${integ.color}, #FFFFFF 95%)`
+                    : 'linear-gradient(90deg, #EF4444, #FCA5A5)',
+                  boxShadow: isConnected ? `0 2px 10px ${integ.color}60` : 'none'
                 }} />
 
                 <div>
                   {/* Header */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginTop: '2px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginTop: '4px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <div style={{
-                        width: '42px',
-                        height: '42px',
-                        borderRadius: '12px',
-                        background: `${integ.color}15`,
+                        width: '46px',
+                        height: '46px',
+                        borderRadius: '14px',
+                        background: `linear-gradient(135deg, ${integ.color}20 0%, ${integ.color}08 100%)`,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        fontSize: '22px',
-                        border: `1.5px solid ${integ.color}40`,
-                        boxShadow: `0 4px 10px ${integ.color}20`
+                        fontSize: '24px',
+                        border: `1.5px solid ${integ.color}50`,
+                        boxShadow: `0 6px 14px ${integ.color}25`,
+                        flexShrink: 0
                       }}>
                         {integ.icon}
                       </div>
                       <div>
-                        <h4 style={{ margin: 0, fontSize: '14.5px', fontWeight: '900', color: '#0F172A' }}>
+                        <h4 style={{ margin: 0, fontSize: '15px', fontWeight: '900', color: '#0F172A', letterSpacing: '-0.2px' }}>
                           {integ.name}
                         </h4>
-                        <span style={{ fontSize: '11px', color: '#64748B', fontWeight: '700' }}>
+                        <span style={{ 
+                          fontSize: '11px', 
+                          color: integ.color, 
+                          fontWeight: '800',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.4px',
+                          display: 'inline-block',
+                          marginTop: '2px'
+                        }}>
                           {integ.category}
                         </span>
                       </div>
@@ -603,47 +714,54 @@ export default function IntegrationsTab() {
                     <span style={{
                       fontSize: '10px',
                       fontWeight: '900',
-                      color: isConnected ? '#059669' : '#DC2626',
+                      color: isConnected ? '#047857' : '#B91C1C',
                       background: isConnected ? '#ECFDF5' : '#FEF2F2',
-                      border: isConnected ? '1px solid #A7F3D0' : '1px solid #FECACA',
-                      padding: '3px 8px',
-                      borderRadius: '10px',
+                      border: isConnected ? '1.2px solid #6EE7B7' : '1.2px solid #FCA5A5',
+                      padding: '4px 10px',
+                      borderRadius: '12px',
                       whiteSpace: 'nowrap',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '4px'
+                      gap: '5px',
+                      boxShadow: isConnected ? '0 2px 6px rgba(16, 185, 129, 0.15)' : 'none'
                     }}>
-                      <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: isConnected ? '#10B981' : '#EF4444' }} />
-                      {isConnected ? 'LIVE CONNECTED' : 'DISABLED'}
+                      <span style={{ 
+                        width: '6px', 
+                        height: '6px', 
+                        borderRadius: '50%', 
+                        backgroundColor: isConnected ? '#10B981' : '#EF4444',
+                        boxShadow: isConnected ? '0 0 6px #10B981' : 'none'
+                      }} />
+                      {isConnected ? 'LIVE CONNECTED' : 'PAUSED / SETUP'}
                     </span>
                   </div>
 
                   {/* Description */}
-                  <p style={{ margin: '10px 0 0 0', fontSize: '12px', color: '#475569', lineHeight: '1.45' }}>
+                  <p style={{ margin: '12px 0 0 0', fontSize: '12px', color: '#475569', lineHeight: '1.5', fontWeight: '500' }}>
                     {integ.description}
                   </p>
 
-                  {/* Account Telemetry */}
+                  {/* Account Telemetry Container */}
                   <div style={{
-                    background: '#F8FAFC',
+                    background: isConnected ? '#F8FAFC' : '#FFF7F7',
                     borderRadius: '12px',
-                    padding: '10px 14px',
+                    padding: '11px 14px',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     fontSize: '11.5px',
-                    marginTop: '12px',
-                    border: '1px solid #E2E8F0'
+                    marginTop: '14px',
+                    border: isConnected ? '1px solid #E2E8F0' : '1px solid #FECACA'
                   }}>
                     <div style={{ minWidth: 0, flex: 1, marginRight: '10px' }}>
-                      <span style={{ color: '#94A3B8', display: 'block', fontSize: '10px', fontWeight: '800', letterSpacing: '0.4px' }}>TARGET ACCOUNT</span>
-                      <strong style={{ color: '#0F172A', fontSize: '11.5px', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block', whiteSpace: 'nowrap' }}>
+                      <span style={{ color: '#94A3B8', display: 'block', fontSize: '10px', fontWeight: '800', letterSpacing: '0.5px' }}>TARGET ACCOUNT</span>
+                      <strong style={{ color: '#0F172A', fontSize: '12px', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block', whiteSpace: 'nowrap', marginTop: '2px' }}>
                         {integ.account}
                       </strong>
                     </div>
                     <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                      <span style={{ color: '#94A3B8', display: 'block', fontSize: '10px', fontWeight: '800', letterSpacing: '0.4px' }}>LEADS SYNCED</span>
-                      <strong style={{ color: integ.color, fontWeight: '900', fontSize: '13px' }}>
+                      <span style={{ color: '#94A3B8', display: 'block', fontSize: '10px', fontWeight: '800', letterSpacing: '0.5px' }}>LEADS SYNCED</span>
+                      <strong style={{ color: integ.color, fontWeight: '900', fontSize: '14px', display: 'block', marginTop: '1px' }}>
                         {integ.leadsSynced} Leads
                       </strong>
                     </div>
@@ -655,48 +773,65 @@ export default function IntegrationsTab() {
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  paddingTop: '10px',
-                  borderTop: '1px solid #F1F5F9'
+                  paddingTop: '12px',
+                  borderTop: '1px solid #F1F5F9',
+                  gap: '8px',
+                  flexWrap: 'wrap'
                 }}>
-                  <span style={{ fontSize: '10.5px', color: '#94A3B8', fontWeight: '700' }}>
-                    Ping: {integ.lastWebhook}
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#94A3B8' }} />
+                    <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                      Ping: {integ.lastWebhook}
+                    </span>
+                  </div>
 
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <button
+                      className="integ-btn-glow"
                       onClick={() => handleTestConnection(integ.id)}
                       disabled={isTesting || !isConnected}
                       style={{
-                        background: '#F1F5F9',
-                        border: '1px solid #CBD5E1',
-                        color: '#334155',
-                        padding: '6px 12px',
-                        borderRadius: '7px',
+                        background: '#FFFFFF',
+                        border: '1.2px solid #CBD5E1',
+                        color: '#1E293B',
+                        padding: '7px 14px',
+                        borderRadius: '9px',
                         fontSize: '11px',
                         fontWeight: '800',
                         cursor: isConnected ? 'pointer' : 'not-allowed',
-                        opacity: isConnected ? 1 : 0.5,
-                        transition: 'all 0.15s ease'
+                        opacity: isConnected ? 1 : 0.45,
+                        boxShadow: '0 2px 5px rgba(0,0,0,0.03)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px'
                       }}
                     >
                       {isTesting ? 'Testing...' : '⚡ Test Webhook'}
                     </button>
 
                     <button
+                      className="integ-btn-glow"
                       onClick={() => handleToggle(integ.id)}
                       style={{
-                        background: isConnected ? '#FEF2F2' : '#ECFDF5',
-                        border: isConnected ? '1.2px solid #FECACA' : '1.2px solid #A7F3D0',
-                        color: isConnected ? '#DC2626' : '#059669',
-                        padding: '6px 12px',
-                        borderRadius: '7px',
+                        background: isConnected 
+                          ? 'linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%)' 
+                          : 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                        border: isConnected ? '1.2px solid #FCA5A5' : 'none',
+                        color: isConnected ? '#DC2626' : '#FFFFFF',
+                        padding: '7px 14px',
+                        borderRadius: '9px',
                         fontSize: '11px',
                         fontWeight: '900',
                         cursor: 'pointer',
-                        transition: 'all 0.15s ease'
+                        boxShadow: isConnected 
+                          ? 'none' 
+                          : '0 3px 10px rgba(16, 185, 129, 0.35)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px'
                       }}
                     >
-                      {isConnected ? 'Disconnect' : 'Connect'}
+                      {isConnected ? 'Disconnect' : '✓ Connect'}
                     </button>
                   </div>
                 </div>

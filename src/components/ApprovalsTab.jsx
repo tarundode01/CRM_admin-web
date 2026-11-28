@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
   const [filterStatus, setFilterStatus] = useState('All');
   const [search, setSearch] = useState('');
-  const [viewMode, setViewMode] = useState('cards'); // 'cards' (Bento Grid) or 'table'
+  const [viewMode, setViewMode] = useState('table'); // 'cards' (Bento Grid) or 'table'
   const [processingId, setProcessingId] = useState(null);
 
   // Type styling & badges
@@ -77,41 +77,107 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
       {/* 🌟 CSS Keyframes and Micro-animations */}
       <style>{`
         @keyframes pulseAmbientAppr {
-          0% { transform: scale(0.98); opacity: 0.8; }
-          50% { transform: scale(1.02); opacity: 1; }
-          100% { transform: scale(0.98); opacity: 0.8; }
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scale(1.12);
+            opacity: 0.85;
+          }
         }
         @keyframes subtleApprFadeUp {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes shimmerTopBar {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+        @keyframes subtleFloatAction {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-3px); }
+        }
+        @keyframes pulseAttentionBadge {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.4); }
+          50% { transform: scale(1.04); box-shadow: 0 0 0 5px rgba(217, 119, 6, 0); }
+        }
+        .approvals-hero-banner {
+          animation: subtleApprFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .approval-metric-card {
+          animation: subtleApprFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .approval-metric-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
+          border-color: #CBD5E1 !important;
         }
         .approval-bento-card {
-          transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: subtleApprFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+          transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .approval-bento-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(190, 18, 60, 0.12) !important;
-          border-color: #FDA4AF !important;
+          box-shadow: 0 14px 30px rgba(67, 56, 202, 0.1) !important;
+          border-color: #A5B4FC !important;
+        }
+        .approval-btn-approve:hover {
+          transform: translateY(-1px) scale(1.02);
+          box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25) !important;
+        }
+        .approval-btn-reject:hover {
+          transform: translateY(-1px) scale(1.02);
+          box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25) !important;
+        }
+        .table-row-approval {
+          transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .table-row-approval:hover {
+          background-color: #F8FAFC !important;
+          transform: scale(1.002);
         }
       `}</style>
 
-      {/* 🌟 1. Compact Sleek Crimson/Rose Billboard Banner */}
-      <div style={{
-        background: 'linear-gradient(135deg, #881337 0%, #BE123C 50%, #E11D48 100%)',
-        borderRadius: '16px',
-        padding: '18px 24px',
-        color: '#FFFFFF',
-        boxShadow: '0 10px 30px rgba(190, 18, 60, 0.22)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '14px',
-        border: '1.5px solid rgba(254, 205, 211, 0.35)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Glow ambient background sphere */}
+      {/* 🌟 1. Executive Midnight Royal Indigo Billboard Banner */}
+      <div 
+        className="approvals-hero-banner"
+        style={{
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
+          borderRadius: '16px',
+          padding: '20px 24px',
+          color: '#FFFFFF',
+          boxShadow: '0 8px 30px rgba(15, 23, 42, 0.22)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '14px',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Animated Royal Indigo Shimmer Top Accent Line */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3.5px',
+          background: 'linear-gradient(90deg, #4338CA, #6366F1, #818CF8, #4338CA)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmerTopBar 3.5s linear infinite'
+        }} />
+
+        {/* Ambient Glowing Spheres */}
         <div style={{
           position: 'absolute',
           top: '-40px',
@@ -119,9 +185,19 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
           width: '180px',
           height: '180px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(255, 228, 230, 0.35) 0%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(circle, rgba(129, 140, 248, 0.3) 0%, rgba(0,0,0,0) 70%)',
           pointerEvents: 'none',
           animation: 'pulseAmbientAppr 5s ease-in-out infinite'
+        }} />
+        <div style={{
+          position: 'absolute',
+          bottom: '-30px',
+          left: '25%',
+          width: '140px',
+          height: '140px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(0,0,0,0) 70%)',
+          pointerEvents: 'none'
         }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
@@ -129,44 +205,46 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.22)',
-            padding: '3px 12px',
-            borderRadius: '20px',
-            fontSize: '11px',
+            background: 'rgba(255, 255, 255, 0.12)',
+            padding: '4px 10px',
+            borderRadius: '16px',
+            fontSize: '10px',
             fontWeight: '900',
             letterSpacing: '0.6px',
-            marginBottom: '5px',
-            backdropFilter: 'blur(6px)'
+            marginBottom: '6px',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.18)',
+            color: '#E0E7FF'
           }}>
             <span>⚖️</span> ACCOUNT VERIFICATION & AUTHORIZATIONS
           </div>
-          <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.4px', textShadow: '0 2px 4px rgba(0,0,0,0.15)' }}>
+          <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             New Account Approval Queue
           </h1>
-          <p style={{ margin: '4px 0 0 0', opacity: 0.94, fontSize: '12.5px', color: '#FFE4E6', maxWidth: '560px' }}>
+          <p style={{ margin: '4px 0 0 0', opacity: 0.9, fontSize: '12px', color: '#C7D2FE', maxWidth: '560px', fontWeight: '500' }}>
             Review new customer & employee signup requests. Authorize accounts to grant CRM portal access.
           </p>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', position: 'relative', zIndex: 2, flexWrap: 'wrap' }}>
           {/* View Toggle */}
-          <div style={{ display: 'flex', backgroundColor: 'rgba(255,255,255,0.22)', borderRadius: '12px', padding: '3px', border: '1px solid rgba(255,255,255,0.28)', backdropFilter: 'blur(8px)' }}>
+          <div style={{ display: 'flex', backgroundColor: 'rgba(255, 255, 255, 0.12)', borderRadius: '10px', padding: '3px', border: '1px solid rgba(255, 255, 255, 0.2)', backdropFilter: 'blur(8px)' }}>
             <button
               onClick={() => setViewMode('cards')}
               style={{
                 backgroundColor: viewMode === 'cards' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'cards' ? '#BE123C' : '#FFFFFF',
+                color: viewMode === 'cards' ? '#1E1B4B' : '#FFFFFF',
                 border: 'none',
-                borderRadius: '9px',
+                borderRadius: '7px',
                 padding: '6px 14px',
-                fontSize: '11.5px',
+                fontSize: '11px',
                 fontWeight: '900',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                boxShadow: viewMode === 'cards' ? '0 2px 8px rgba(0,0,0,0.12)' : 'none',
-                transition: 'all 0.2s ease'
+                boxShadow: viewMode === 'cards' ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                transition: 'all 0.18s ease'
               }}
             >
               <span>🗂️</span> Cards
@@ -175,220 +253,287 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
               onClick={() => setViewMode('table')}
               style={{
                 backgroundColor: viewMode === 'table' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'table' ? '#BE123C' : '#FFFFFF',
+                color: viewMode === 'table' ? '#1E1B4B' : '#FFFFFF',
                 border: 'none',
-                borderRadius: '9px',
+                borderRadius: '7px',
                 padding: '6px 14px',
-                fontSize: '11.5px',
+                fontSize: '11px',
                 fontWeight: '900',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                boxShadow: viewMode === 'table' ? '0 2px 8px rgba(0,0,0,0.12)' : 'none',
-                transition: 'all 0.2s ease'
+                boxShadow: viewMode === 'table' ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                transition: 'all 0.18s ease'
               }}
             >
               <span>📑</span> List
             </button>
           </div>
 
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            color: '#BE123C',
-            fontSize: '12px',
-            fontWeight: '900',
-            padding: '8px 16px',
-            borderRadius: '12px',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.14)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px'
-          }}>
+          <div 
+            style={{
+              backgroundColor: '#FFFFFF',
+              color: '#1E1B4B',
+              fontSize: '12px',
+              fontWeight: '900',
+              padding: '8px 16px',
+              borderRadius: '10px',
+              boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              animation: pendingCount > 0 ? 'pulseAttentionBadge 2.5s infinite' : 'none'
+            }}
+          >
             <span style={{ fontSize: '14px' }}>⏳</span>
             <span>{pendingCount} Pending</span>
           </div>
         </div>
       </div>
 
-      {/* 🌟 2. Spacious & Modern 4-Col KPI Metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+      {/* 🌟 2. Executive Crisp White SaaS Metric Cards with Subtle Stagger Animation */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         
-        {/* Metric 1 */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          border: '1.5px solid #FDE68A',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(217, 119, 6, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFDF8 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)',
-            border: '1.5px solid #FCD34D',
-            color: '#B45309',
+        {/* Metric 1 - Pending Approvals */}
+        <div 
+          className="approval-metric-card"
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderRadius: '16px',
+            border: '1.5px solid #E2E8F0',
+            padding: '16px 18px',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(217, 119, 6, 0.15)'
-          }}>
-            ⏳
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            minHeight: '105px',
+            position: 'relative',
+            overflow: 'hidden',
+            animationDelay: '0.05s'
+          }}
+        >
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#FFFBEB',
+              border: '1.2px solid #FDE68A',
+              color: '#D97706',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              ⏳
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#B45309', fontWeight: '800', backgroundColor: '#FEF3C7', padding: '3px 8px', borderRadius: '6px', border: '1px solid #FDE68A' }}>
+              Action Required
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#B45309', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Pending Approvals
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#78350F', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {pendingCount}
               </div>
-              <span style={{ fontSize: '10.5px', color: '#B45309', fontWeight: '800', backgroundColor: '#FEF3C7', padding: '2px 7px', borderRadius: '6px' }}>
-                Action Required
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Awaiting Review
               </span>
             </div>
           </div>
         </div>
 
-        {/* Metric 2 */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          border: '1.5px solid #A7F3D0',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(5, 150, 105, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%)',
-            border: '1.5px solid #6EE7B7',
-            color: '#059669',
+        {/* Metric 2 - Approved */}
+        <div 
+          className="approval-metric-card"
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderRadius: '16px',
+            border: '1.5px solid #E2E8F0',
+            padding: '16px 18px',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(5, 150, 105, 0.15)'
-          }}>
-            ✓
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            minHeight: '105px',
+            position: 'relative',
+            overflow: 'hidden',
+            animationDelay: '0.1s'
+          }}
+        >
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #059669 0%, #10B981 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#ECFDF5',
+              border: '1.2px solid #A7F3D0',
+              color: '#059669',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              ✓
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#047857', fontWeight: '800', backgroundColor: '#ECFDF5', padding: '3px 8px', borderRadius: '6px', border: '1px solid #A7F3D0' }}>
+              Authorized
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#047857', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Approved
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#065F46', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {approvedCount}
               </div>
-              <span style={{ fontSize: '10.5px', color: '#059669', fontWeight: '800', backgroundColor: '#D1FAE5', padding: '2px 7px', borderRadius: '6px' }}>
-                Authorized
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Access Granted
               </span>
             </div>
           </div>
         </div>
 
-        {/* Metric 3 */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          border: '1.5px solid #FECDD3',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(225, 29, 72, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF1F2 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%)',
-            border: '1.5px solid #FDA4AF',
-            color: '#E11D48',
+        {/* Metric 3 - Rejected */}
+        <div 
+          className="approval-metric-card"
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderRadius: '16px',
+            border: '1.5px solid #E2E8F0',
+            padding: '16px 18px',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(225, 29, 72, 0.15)'
-          }}>
-            ✕
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            minHeight: '105px',
+            position: 'relative',
+            overflow: 'hidden',
+            animationDelay: '0.15s'
+          }}
+        >
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #DC2626 0%, #EF4444 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#FEF2F2',
+              border: '1.2px solid #FECACA',
+              color: '#DC2626',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              ✕
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#DC2626', fontWeight: '800', backgroundColor: '#FEF2F2', padding: '3px 8px', borderRadius: '6px', border: '1px solid #FECACA' }}>
+              Declined
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#BE123C', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Rejected
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#881337', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {rejectedCount}
               </div>
-              <span style={{ fontSize: '10.5px', color: '#BE123C', fontWeight: '800', backgroundColor: '#FFE4E6', padding: '2px 7px', borderRadius: '6px' }}>
-                Declined
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Blocked Logins
               </span>
             </div>
           </div>
         </div>
 
-        {/* Metric 4 */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          borderRadius: '16px',
-          border: '1.5px solid #DDD6FE',
-          padding: '14px 18px',
-          boxShadow: '0 4px 14px rgba(109, 40, 217, 0.05)',
-          background: 'linear-gradient(135deg, #FFFFFF 0%, #FAF5FF 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{
-            width: '44px',
-            height: '44px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%)',
-            border: '1.5px solid #C4B5FD',
-            color: '#7C3AED',
+        {/* Metric 4 - Access Protocol */}
+        <div 
+          className="approval-metric-card"
+          style={{
+            backgroundColor: '#FFFFFF',
+            borderRadius: '16px',
+            border: '1.5px solid #E2E8F0',
+            padding: '16px 18px',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '22px',
-            flexShrink: 0,
-            boxShadow: '0 4px 12px rgba(124, 58, 237, 0.15)'
-          }}>
-            🛡️
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            minHeight: '105px',
+            position: 'relative',
+            overflow: 'hidden',
+            animationDelay: '0.2s'
+          }}
+        >
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #4338CA 0%, #6366F1 100%)'
+          }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+            <div style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '12px',
+              background: '#EEF2FF',
+              border: '1.2px solid #C7D2FE',
+              color: '#4338CA',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '18px',
+              flexShrink: 0
+            }}>
+              🛡️
+            </div>
+            <span style={{ fontSize: '10.5px', color: '#4338CA', fontWeight: '800', backgroundColor: '#EEF2FF', padding: '3px 8px', borderRadius: '6px', border: '1px solid #C7D2FE' }}>
+              Strict
+            </span>
           </div>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#6D28D9', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+          <div style={{ marginTop: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Access Protocol
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '20px', fontWeight: '900', color: '#1E1B4B', lineHeight: '1' }}>
+              <div style={{ fontSize: '20px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 RBAC Live
               </div>
-              <span style={{ fontSize: '10.5px', color: '#7C3AED', fontWeight: '800', backgroundColor: '#EDE9FE', padding: '2px 7px', borderRadius: '6px' }}>
-                Strict
+              <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
+                Zero-Trust
               </span>
             </div>
           </div>
@@ -396,7 +541,7 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
 
       </div>
 
-      {/* 🌟 3. Filter Controls & Prominent Colorful Live Search Bar */}
+      {/* 🌟 3. Filter Controls & Executive Search Bar */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -404,15 +549,15 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
         flexWrap: 'wrap',
         gap: '12px',
         backgroundColor: '#FFFFFF',
-        padding: '12px 18px',
-        borderRadius: '16px',
-        border: '1.5px solid #FECDD3',
-        boxShadow: '0 4px 16px rgba(190, 18, 60, 0.04)'
+        padding: '12px 16px',
+        borderRadius: '14px',
+        border: '1.5px solid #E2E8F0',
+        boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)'
       }}>
         {/* Status Filters */}
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
           {[
-            { id: 'All', label: 'All', count: approvals.length, color: '#BE123C', bg: '#FFF1F2' },
+            { id: 'All', label: 'All', count: approvals.length, color: '#4338CA', bg: '#EEF2FF' },
             { id: 'Pending', label: 'Pending', count: pendingCount, color: '#D97706', bg: '#FFFBEB' },
             { id: 'Approved', label: 'Approved', count: approvedCount, color: '#059669', bg: '#ECFDF5' },
             { id: 'Rejected', label: 'Rejected', count: rejectedCount, color: '#DC2626', bg: '#FEF2F2' }
@@ -426,16 +571,16 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  padding: '7px 14px',
-                  borderRadius: '10px',
-                  fontSize: '11.5px',
+                  padding: '6px 14px',
+                  borderRadius: '8px',
+                  fontSize: '11px',
                   fontWeight: '800',
                   border: isSel ? `1.5px solid ${f.color}` : '1.2px solid #E2E8F0',
                   backgroundColor: isSel ? f.color : '#FFFFFF',
                   color: isSel ? '#FFFFFF' : '#475569',
                   cursor: 'pointer',
-                  transition: 'all 0.18s ease',
-                  boxShadow: isSel ? `0 2px 10px ${f.color}35` : 'none'
+                  transition: 'all 0.15s ease',
+                  boxShadow: isSel ? `0 2px 8px ${f.color}35` : 'none'
                 }}
               >
                 <span>{f.label}</span>
@@ -443,8 +588,8 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
                   backgroundColor: isSel ? 'rgba(255,255,255,0.25)' : f.bg,
                   color: isSel ? '#FFFFFF' : f.color,
                   borderRadius: '8px',
-                  padding: '1px 7px',
-                  fontSize: '10px',
+                  padding: '1px 6px',
+                  fontSize: '9.5px',
                   fontWeight: '900'
                 }}>
                   {f.count}
@@ -454,23 +599,19 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
           })}
         </div>
 
-        {/* Large, Colorful & Deeply Filtered Search Input */}
-        <div style={{ position: 'relative', flex: '1 1 320px', maxWidth: '460px' }}>
+        {/* Clean Executive Search Bar */}
+        <div style={{ position: 'relative', flex: '1 1 280px', maxWidth: '420px' }}>
           <div style={{
             position: 'absolute',
             left: '12px',
             top: '50%',
             transform: 'translateY(-50%)',
-            width: '28px',
-            height: '28px',
-            borderRadius: '8px',
-            background: 'linear-gradient(135deg, #BE123C 0%, #E11D48 100%)',
-            color: '#FFFFFF',
+            color: '#64748B',
+            fontSize: '13px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '13px',
-            boxShadow: '0 2px 6px rgba(190, 18, 60, 0.3)'
+            pointerEvents: 'none'
           }}>
             🔍
           </div>
@@ -481,25 +622,26 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
             onChange={e => setSearch(e.target.value)}
             style={{
               width: '100%',
-              padding: '11px 14px 11px 48px',
-              borderRadius: '12px',
-              border: '1.5px solid #FECDD3',
-              backgroundColor: '#FFFFFF',
-              fontSize: '12.5px',
+              padding: '9px 14px 9px 38px',
+              borderRadius: '10px',
+              border: '1.5px solid #E2E8F0',
+              backgroundColor: '#F8FAFC',
+              fontSize: '12px',
               fontWeight: '600',
               color: '#0F172A',
               outline: 'none',
               boxSizing: 'border-box',
-              boxShadow: '0 2px 8px rgba(190, 18, 60, 0.06)',
               transition: 'all 0.2s ease'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = '#BE123C';
-              e.target.style.boxShadow = '0 0 0 3px rgba(190, 18, 60, 0.18)';
+              e.target.style.borderColor = '#4338CA';
+              e.target.style.backgroundColor = '#FFFFFF';
+              e.target.style.boxShadow = '0 0 0 3px rgba(67, 56, 202, 0.12)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = '#FECDD3';
-              e.target.style.boxShadow = '0 2px 8px rgba(190, 18, 60, 0.06)';
+              e.target.style.borderColor = '#E2E8F0';
+              e.target.style.backgroundColor = '#F8FAFC';
+              e.target.style.boxShadow = 'none';
             }}
           />
         </div>
@@ -546,8 +688,8 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
                   style={{
                     backgroundColor: '#FFFFFF',
                     borderRadius: '16px',
-                    border: isPending ? '1.5px solid #FCD34D' : '1.5px solid #E2E8F0',
-                    boxShadow: isPending ? '0 6px 20px rgba(217, 119, 6, 0.08)' : '0 4px 16px rgba(15, 23, 42, 0.04)',
+                    border: '1.5px solid #E2E8F0',
+                    boxShadow: '0 4px 18px rgba(15, 23, 42, 0.04)',
                     padding: '16px',
                     display: 'flex',
                     flexDirection: 'column',
@@ -557,18 +699,14 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
                     animation: `subtleApprFadeUp 0.4s ease-out ${idx * 0.04}s both`
                   }}
                 >
-                  {/* Top Colorful Accent Gradient Line */}
+                  {/* Top Subtle Accent Line */}
                   <div style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     right: 0,
                     height: '3.5px',
-                    background: isPending
-                      ? 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%)'
-                      : a.status === 'Approved'
-                      ? 'linear-gradient(90deg, #10B981 0%, #34D399 100%)'
-                      : 'linear-gradient(90deg, #EF4444 0%, #F87171 100%)'
+                    background: '#4338CA'
                   }} />
 
                   <div>
@@ -735,126 +873,198 @@ export default function ApprovalsTab({ approvals = [], onUpdateApproval }) {
           )}
         </div>
       ) : (
-        /* Classic List Table View */
-        <div className="table-responsive" style={{
+        /* Executive SaaS List Table View - Clean, High Contrast & Polished */
+        <div style={{
           backgroundColor: '#FFFFFF',
-          borderRadius: '14px',
-          border: '1.2px solid var(--border)',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
+          borderRadius: '16px',
+          border: '1.5px solid #E2E8F0',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
           overflow: 'hidden'
         }}>
-          <table style={{ width: '100%', minWidth: '600px', borderCollapse: 'collapse', textAlign: 'left' }}>
-            <thead>
-              <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.2px solid var(--border)' }}>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>TYPE</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>APPLICANT</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>SPECIFICATION</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>STATUS</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B', textAlign: 'right' }}>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredApprovals.length === 0 ? (
-                <tr>
-                  <td colSpan="5" style={{ padding: '24px', textAlign: 'center', color: '#94A3B8', fontSize: '11.5px' }}>
-                    No compliance records.
-                  </td>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', minWidth: '780px', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid #E2E8F0' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>REQUEST TYPE</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>APPLICANT</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>SPECIFICATION & DETAILS</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>STATUS</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'right' }}>ACTIONS</th>
                 </tr>
-              ) : (
-                filteredApprovals.map(a => {
-                  const typeTheme = getTypeTheme(a.requestType);
-                  const statusTheme = getStatusBadge(a.status);
-                  const isPending = (a.status || 'Pending').toLowerCase() === 'pending';
+              </thead>
+              <tbody>
+                {filteredApprovals.length === 0 ? (
+                  <tr>
+                    <td colSpan="5" style={{ padding: '40px', textAlign: 'center', color: '#64748B', fontSize: '12.5px', fontWeight: '600' }}>
+                      <div style={{ fontSize: '30px', marginBottom: '8px' }}>⚖️</div>
+                      No compliance records found matching your filters.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredApprovals.map((a, idx) => {
+                    const typeTheme = getTypeTheme(a.requestType);
+                    const statusTheme = getStatusBadge(a.status);
+                    const isPending = (a.status || 'Pending').toLowerCase() === 'pending';
+                    const isEven = idx % 2 === 0;
+                    const requestorName = a.requestedByName || a.requestedBy?.name || a.employee?.name || 'Applicant';
+                    const requestorEmail = a.requestedBy?.email || a.employee?.email;
 
-                  return (
-                    <tr key={a._id} style={{ borderBottom: '1px solid #F1F5F9' }}>
-                      <td style={{ padding: '8px 12px' }}>
-                        <span style={{
-                          backgroundColor: typeTheme.bg,
-                          color: typeTheme.color,
-                          border: `1px solid ${typeTheme.border}`,
-                          fontSize: '10px',
-                          fontWeight: '800',
-                          padding: '2px 6px',
-                          borderRadius: '4px'
-                        }}>
-                          {a.requestType || 'KYC Check'}
-                        </span>
-                      </td>
-
-                      <td style={{ padding: '8px 12px' }}>
-                        <div style={{ fontWeight: '800', fontSize: '12px', color: '#0F172A' }}>
-                          {a.requestedByName || a.requestedBy?.name || a.employee?.name || 'Applicant'}
-                        </div>
-                        <div style={{ fontSize: '10px', color: '#94A3B8' }}>
-                          {a.requestedBy?.email || a.employee?.email}
-                        </div>
-                      </td>
-
-                      <td style={{ padding: '8px 12px', fontSize: '11.5px', color: '#334155' }}>
-                        {a.subject || a.description || 'Verification review'}
-                      </td>
-
-                      <td style={{ padding: '8px 12px' }}>
-                        <span style={{
-                          backgroundColor: statusTheme.bg,
-                          color: statusTheme.color,
-                          border: `1px solid ${statusTheme.border}`,
-                          fontSize: '9.5px',
-                          fontWeight: '900',
-                          padding: '2px 6px',
-                          borderRadius: '4px'
-                        }}>
-                          {statusTheme.text}
-                        </span>
-                      </td>
-
-                      <td style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        {isPending ? (
-                          <div style={{ display: 'flex', gap: '5px', justifyContent: 'flex-end' }}>
-                            <button
-                              onClick={() => handleDecision(a._id, 'Approved')}
-                              style={{
-                                backgroundColor: '#ECFDF5',
-                                border: '1px solid #34D399',
-                                color: '#059669',
-                                fontSize: '10.5px',
-                                fontWeight: '900',
-                                padding: '4px 8px',
-                                borderRadius: '5px',
-                                cursor: 'pointer'
-                              }}
-                            >
-                              ✓ Approve
-                            </button>
-                            <button
-                              onClick={() => handleDecision(a._id, 'Rejected')}
-                              style={{
-                                backgroundColor: '#FEE2E2',
-                                border: '1px solid #FCA5A5',
-                                color: '#DC2626',
-                                fontSize: '10.5px',
-                                fontWeight: '900',
-                                padding: '4px 8px',
-                                borderRadius: '5px',
-                                cursor: 'pointer'
-                              }}
-                            >
-                              ✕ Reject
-                            </button>
-                          </div>
-                        ) : (
-                          <span style={{ fontSize: '10.5px', color: '#94A3B8', fontWeight: '700' }}>
-                            Resolved
+                    return (
+                      <tr
+                        key={a._id || idx}
+                        className="table-row-approval"
+                        style={{
+                          borderBottom: '1px solid #F1F5F9',
+                          backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC'
+                        }}
+                      >
+                        {/* 1. Request Type */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <span style={{
+                            backgroundColor: '#EEF2FF',
+                            color: '#4338CA',
+                            border: '1px solid #C7D2FE',
+                            fontSize: '11px',
+                            fontWeight: '800',
+                            padding: '4px 10px',
+                            borderRadius: '6px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px'
+                          }}>
+                            <span>{typeTheme.icon}</span>
+                            <span>{a.requestType || 'KYC Check'}</span>
                           </span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
+                        </td>
+
+                        {/* 2. Applicant */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <div style={{
+                              width: '36px',
+                              height: '36px',
+                              borderRadius: '9px',
+                              background: 'linear-gradient(135deg, #4338CA 0%, #312E81 100%)',
+                              color: '#FFFFFF',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontWeight: '900',
+                              fontSize: '14px',
+                              boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+                              flexShrink: 0
+                            }}>
+                              {requestorName?.[0]?.toUpperCase() || 'A'}
+                            </div>
+                            <div>
+                              <div style={{ fontWeight: '800', fontSize: '13px', color: '#0F172A' }}>
+                                {requestorName}
+                              </div>
+                              <div style={{ fontSize: '11px', color: '#64748B', marginTop: '1px' }}>
+                                {requestorEmail || 'No Email Listed'}
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+
+                        {/* 3. Specification */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ fontSize: '12.5px', fontWeight: '700', color: '#1E293B' }}>
+                            {a.subject || a.description || 'Verification review'}
+                          </div>
+                          {a.description && a.description !== a.subject && (
+                            <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>
+                              {a.description}
+                            </div>
+                          )}
+                        </td>
+
+                        {/* 4. Status Badge */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <span style={{
+                            backgroundColor: statusTheme.bg,
+                            color: statusTheme.color,
+                            border: `1px solid ${statusTheme.border}`,
+                            fontSize: '10px',
+                            fontWeight: '900',
+                            padding: '3px 8px',
+                            borderRadius: '12px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            letterSpacing: '0.4px'
+                          }}>
+                            <span>{statusTheme.icon}</span>
+                            <span>{statusTheme.text}</span>
+                          </span>
+                        </td>
+
+                        {/* 5. Modern Actions */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle', textAlign: 'right' }}>
+                          {isPending ? (
+                            <div style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end', alignItems: 'center' }}>
+                              <button
+                                className="approval-btn-approve"
+                                onClick={() => handleDecision(a._id, 'Approved')}
+                                style={{
+                                  backgroundColor: '#ECFDF5',
+                                  border: '1.2px solid #A7F3D0',
+                                  color: '#059669',
+                                  fontSize: '11px',
+                                  fontWeight: '900',
+                                  padding: '6px 12px',
+                                  borderRadius: '7px',
+                                  cursor: 'pointer',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px',
+                                  transition: 'all 0.18s ease'
+                                }}
+                              >
+                                <span>✓</span> Approve
+                              </button>
+                              <button
+                                className="approval-btn-reject"
+                                onClick={() => handleDecision(a._id, 'Rejected')}
+                                style={{
+                                  backgroundColor: '#FEF2F2',
+                                  border: '1.2px solid #FECACA',
+                                  color: '#DC2626',
+                                  fontSize: '11px',
+                                  fontWeight: '900',
+                                  padding: '6px 12px',
+                                  borderRadius: '7px',
+                                  cursor: 'pointer',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '4px',
+                                  transition: 'all 0.18s ease'
+                                }}
+                              >
+                                <span>✕</span> Reject
+                              </button>
+                            </div>
+                          ) : (
+                            <span style={{
+                              fontSize: '11px',
+                              color: '#94A3B8',
+                              fontWeight: '700',
+                              backgroundColor: '#F8FAFC',
+                              padding: '4px 10px',
+                              borderRadius: '6px',
+                              border: '1px solid #E2E8F0'
+                            }}>
+                              Resolved
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 

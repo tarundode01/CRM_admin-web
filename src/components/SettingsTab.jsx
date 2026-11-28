@@ -155,42 +155,99 @@ export default function SettingsTab({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', position: 'relative' }}>
       
-      {/* 🌟 CSS Keyframe Animations */}
+      {/* 🌟 CSS Keyframe Animations & Responsive Rules */}
       <style>{`
         @keyframes pulseConfigAmbient {
-          0% { transform: scale(0.98); opacity: 0.8; }
-          50% { transform: scale(1.02); opacity: 1; }
-          100% { transform: scale(0.98); opacity: 0.8; }
+          0% { transform: scale(0.98); opacity: 0.75; }
+          50% { transform: scale(1.03); opacity: 1; }
+          100% { transform: scale(0.98); opacity: 0.75; }
+        }
+        @keyframes shimmerConfigAccent {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
         }
         @keyframes subtleSettingsFadeUp {
-          from { opacity: 0; transform: translateY(6px); }
+          from { opacity: 0; transform: translateY(8px); }
           to { opacity: 1; transform: translateY(0); }
         }
         .config-bento-card {
-          transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
         .config-bento-card:hover {
-          transform: translateY(-3px);
+          transform: translateY(-3px) !important;
+          box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
+        }
+        .config-metric-card {
+          transition: all 0.22s ease !important;
+        }
+        .config-metric-card:hover {
+          transform: translateY(-3px) !important;
           box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08) !important;
+        }
+        .config-btn-glow {
+          transition: all 0.2s ease !important;
+        }
+        .config-btn-glow:hover {
+          transform: translateY(-1px) scale(1.02) !important;
+          opacity: 0.95 !important;
+        }
+        @media (max-width: 900px) {
+          .settings-metrics-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 10px !important;
+          }
+          .settings-split-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .settings-hero-banner {
+            padding: 14px 16px !important;
+          }
+          .settings-hero-title {
+            font-size: 17px !important;
+          }
+          .settings-metrics-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 8px !important;
+          }
+          .settings-metric-val {
+            font-size: 18px !important;
+          }
         }
       `}</style>
 
       {/* 🌟 1. Compact Sleek Gear Billboard Banner */}
-      <div style={{
-        background: 'linear-gradient(135deg, #1E293B 0%, #0F172A 50%, #020617 100%)',
-        borderRadius: '16px',
-        padding: '18px 24px',
-        color: '#FFFFFF',
-        boxShadow: '0 10px 30px rgba(15, 23, 42, 0.28)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '14px',
-        border: '1.5px solid rgba(148, 163, 184, 0.25)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
+      <div 
+        className="settings-hero-banner"
+        style={{
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
+          borderRadius: '18px',
+          padding: '20px 26px',
+          color: '#FFFFFF',
+          boxShadow: '0 10px 32px rgba(15, 23, 42, 0.25)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '14px',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        {/* Shimmer Accent Line */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3.5px',
+          background: 'linear-gradient(90deg, #4338CA, #6366F1, #818CF8, #4338CA)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmerConfigAccent 3.5s linear infinite'
+        }} />
+
         {/* Glow ambient background sphere */}
         <div style={{
           position: 'absolute',
@@ -199,7 +256,7 @@ export default function SettingsTab({
           width: '180px',
           height: '180px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(148, 163, 184, 0.3) 0%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(circle, rgba(129, 140, 248, 0.3) 0%, rgba(0,0,0,0) 70%)',
           pointerEvents: 'none',
           animation: 'pulseConfigAmbient 5s ease-in-out infinite'
         }} />
@@ -209,22 +266,24 @@ export default function SettingsTab({
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.18)',
-            padding: '3px 12px',
+            background: 'rgba(255,255,255,0.12)',
+            padding: '4px 12px',
             borderRadius: '20px',
-            fontSize: '11px',
+            fontSize: '10.5px',
             fontWeight: '900',
             letterSpacing: '0.6px',
-            marginBottom: '5px',
-            backdropFilter: 'blur(6px)'
+            marginBottom: '6px',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255, 255, 255, 0.18)',
+            color: '#E0E7FF'
           }}>
             <span>⚙️</span> ORGANIZATION SETTINGS & DATA TOOLS
           </div>
-          <h2 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.4px', textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+          <h2 className="settings-hero-title" style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.4px', color: '#FFFFFF' }}>
             CRM Configuration & Data Export Hub
           </h2>
-          <p style={{ fontSize: '12.5px', color: '#D1D5DB', margin: '4px 0 0 0', fontWeight: '500', maxWidth: '580px' }}>
-            Manage company profile, business rules, working hours, and 1-click CSV/Excel data export
+          <p style={{ fontSize: '12px', color: '#C7D2FE', margin: '4px 0 0 0', fontWeight: '500', maxWidth: '580px' }}>
+            Manage company profile, dispatch business rules, working hours, and 1-click CSV/Excel data export.
           </p>
         </div>
 
@@ -241,7 +300,7 @@ export default function SettingsTab({
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            animation: 'menuSlideIn 0.25s ease'
+            animation: 'subtleSettingsFadeUp 0.25s ease'
           }}>
             <span style={{ fontSize: '14px' }}>✓</span> {saveMessage}
           </div>
@@ -249,7 +308,7 @@ export default function SettingsTab({
       </div>
 
       {/* 🌟 2. Spacious 4-Col KPI Metrics */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
+      <div className="settings-metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         
         {/* Metric 1 */}
         <div style={{
@@ -433,7 +492,7 @@ export default function SettingsTab({
 
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
+      <div className="settings-split-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '14px' }}>
         
         {/* Smart Lead Assignment Strategy Card */}
         <div style={{
@@ -694,6 +753,7 @@ export default function SettingsTab({
             </div>
 
             <button
+              className="config-btn-glow"
               type="submit"
               style={{
                 marginTop: '8px',
@@ -822,6 +882,7 @@ export default function SettingsTab({
                     </span>
                   </div>
                   <button
+                    className="config-btn-glow"
                     onClick={() => handleExportCSV(item.id)}
                     style={{
                       background: item.color,
@@ -850,3 +911,4 @@ export default function SettingsTab({
     </div>
   );
 }
+

@@ -86,7 +86,7 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
       <div 
         className="meetings-hero-banner"
         style={{
-          background: 'linear-gradient(135deg, #0C4A6E 0%, #0369A1 40%, #0284C7 75%, #0EA5E9 100%)',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
           borderRadius: '16px',
           padding: '18px 22px',
           color: '#FFFFFF',
@@ -95,31 +95,32 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '12px',
-          border: '1.5px solid rgba(186, 230, 253, 0.4)',
+          border: '1.5px solid rgba(255, 255, 255, 0.12)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.12)'
         }}
       >
-        {/* Animated Top Spectrum Line */}
+        {/* Animated Top Indigo Spectrum Line */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           height: '4px',
-          background: 'linear-gradient(90deg, #0EA5E9 0%, #38BDF8 25%, #10B981 50%, #6366F1 75%, #EC4899 100%)'
+          background: '#4338CA'
         }} />
 
         {/* Ambient Glow Orbs */}
-        <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '160px', height: '160px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-30px', left: '20%', width: '130px', height: '130px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '160px', height: '160px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-30px', left: '20%', width: '130px', height: '130px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(67, 56, 202, 0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.18)',
+            background: 'rgba(255,255,255,0.12)',
             backdropFilter: 'blur(8px)',
             padding: '4px 10px',
             borderRadius: '16px',
@@ -127,14 +128,14 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
             fontWeight: '900',
             letterSpacing: '0.5px',
             marginBottom: '6px',
-            border: '1px solid rgba(255,255,255,0.25)'
+            border: '1px solid rgba(255,255,255,0.2)'
           }}>
             <span>📅</span> SCHEDULED CONSULTATIONS & MEETS
           </div>
           <h2 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             Executive Appointments Desk
           </h2>
-          <p style={{ fontSize: '12px', color: '#E0F2FE', margin: '3px 0 0 0', fontWeight: '500', opacity: 0.95 }}>
+          <p style={{ fontSize: '12px', color: '#C7D2FE', margin: '3px 0 0 0', fontWeight: '500', opacity: 0.9 }}>
             Track client calls, online demonstrations, and physical meetings scheduled across all accounts
           </p>
         </div>
@@ -147,16 +148,16 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
           zIndex: 2
         }}>
           <div style={{
-            background: 'rgba(255,255,255,0.16)',
+            background: 'rgba(255,255,255,0.14)',
             backdropFilter: 'blur(10px)',
-            borderRadius: '14px',
-            padding: '10px 18px',
+            borderRadius: '12px',
+            padding: '8px 18px',
             textAlign: 'center',
-            border: '1px solid rgba(255,255,255,0.3)',
+            border: '1px solid rgba(255,255,255,0.25)',
             boxShadow: '0 4px 14px rgba(0,0,0,0.15)'
           }}>
-            <span style={{ fontSize: '10px', color: '#BAE6FD', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.4px', display: 'block' }}>Total Meetings</span>
-            <span style={{ fontSize: '22px', fontWeight: '900', color: '#FFFFFF' }}>{meetings.length}</span>
+            <span style={{ fontSize: '9.5px', color: '#C7D2FE', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block' }}>Total Meetings</span>
+            <span style={{ fontSize: '20px', fontWeight: '900', color: '#FFFFFF' }}>{meetings.length}</span>
           </div>
         </div>
       </div>
@@ -164,7 +165,7 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
       {/* 🌟 2. Telemetry Intelligence Metric Cards (Spacious, Clear & Animated Bento) */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
         {[
-          { label: 'All Consultations', val: counts.all, color: '#0284C7', bg: '#F0F9FF', icon: '📅', border: '#BAE6FD', sub: 'Total Records' },
+          { label: 'All Consultations', val: counts.all, color: '#4338CA', bg: '#EEF2FF', icon: '📅', border: '#C7D2FE', sub: 'Total Records' },
           { label: 'Scheduled / Upcoming', val: counts.scheduled, color: '#2563EB', bg: '#EFF6FF', icon: '⏳', border: '#BFDBFE', sub: 'Action Required' },
           { label: 'Completed Meets', val: counts.completed, color: '#059669', bg: '#ECFDF5', icon: '✓', border: '#A7F3D0', sub: 'Successfully Closed' },
           { label: 'Cancelled / Rescheduled', val: counts.cancelled, color: '#DC2626', bg: '#FEF2F2', icon: '✕', border: '#FECACA', sub: 'Need Follow-up' }
@@ -177,23 +178,26 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
               overflow: 'hidden',
               backgroundColor: '#FFFFFF',
               borderRadius: '16px',
-              border: `1.5px solid ${card.border}`,
-              padding: '14px 16px',
-              boxShadow: '0 4px 14px rgba(0,0,0,0.03)',
+              border: '1.5px solid #E2E8F0',
+              padding: '16px 18px',
+              boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              minHeight: '95px',
+              minHeight: '100px',
               cursor: 'default',
+              transition: 'all 0.25s ease',
               animationDelay: `${idx * 0.05}s`
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = card.color;
-              e.currentTarget.style.boxShadow = `0 10px 24px ${card.color}22`;
+              e.currentTarget.style.borderColor = '#4338CA';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 8px 20px rgba(67, 56, 202, 0.12)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = card.border;
-              e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.03)';
+              e.currentTarget.style.borderColor = '#E2E8F0';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(15, 23, 42, 0.03)';
             }}
           >
             {/* Ambient Card Accent Stripe */}
@@ -203,22 +207,22 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
               left: 0,
               right: 0,
               height: '3.5px',
-              background: card.color
+              background: '#4338CA'
             }} />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
               <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '10px',
+                width: '42px',
+                height: '42px',
+                borderRadius: '12px',
                 backgroundColor: card.bg,
                 color: card.color,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '18px',
+                fontSize: '19px',
                 fontWeight: 'bold',
-                flexShrink: 0,
-                boxShadow: `0 2px 6px ${card.color}20`
+                border: `1.2px solid ${card.border}`,
+                flexShrink: 0
               }}>
                 {card.icon}
               </div>
@@ -227,19 +231,19 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                 fontWeight: '800',
                 color: card.color,
                 backgroundColor: card.bg,
-                padding: '2px 7px',
-                borderRadius: '6px',
+                padding: '3px 8px',
+                borderRadius: '7px',
                 border: `1px solid ${card.border}`,
                 whiteSpace: 'nowrap'
               }}>
                 {card.sub}
               </span>
             </div>
-            <div style={{ marginTop: '8px' }}>
-              <div style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.4px' }}>
+            <div style={{ marginTop: '10px' }}>
+              <div style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '800', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 {card.label}
               </div>
-              <div style={{ fontSize: '22px', fontWeight: '900', color: card.color, lineHeight: '1.2' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1.2', marginTop: '2px' }}>
                 {card.val}
               </div>
             </div>
@@ -253,33 +257,16 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
-        gap: '12px',
-        background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)',
-        padding: '12px 16px',
+        gap: '10px',
+        backgroundColor: '#FFFFFF',
+        padding: '10px 14px',
         borderRadius: '14px',
-        border: '1.5px solid #CBD5E1',
-        boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)'
+        border: '1.5px solid #E2E8F0',
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
       }}>
-        {/* Colorful & Attractive Search Bar */}
+        {/* Search Bar */}
         <div style={{ position: 'relative', flex: '1 1 260px', maxWidth: '420px' }}>
-          <div style={{
-            position: 'absolute',
-            left: '10px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '24px',
-            height: '24px',
-            borderRadius: '6px',
-            background: 'linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%)',
-            color: '#FFFFFF',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '11px',
-            boxShadow: '0 2px 6px rgba(2, 132, 199, 0.3)'
-          }}>
-            🔍
-          </div>
+          <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', fontSize: '13px', color: '#94A3B8' }}>🔍</span>
           <input
             type="text"
             placeholder="Search meetings by client name, subject, or type..."
@@ -287,25 +274,15 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
             onChange={e => setSearch(e.target.value)}
             style={{
               width: '100%',
-              padding: '9px 12px 9px 40px',
-              borderRadius: '10px',
-              border: '1.5px solid #BAE6FD',
-              backgroundColor: '#FFFFFF',
-              fontSize: '12px',
+              padding: '7px 12px 7px 34px',
+              borderRadius: '9px',
+              border: '1.5px solid #E2E8F0',
+              backgroundColor: '#F8FAFC',
+              fontSize: '11.5px',
               fontWeight: '600',
               color: '#0F172A',
               outline: 'none',
-              boxSizing: 'border-box',
-              boxShadow: '0 2px 6px rgba(2, 132, 199, 0.06)',
-              transition: 'all 0.2s ease'
-            }}
-            onFocus={(e) => {
-              e.target.style.borderColor = '#0284C7';
-              e.target.style.boxShadow = '0 0 0 3px rgba(2, 132, 199, 0.15)';
-            }}
-            onBlur={(e) => {
-              e.target.style.borderColor = '#BAE6FD';
-              e.target.style.boxShadow = '0 2px 6px rgba(2, 132, 199, 0.06)';
+              boxSizing: 'border-box'
             }}
           />
         </div>
@@ -313,7 +290,7 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
         {/* Filter Pills with Counts */}
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
           {[
-            { id: 'All', label: 'All', count: counts.all, color: '#0284C7', bg: '#E0F2FE' },
+            { id: 'All', label: 'All', count: counts.all, color: '#4338CA', bg: '#EEF2FF' },
             { id: 'Scheduled', label: 'Scheduled', count: counts.scheduled, color: '#2563EB', bg: '#EFF6FF' },
             { id: 'Completed', label: 'Completed', count: counts.completed, color: '#059669', bg: '#ECFDF5' },
             { id: 'Cancelled', label: 'Cancelled', count: counts.cancelled, color: '#DC2626', bg: '#FEF2F2' }
@@ -327,7 +304,7 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
-                  padding: '6px 12px',
+                  padding: '5px 12px',
                   borderRadius: '8px',
                   border: isSelected ? `1.5px solid ${f.color}` : '1.2px solid #E2E8F0',
                   background: isSelected ? f.color : '#FFFFFF',
@@ -335,8 +312,20 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                   fontSize: '11px',
                   fontWeight: '800',
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease',
+                  transition: 'all 0.18s ease',
                   boxShadow: isSelected ? `0 2px 8px ${f.color}35` : 'none'
+                }}
+                onMouseEnter={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#E2E8F0';
+                  }
                 }}
               >
                 <span>{f.label}</span>
@@ -361,7 +350,7 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '12px'
+          gap: '14px'
         }}>
           {filteredMeetings.map(m => {
             const badge = getStatusBadge(m.status);
@@ -372,74 +361,100 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                 key={m._id}
                 style={{
                   background: '#FFFFFF',
-                  borderRadius: '14px',
-                  border: '1.2px solid #E2E8F0',
-                  padding: '14px',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                  borderRadius: '16px',
+                  border: '1.5px solid #E2E8F0',
+                  padding: '16px 18px',
+                  boxShadow: '0 4px 18px rgba(15, 23, 42, 0.03)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '10px',
+                  gap: '12px',
                   position: 'relative',
-                  borderTop: '3.5px solid #0284C7'
+                  overflow: 'hidden',
+                  transition: 'all 0.25s ease'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.borderColor = '#C7D2FE';
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(67, 56, 202, 0.08)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = '#E2E8F0';
+                  e.currentTarget.style.boxShadow = '0 4px 18px rgba(15, 23, 42, 0.03)';
                 }}
               >
+                {/* Top Accent Stripe */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '3.5px',
+                  background: '#4338CA'
+                }} />
+
                 {/* Header */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                   <div>
                     <span style={{
                       fontSize: '10px',
                       fontWeight: '800',
-                      color: '#0284C7',
-                      background: '#E0F2FE',
-                      padding: '2px 7px',
+                      color: '#4338CA',
+                      background: '#EEF2FF',
+                      border: '1px solid #C7D2FE',
+                      padding: '2px 8px',
                       borderRadius: '6px'
                     }}>
-                      {m.meetingType || 'Google Meet / Zoom'}
+                      {m.meetingType || 'Online (Google Meet / Zoom)'}
                     </span>
-                    <h4 style={{ margin: '6px 0 0 0', fontSize: '14px', fontWeight: '800', color: '#0F172A' }}>
+                    <h4 style={{ margin: '8px 0 0 0', fontSize: '15px', fontWeight: '900', color: '#0F172A', letterSpacing: '-0.2px' }}>
                       {m.subject || 'Consultation Discussion'}
                     </h4>
                   </div>
                   <span style={{
-                    fontSize: '10.5px',
+                    fontSize: '11px',
                     fontWeight: '800',
                     color: badge.color,
                     background: badge.bg,
-                    border: `1px solid ${badge.border}`,
-                    padding: '2px 8px',
-                    borderRadius: '8px',
-                    whiteSpace: 'nowrap'
+                    border: `1.2px solid ${badge.border}`,
+                    padding: '3px 10px',
+                    borderRadius: '12px',
+                    whiteSpace: 'nowrap',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px'
                   }}>
                     {badge.icon} {badge.text}
                   </span>
                 </div>
 
-                {/* Details */}
+                {/* Details Card */}
                 <div style={{
                   background: '#F8FAFC',
-                  borderRadius: '10px',
-                  padding: '9px 12px',
+                  borderRadius: '12px',
+                  border: '1px solid #E2E8F0',
+                  padding: '10px 14px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '5px',
-                  fontSize: '11.5px',
+                  gap: '6px',
+                  fontSize: '12px',
                   color: '#475569'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span>👤</span>
                     <strong style={{ color: '#0F172A' }}>Client:</strong>
-                    <span>{m.customerId?.name || 'Valued Client'}</span>
-                    {m.customerId?.company && <span style={{ color: '#64748B' }}>({m.customerId.company})</span>}
+                    <span style={{ fontWeight: '700', color: '#1E293B' }}>{m.customerId?.name || 'Valued Client'}</span>
+                    {m.customerId?.company && <span style={{ color: '#64748B', fontWeight: '500' }}>({m.customerId.company})</span>}
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <span>📅</span>
                     <strong style={{ color: '#0F172A' }}>Date & Slot:</strong>
-                    <span style={{ color: '#0284C7', fontWeight: '700' }}>
+                    <span style={{ color: '#4338CA', fontWeight: '800' }}>
                       {m.preferredDate || 'TBD'} • {m.timeSlot || 'Anytime'}
                     </span>
                   </div>
                   {m.notes && (
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', marginTop: '2px' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginTop: '3px', borderTop: '1px dashed #E2E8F0', paddingTop: '6px' }}>
                       <span>📝</span>
                       <span style={{ fontStyle: 'italic', color: '#64748B' }}>"{m.notes}"</span>
                     </div>
@@ -454,7 +469,7 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                   paddingTop: '6px',
                   borderTop: '1px solid #F1F5F9'
                 }}>
-                  <span style={{ fontSize: '10px', color: '#94A3B8' }}>
+                  <span style={{ fontSize: '10.5px', color: '#94A3B8', fontWeight: '600' }}>
                     Created: {m.createdAt ? new Date(m.createdAt).toLocaleDateString() : 'Recent'}
                   </span>
 
@@ -465,14 +480,17 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                         disabled={isUpdating}
                         style={{
                           background: '#ECFDF5',
-                          border: '1px solid #A7F3D0',
+                          border: '1.2px solid #A7F3D0',
                           color: '#059669',
-                          padding: '4px 10px',
-                          borderRadius: '6px',
+                          padding: '5px 12px',
+                          borderRadius: '7px',
                           fontSize: '11px',
                           fontWeight: '800',
-                          cursor: 'pointer'
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease'
                         }}
+                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#D1FAE5'}
+                        onMouseLeave={e => e.currentTarget.style.backgroundColor = '#ECFDF5'}
                       >
                         ✓ Mark Done
                       </button>
@@ -483,14 +501,17 @@ export default function MeetingsTab({ meetings = [], onUpdateStatus }) {
                         disabled={isUpdating}
                         style={{
                           background: '#FEF2F2',
-                          border: '1px solid #FECACA',
+                          border: '1.2px solid #FECACA',
                           color: '#DC2626',
-                          padding: '4px 8px',
-                          borderRadius: '6px',
+                          padding: '5px 10px',
+                          borderRadius: '7px',
                           fontSize: '11px',
-                          fontWeight: '700',
-                          cursor: 'pointer'
+                          fontWeight: '800',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease'
                         }}
+                        onMouseEnter={e => e.currentTarget.style.backgroundColor = '#FEE2E2'}
+                        onMouseLeave={e => e.currentTarget.style.backgroundColor = '#FEF2F2'}
                       >
                         ✕ Cancel
                       </button>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function CustomersTab({ customers = [], leads = [], onToggleStatus, onDeleteCustomer, onUpdateCustomer, onOpenCustomerHistory }) {
   const [filterStatus, setFilterStatus] = useState('All');
   const [search, setSearch] = useState('');
-  const [viewMode, setViewMode] = useState('cards'); // 'cards' (Bento Grid) or 'table'
+  const [viewMode, setViewMode] = useState('table'); // 'cards' (Bento Grid) or 'table'
   const [togglingId, setTogglingId] = useState(null);
   const [editingCustomer, setEditingCustomer] = useState(null);
   const [editFormData, setEditFormData] = useState({ name: '', email: '', phone: '', company: '', businessType: '' });
@@ -84,81 +84,52 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
         @keyframes subtleFadeUp {
           from {
             opacity: 0;
-            transform: translateY(12px);
+            transform: translateY(10px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
-        @keyframes pulseCustBanner {
-          0%, 100% {
-            box-shadow: 0 8px 30px rgba(15, 118, 110, 0.28), 0 0 20px rgba(13, 148, 136, 0.2);
-          }
-          50% {
-            box-shadow: 0 14px 38px rgba(15, 118, 110, 0.4), 0 0 30px rgba(45, 212, 191, 0.35);
-          }
-        }
         .customers-hero-banner {
-          animation: subtleFadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards, pulseCustBanner 6s ease-in-out infinite;
+          animation: subtleFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .customer-bento-card {
-          animation: subtleFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-          transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+          animation: subtleFadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+          transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .customer-bento-card:hover {
-          transform: translateY(-4px) scale(1.015);
+          transform: translateY(-3px);
         }
       `}</style>
 
-      {/* 🌟 1. Executive Emerald/Teal Billboard Banner */}
+      {/* 🌟 1. Executive Midnight Royal Indigo Billboard Banner */}
       <div 
         className="customers-hero-banner"
         style={{
-          background: 'linear-gradient(135deg, #134E4A 0%, #115E59 35%, #0F766E 70%, #0D9488 100%)',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
           borderRadius: '16px',
-          padding: '18px 22px',
+          padding: '20px 24px',
           color: '#FFFFFF',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '12px',
-          border: '1.5px solid rgba(153, 246, 228, 0.4)',
+          gap: '14px',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          boxShadow: '0 8px 30px rgba(15, 23, 42, 0.22)'
         }}
       >
-        {/* Animated Top Spectrum Line */}
+        {/* Sleek Royal Indigo Top Accent Line */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
-          height: '4px',
-          background: 'linear-gradient(90deg, #0D9488 0%, #2DD4BF 25%, #F59E0B 50%, #6366F1 75%, #EC4899 100%)'
-        }} />
-
-        {/* Glow ambient background spheres */}
-        <div style={{
-          position: 'absolute',
-          top: '-40px',
-          right: '-40px',
-          width: '160px',
-          height: '160px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(94, 234, 212, 0.45) 0%, rgba(0,0,0,0) 70%)',
-          pointerEvents: 'none'
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '-30px',
-          left: '20%',
-          width: '130px',
-          height: '130px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%)',
-          pointerEvents: 'none'
+          height: '3.5px',
+          background: 'linear-gradient(90deg, #4338CA 0%, #6366F1 50%, #818CF8 100%)'
         }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
@@ -166,22 +137,23 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.18)',
+            background: 'rgba(255, 255, 255, 0.12)',
             backdropFilter: 'blur(8px)',
             padding: '4px 10px',
             borderRadius: '16px',
             fontSize: '10px',
             fontWeight: '900',
-            letterSpacing: '0.5px',
+            letterSpacing: '0.6px',
             marginBottom: '6px',
-            border: '1px solid rgba(255,255,255,0.25)'
+            border: '1px solid rgba(255, 255, 255, 0.18)',
+            color: '#E0E7FF'
           }}>
             <span>🏢</span> ENTERPRISE CLIENT DIRECTORY
           </div>
           <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             Enterprise Clients & Accounts
           </h1>
-          <p style={{ margin: '3px 0 0 0', opacity: 0.95, fontSize: '12px', color: '#CCFBF1', fontWeight: '500' }}>
+          <p style={{ margin: '4px 0 0 0', opacity: 0.9, fontSize: '12px', color: '#C7D2FE', fontWeight: '500' }}>
             Verified corporate accounts, GSTIN tax credentials, and active portal authorizations.
           </p>
         </div>
@@ -190,28 +162,28 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
           {/* View Toggle */}
           <div style={{ 
             display: 'flex', 
-            backgroundColor: 'rgba(255,255,255,0.18)', 
+            backgroundColor: 'rgba(255, 255, 255, 0.12)', 
             backdropFilter: 'blur(8px)',
             borderRadius: '10px', 
             padding: '3px', 
-            border: '1px solid rgba(255,255,255,0.3)' 
+            border: '1px solid rgba(255, 255, 255, 0.2)' 
           }}>
             <button
               onClick={() => setViewMode('cards')}
               style={{
                 backgroundColor: viewMode === 'cards' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'cards' ? '#0F766E' : '#FFFFFF',
+                color: viewMode === 'cards' ? '#1E1B4B' : '#FFFFFF',
                 border: 'none',
                 borderRadius: '7px',
-                padding: '5px 12px',
+                padding: '6px 14px',
                 fontSize: '11px',
                 fontWeight: '900',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '4px',
-                boxShadow: viewMode === 'cards' ? '0 2px 6px rgba(0,0,0,0.18)' : 'none',
-                transition: 'all 0.15s ease'
+                gap: '5px',
+                boxShadow: viewMode === 'cards' ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                transition: 'all 0.18s ease'
               }}
             >
               <span>🗂️</span> Cards
@@ -220,18 +192,18 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
               onClick={() => setViewMode('table')}
               style={{
                 backgroundColor: viewMode === 'table' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'table' ? '#0F766E' : '#FFFFFF',
+                color: viewMode === 'table' ? '#1E1B4B' : '#FFFFFF',
                 border: 'none',
                 borderRadius: '7px',
-                padding: '5px 12px',
+                padding: '6px 14px',
                 fontSize: '11px',
                 fontWeight: '900',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '4px',
-                boxShadow: viewMode === 'table' ? '0 2px 6px rgba(0,0,0,0.18)' : 'none',
-                transition: 'all 0.15s ease'
+                gap: '5px',
+                boxShadow: viewMode === 'table' ? '0 2px 8px rgba(0,0,0,0.2)' : 'none',
+                transition: 'all 0.18s ease'
               }}
             >
               <span>📑</span> List
@@ -240,7 +212,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
 
           <div style={{
             backgroundColor: '#FFFFFF',
-            color: '#0F766E',
+            color: '#1E1B4B',
             fontSize: '12px',
             fontWeight: '900',
             padding: '7px 16px',
@@ -255,10 +227,10 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
         </div>
       </div>
 
-      {/* 🌟 2. Telemetry Intelligence Metric Cards (Spacious, Clear & Animated Bento) */}
+      {/* 🌟 2. Telemetry Intelligence Metric Cards (Executive Crisp White SaaS Cards) */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px' }}>
         
-        {/* Metric 1 */}
+        {/* Metric 1 - Total Clients */}
         <div 
           className="customer-bento-card"
           style={{
@@ -266,24 +238,22 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #99F6E4',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(15, 118, 110, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5FDFB 50%, #F0FDFA 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             minHeight: '105px',
-            cursor: 'default',
-            animationDelay: '0.05s'
+            cursor: 'default'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#0D9488';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(13, 148, 136, 0.22)';
+            e.currentTarget.style.borderColor = '#4338CA';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(67, 56, 202, 0.12)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#99F6E4';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 118, 110, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.03)';
           }}
         >
           <div style={{
@@ -291,21 +261,21 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #0F766E 0%, #0D9488 50%, #2DD4BF 100%)'
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #4338CA 0%, #6366F1 100%)'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
-              width: '46px',
-              height: '46px',
+              width: '42px',
+              height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #0F766E 0%, #0D9488 100%)',
-              color: '#FFFFFF',
+              background: '#EEF2FF',
+              color: '#4338CA',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(13, 148, 136, 0.35)',
+              fontSize: '18px',
+              border: '1.2px solid #C7D2FE',
               flexShrink: 0
             }}>
               🏢
@@ -313,22 +283,22 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             <span style={{
               fontSize: '10.5px',
               fontWeight: '800',
-              color: '#0F766E',
-              backgroundColor: '#CCFBF1',
+              color: '#4338CA',
+              backgroundColor: '#EEF2FF',
               padding: '3px 8px',
-              borderRadius: '7px',
-              border: '1px solid #99F6E4',
+              borderRadius: '6px',
+              border: '1px solid #C7D2FE',
               whiteSpace: 'nowrap'
             }}>
               Directory
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#0F766E', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Total Clients
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#134E4A', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {customers.length}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -338,7 +308,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
           </div>
         </div>
 
-        {/* Metric 2 */}
+        {/* Metric 2 - Active Portals */}
         <div 
           className="customer-bento-card"
           style={{
@@ -346,24 +316,22 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #A7F3D0',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(5, 150, 105, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5FDF8 50%, #ECFDF5 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             minHeight: '105px',
-            cursor: 'default',
-            animationDelay: '0.1s'
+            cursor: 'default'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = '#10B981';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(16, 185, 129, 0.22)';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(16, 185, 129, 0.12)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#A7F3D0';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(5, 150, 105, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.03)';
           }}
         >
           <div style={{
@@ -371,21 +339,21 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #059669 0%, #10B981 50%, #34D399 100%)'
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #059669 0%, #10B981 100%)'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
-              width: '46px',
-              height: '46px',
+              width: '42px',
+              height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #047857 0%, #10B981 100%)',
-              color: '#FFFFFF',
+              background: '#ECFDF5',
+              color: '#059669',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.35)',
+              fontSize: '18px',
+              border: '1.2px solid #A7F3D0',
               flexShrink: 0
             }}>
               ✓
@@ -394,9 +362,9 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
               fontSize: '10.5px',
               fontWeight: '800',
               color: '#047857',
-              backgroundColor: '#D1FAE5',
+              backgroundColor: '#ECFDF5',
               padding: '3px 8px',
-              borderRadius: '7px',
+              borderRadius: '6px',
               border: '1px solid #A7F3D0',
               whiteSpace: 'nowrap'
             }}>
@@ -404,11 +372,11 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#047857', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Active Portals
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#064E3B', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {activeCount}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -418,7 +386,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
           </div>
         </div>
 
-        {/* Metric 3 */}
+        {/* Metric 3 - Suspended */}
         <div 
           className="customer-bento-card"
           style={{
@@ -426,24 +394,22 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #FDE68A',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(217, 119, 6, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFDF7 50%, #FEF3C7 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             minHeight: '105px',
-            cursor: 'default',
-            animationDelay: '0.15s'
+            cursor: 'default'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = '#F59E0B';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(245, 158, 11, 0.22)';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(245, 158, 11, 0.12)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#FDE68A';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(217, 119, 6, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.03)';
           }}
         >
           <div style={{
@@ -451,21 +417,21 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%)'
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 100%)'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
-              width: '46px',
-              height: '46px',
+              width: '42px',
+              height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #B45309 0%, #F59E0B 100%)',
-              color: '#FFFFFF',
+              background: '#FFFBEB',
+              color: '#D97706',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(245, 158, 11, 0.35)',
+              fontSize: '18px',
+              border: '1.2px solid #FDE68A',
               flexShrink: 0
             }}>
               ⏸
@@ -476,7 +442,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
               color: '#B45309',
               backgroundColor: '#FEF3C7',
               padding: '3px 8px',
-              borderRadius: '7px',
+              borderRadius: '6px',
               border: '1px solid #FDE68A',
               whiteSpace: 'nowrap'
             }}>
@@ -484,11 +450,11 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#B45309', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Suspended
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#78350F', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 {suspendedCount}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -498,7 +464,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
           </div>
         </div>
 
-        {/* Metric 4 */}
+        {/* Metric 4 - Tax Status */}
         <div 
           className="customer-bento-card"
           style={{
@@ -506,24 +472,22 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #BAE6FD',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(2, 132, 199, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 50%, #E0F2FE 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
             minHeight: '105px',
-            cursor: 'default',
-            animationDelay: '0.2s'
+            cursor: 'default'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.borderColor = '#0284C7';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(2, 132, 199, 0.22)';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(2, 132, 199, 0.12)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#BAE6FD';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(2, 132, 199, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.03)';
           }}
         >
           <div style={{
@@ -531,21 +495,21 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #0369A1 0%, #0284C7 50%, #38BDF8 100%)'
+            height: '3.5px',
+            background: 'linear-gradient(90deg, #0369A1 0%, #0284C7 100%)'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
-              width: '46px',
-              height: '46px',
+              width: '42px',
+              height: '42px',
               borderRadius: '12px',
-              background: 'linear-gradient(135deg, #0369A1 0%, #0284C7 100%)',
-              color: '#FFFFFF',
+              background: '#F0F9FF',
+              color: '#0284C7',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '20px',
-              boxShadow: '0 4px 12px rgba(2, 132, 199, 0.35)',
+              fontSize: '18px',
+              border: '1.2px solid #BAE6FD',
               flexShrink: 0
             }}>
               📋
@@ -556,7 +520,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
               color: '#0284C7',
               backgroundColor: '#E0F2FE',
               padding: '3px 8px',
-              borderRadius: '7px',
+              borderRadius: '6px',
               border: '1px solid #BAE6FD',
               whiteSpace: 'nowrap'
             }}>
@@ -564,11 +528,11 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             </span>
           </div>
           <div style={{ marginTop: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '800', color: '#0284C7', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
               Tax Status
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '20px', fontWeight: '900', color: '#0C4A6E', lineHeight: '1' }}>
+              <div style={{ fontSize: '20px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
                 GST Verified
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -580,25 +544,25 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
 
       </div>
 
-      {/* 🌟 3. Filter Controls & Colorful Active Search Bar */}
+      {/* 🌟 3. Filter Controls & Executive Search Bar */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: '12px',
-        background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%)',
+        background: '#FFFFFF',
         padding: '12px 16px',
         borderRadius: '14px',
-        border: '1.5px solid #CBD5E1',
-        boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)'
+        border: '1.5px solid #E2E8F0',
+        boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)'
       }}>
         {/* Filters */}
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
           {[
-            { id: 'All', label: 'All', count: customers.length, color: '#0D9488', bg: '#F0FDFA' },
+            { id: 'All', label: 'All', count: customers.length, color: '#4338CA', bg: '#EEF2FF' },
             { id: 'Active', label: 'Active', count: activeCount, color: '#059669', bg: '#ECFDF5' },
-            { id: 'Corporate', label: 'Corporate', count: corporateCount, color: '#4338CA', bg: '#EEF2FF' },
+            { id: 'Corporate', label: 'Corporate', count: corporateCount, color: '#0284C7', bg: '#F0F9FF' },
             { id: 'Suspended', label: 'Suspended', count: suspendedCount, color: '#DC2626', bg: '#FEF2F2' }
           ].map(f => {
             const isSel = filterStatus === f.id;
@@ -610,7 +574,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  padding: '6px 12px',
+                  padding: '6px 14px',
                   borderRadius: '8px',
                   fontSize: '11px',
                   fontWeight: '800',
@@ -638,23 +602,19 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
           })}
         </div>
 
-        {/* Colorful & Attractive Search Bar with Deep Proper Filtering */}
+        {/* Clean Professional Search Bar */}
         <div style={{ position: 'relative', flex: '1 1 260px', maxWidth: '380px' }}>
           <div style={{
             position: 'absolute',
-            left: '10px',
+            left: '12px',
             top: '50%',
             transform: 'translateY(-50%)',
-            width: '24px',
-            height: '24px',
-            borderRadius: '6px',
-            background: 'linear-gradient(135deg, #0F766E 0%, #0D9488 100%)',
-            color: '#FFFFFF',
+            color: '#64748B',
+            fontSize: '13px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '11px',
-            boxShadow: '0 2px 6px rgba(13, 148, 136, 0.3)'
+            pointerEvents: 'none'
           }}>
             🔍
           </div>
@@ -665,25 +625,26 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             onChange={e => setSearch(e.target.value)}
             style={{
               width: '100%',
-              padding: '9px 12px 9px 40px',
+              padding: '9px 14px 9px 38px',
               borderRadius: '10px',
-              border: '1.5px solid #99F6E4',
-              backgroundColor: '#FFFFFF',
+              border: '1.5px solid #E2E8F0',
+              backgroundColor: '#F8FAFC',
               fontSize: '12px',
               fontWeight: '600',
               color: '#0F172A',
               outline: 'none',
               boxSizing: 'border-box',
-              boxShadow: '0 2px 6px rgba(13, 148, 136, 0.06)',
               transition: 'all 0.2s ease'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = '#0D9488';
-              e.target.style.boxShadow = '0 0 0 3px rgba(13, 148, 136, 0.15)';
+              e.target.style.borderColor = '#4338CA';
+              e.target.style.backgroundColor = '#FFFFFF';
+              e.target.style.boxShadow = '0 0 0 3px rgba(67, 56, 202, 0.12)';
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = '#99F6E4';
-              e.target.style.boxShadow = '0 2px 6px rgba(13, 148, 136, 0.06)';
+              e.target.style.borderColor = '#E2E8F0';
+              e.target.style.backgroundColor = '#F8FAFC';
+              e.target.style.boxShadow = 'none';
             }}
           />
         </div>
@@ -693,24 +654,24 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
       {viewMode === 'cards' ? (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-          gap: '12px'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '14px'
         }}>
           {filteredCustomers.length === 0 ? (
             <div style={{
               gridColumn: '1 / -1',
               backgroundColor: '#FFFFFF',
-              borderRadius: '14px',
-              padding: '36px 14px',
+              borderRadius: '16px',
+              padding: '40px 16px',
               textAlign: 'center',
-              border: '2px dashed #CBD5E1',
+              border: '2px dashed #E2E8F0',
               color: '#64748B'
             }}>
-              <div style={{ fontSize: '28px', marginBottom: '6px' }}>🏢</div>
+              <div style={{ fontSize: '32px', marginBottom: '8px' }}>🏢</div>
               <h3 style={{ fontSize: '15px', fontWeight: '800', color: '#1E293B', margin: 0 }}>
                 No Enterprise Clients Found
               </h3>
-              <p style={{ fontSize: '11.5px', color: '#94A3B8', marginTop: '3px' }}>
+              <p style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
                 {search ? 'No client accounts match your active search keyword.' : 'Convert sales leads or onboard corporate clients to build your directory.'}
               </p>
             </div>
@@ -735,13 +696,13 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                     justifyContent: 'space-between',
                     position: 'relative',
                     overflow: 'hidden',
-                    animation: `subtleFadeUp 0.4s ease-out ${idx * 0.04}s both`,
+                    animation: `subtleFadeUp 0.35s ease-out ${idx * 0.03}s both`,
                     transition: 'all 0.22s cubic-bezier(0.4, 0, 0.2, 1)'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(13, 148, 136, 0.12)';
-                    e.currentTarget.style.borderColor = '#5EEAD4';
+                    e.currentTarget.style.transform = 'translateY(-3px)';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
+                    e.currentTarget.style.borderColor = '#94A3B8';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0px)';
@@ -749,23 +710,23 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                     e.currentTarget.style.borderColor = '#E2E8F0';
                   }}
                 >
-                  {/* Top Colorful Accent Gradient Line */}
+                  {/* Top Accent Stripe */}
                   <div style={{
                     position: 'absolute',
                     top: 0,
                     left: 0,
                     right: 0,
                     height: '3.5px',
-                    background: isActive ? 'linear-gradient(90deg, #0D9488 0%, #2DD4BF 100%)' : 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%)'
+                    background: isActive ? 'linear-gradient(90deg, #4338CA 0%, #6366F1 100%)' : 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%)'
                   }} />
 
                   <div>
                     {/* Header Row: Company & Status */}
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', marginTop: '2px' }}>
                       <span style={{
-                        backgroundColor: '#F0FDFA',
-                        color: '#0F766E',
-                        border: '1px solid #99F6E4',
+                        backgroundColor: '#EEF2FF',
+                        color: '#4338CA',
+                        border: '1px solid #C7D2FE',
                         fontSize: '11px',
                         fontWeight: '800',
                         padding: '3px 8px',
@@ -844,7 +805,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                     }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span style={{ fontSize: '10px', fontWeight: '800', color: '#94A3B8', letterSpacing: '0.4px' }}>GSTIN:</span>
-                        <span style={{ fontWeight: '800', color: c.gstNumber ? '#0D9488' : '#94A3B8', fontSize: '11px' }}>
+                        <span style={{ fontWeight: '800', color: c.gstNumber ? '#4338CA' : '#94A3B8', fontSize: '11px' }}>
                           {c.gstNumber || 'Not Linked'}
                         </span>
                       </div>
@@ -864,9 +825,9 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                           width: '100%',
                           padding: '7px 12px',
                           borderRadius: '8px',
-                          backgroundColor: '#F0FDFA',
-                          border: '1.2px solid #99F6E4',
-                          color: '#0F766E',
+                          backgroundColor: '#EEF2FF',
+                          border: '1.2px solid #C7D2FE',
+                          color: '#4338CA',
                           fontSize: '11px',
                           fontWeight: '800',
                           cursor: 'pointer',
@@ -877,12 +838,12 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                           transition: 'all 0.15s ease'
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#CCFBF1';
-                          e.currentTarget.style.borderColor = '#5EEAD4';
+                          e.currentTarget.style.backgroundColor = '#E0E7FF';
+                          e.currentTarget.style.borderColor = '#A5B4FC';
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = '#F0FDFA';
-                          e.currentTarget.style.borderColor = '#99F6E4';
+                          e.currentTarget.style.backgroundColor = '#EEF2FF';
+                          e.currentTarget.style.borderColor = '#C7D2FE';
                         }}
                       >
                         <span>📜</span>
@@ -925,9 +886,9 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                     <button
                       onClick={() => openEditModal(c)}
                       style={{
-                        backgroundColor: '#EFF6FF',
-                        border: '1.2px solid #BFDBFE',
-                        color: '#1D4ED8',
+                        backgroundColor: '#F8FAFC',
+                        border: '1.2px solid #CBD5E1',
+                        color: '#334155',
                         fontSize: '11px',
                         fontWeight: '800',
                         padding: '6px 12px',
@@ -969,141 +930,222 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
           )}
         </div>
       ) : (
-        /* Classic List Table View */
-        <div className="table-responsive" style={{
+        /* Executive SaaS List Table View - High Clarity & Clean Contrast */
+        <div style={{
           backgroundColor: '#FFFFFF',
-          borderRadius: '14px',
-          border: '1.2px solid var(--border)',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.02)',
+          borderRadius: '16px',
+          border: '1.5px solid #E2E8F0',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
           overflow: 'hidden'
         }}>
-          <table style={{ width: '100%', minWidth: '600px', borderCollapse: 'collapse', textAlign: 'left' }}>
-            <thead>
-              <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.2px solid var(--border)' }}>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>CLIENT / COMPANY</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>CONTACT</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>GST NUMBER</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B' }}>STATUS</th>
-                <th style={{ padding: '10px 12px', fontSize: '10.5px', fontWeight: '900', color: '#64748B', textAlign: 'right' }}>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredCustomers.length === 0 ? (
-                <tr>
-                  <td colSpan="5" style={{ padding: '24px', textAlign: 'center', color: '#94A3B8', fontSize: '11.5px' }}>
-                    No client records found.
-                  </td>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', minWidth: '780px', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid #E2E8F0' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CLIENT & COMPANY</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CONTACT</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>GST NUMBER</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>STATUS</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase', textAlign: 'right' }}>ACTIONS</th>
                 </tr>
-              ) : (
-                filteredCustomers.map(c => {
-                  const isActive = (c.status || 'active').toLowerCase() === 'active';
+              </thead>
+              <tbody>
+                {filteredCustomers.length === 0 ? (
+                  <tr>
+                    <td colSpan="5" style={{ padding: '40px', textAlign: 'center', color: '#64748B', fontSize: '12.5px', fontWeight: '600' }}>
+                      <div style={{ fontSize: '30px', marginBottom: '8px' }}>🏢</div>
+                      No client records found matching your filters.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredCustomers.map((c, index) => {
+                    const isActive = (c.status || 'active').toLowerCase() === 'active';
+                    const isEven = index % 2 === 0;
 
-                  return (
-                    <tr key={c._id} style={{ borderBottom: '1px solid #F1F5F9' }}>
-                      <td style={{ padding: '8px 12px' }}>
-                        <div style={{ fontWeight: '800', fontSize: '12.5px', color: '#0F172A' }}>
-                          {c.name}
-                        </div>
-                        <div style={{ fontSize: '10.5px', color: '#0F766E', fontWeight: '700' }}>
-                          🏢 {c.company || 'Enterprise Account'}
-                        </div>
-                      </td>
+                    return (
+                      <tr
+                        key={c._id}
+                        style={{
+                          borderBottom: '1px solid #F1F5F9',
+                          backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC',
+                          transition: 'background-color 0.15s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#F8FAFC';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = isEven ? '#FFFFFF' : '#FAFAFC';
+                        }}
+                      >
+                        {/* 1. Client & Company */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <div style={{
+                              width: '34px',
+                              height: '34px',
+                              borderRadius: '9px',
+                              background: getAvatarGradient(c.name, index),
+                              color: '#FFFFFF',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontWeight: '900',
+                              fontSize: '13px',
+                              boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+                              flexShrink: 0
+                            }}>
+                              {c.name?.[0]?.toUpperCase() || 'C'}
+                            </div>
+                            <div>
+                              <div style={{ fontWeight: '800', fontSize: '13px', color: '#0F172A' }}>
+                                {c.name}
+                              </div>
+                              <div style={{ fontSize: '11px', color: '#4338CA', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '1px' }}>
+                                <span>🏢</span> {c.company || 'Enterprise Account'}
+                              </div>
+                            </div>
+                          </div>
+                        </td>
 
-                      <td style={{ padding: '8px 12px' }}>
-                        <div style={{ fontWeight: '700', fontSize: '12px', color: '#334155' }}>{c.email}</div>
-                        <div style={{ fontSize: '10px', color: '#94A3B8' }}>{c.phone || '+91 98765 00000'}</div>
-                      </td>
+                        {/* 2. Contact Details */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <div style={{ fontWeight: '700', fontSize: '12px', color: '#334155' }}>{c.email}</div>
+                          <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>{c.phone || '+91 98765 00000'}</div>
+                        </td>
 
-                      <td style={{ padding: '8px 12px', fontSize: '11px', fontWeight: '800', color: c.gstNumber ? '#B45309' : '#94A3B8' }}>
-                        {c.gstNumber || 'Not Linked'}
-                      </td>
+                        {/* 3. GST Number */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <span style={{
+                            fontSize: '11px',
+                            fontWeight: '800',
+                            color: c.gstNumber ? '#4338CA' : '#94A3B8',
+                            backgroundColor: c.gstNumber ? '#EEF2FF' : '#F8FAFC',
+                            padding: '3px 8px',
+                            borderRadius: '6px',
+                            border: c.gstNumber ? '1px solid #C7D2FE' : '1px solid #E2E8F0'
+                          }}>
+                            {c.gstNumber || 'Not Linked'}
+                          </span>
+                        </td>
 
-                      <td style={{ padding: '8px 12px' }}>
-                        <span style={{
-                          backgroundColor: isActive ? '#ECFDF5' : '#FEF3C7',
-                          color: isActive ? '#047857' : '#B45309',
-                          border: isActive ? '1px solid #A7F3D0' : '1px solid #FDE68A',
-                          fontSize: '9.5px',
-                          fontWeight: '900',
-                          padding: '2px 6px',
-                          borderRadius: '4px'
-                        }}>
-                          {isActive ? 'ACTIVE' : 'SUSPENDED'}
-                        </span>
-                      </td>
+                        {/* 4. Status Badge */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
+                          <span style={{
+                            backgroundColor: isActive ? '#ECFDF5' : '#FEF3C7',
+                            color: isActive ? '#047857' : '#B45309',
+                            border: isActive ? '1px solid #A7F3D0' : '1px solid #FDE68A',
+                            fontSize: '10px',
+                            fontWeight: '900',
+                            padding: '3px 8px',
+                            borderRadius: '12px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            letterSpacing: '0.4px'
+                          }}>
+                            <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: isActive ? '#10B981' : '#F59E0B' }} />
+                            {isActive ? 'ACTIVE' : 'SUSPENDED'}
+                          </span>
+                        </td>
 
-                      <td style={{ padding: '8px 12px', textAlign: 'right' }}>
-                        <div style={{ display: 'flex', gap: '5px', justifyContent: 'flex-end' }}>
-                          <button
-                            onClick={() => onOpenCustomerHistory && onOpenCustomerHistory(c)}
-                            title="View Multi-Platform Enquiry History"
-                            style={{
-                              backgroundColor: '#F0FDFA',
-                              border: '1.2px solid #99F6E4',
-                              color: '#0F766E',
-                              fontSize: '11px',
-                              fontWeight: '800',
-                              padding: '5px 8px',
-                              borderRadius: '6px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            📜 History
-                          </button>
-                          <button
-                            onClick={() => handleToggle(c)}
-                            style={{
-                              backgroundColor: isActive ? '#FEF3C7' : '#ECFDF5',
-                              border: isActive ? '1px solid #FDE68A' : '1px solid #A7F3D0',
-                              color: isActive ? '#B45309' : '#047857',
-                              fontSize: '10.5px',
-                              fontWeight: '800',
-                              padding: '3px 8px',
-                              borderRadius: '5px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            {isActive ? '⏸' : '▶'}
-                          </button>
-                          <button
-                            onClick={() => openEditModal(c)}
-                            title="Edit Customer Profile"
-                            style={{
-                              backgroundColor: '#EFF6FF',
-                              border: '1px solid #BFDBFE',
-                              color: '#1D4ED8',
-                              fontSize: '10.5px',
-                              fontWeight: '800',
-                              padding: '3px 8px',
-                              borderRadius: '5px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            ✏️
-                          </button>
-                          <button
-                            onClick={() => onDeleteCustomer(c._id, c.name)}
-                            style={{
-                              backgroundColor: '#FEE2E2',
-                              border: '1px solid #FCA5A5',
-                              color: '#DC2626',
-                              fontSize: '10.5px',
-                              fontWeight: '800',
-                              padding: '3px 8px',
-                              borderRadius: '5px',
-                              cursor: 'pointer'
-                            }}
-                          >
-                            🗑️
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
+                        {/* 5. Modern Action Group */}
+                        <td style={{ padding: '14px 18px', verticalAlign: 'middle', textAlign: 'right' }}>
+                          <div style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end', alignItems: 'center' }}>
+                            <button
+                              onClick={() => onOpenCustomerHistory && onOpenCustomerHistory(c)}
+                              title="View Multi-Platform Enquiry History"
+                              style={{
+                                backgroundColor: '#EEF2FF',
+                                border: '1.2px solid #C7D2FE',
+                                color: '#4338CA',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '4px',
+                                transition: 'all 0.15s ease'
+                              }}
+                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#E0E7FF'}
+                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#EEF2FF'}
+                            >
+                              <span>📜</span> History
+                            </button>
+                            <button
+                              onClick={() => handleToggle(c)}
+                              title={isActive ? 'Suspend Access' : 'Activate Access'}
+                              style={{
+                                backgroundColor: isActive ? '#FEF3C7' : '#ECFDF5',
+                                border: isActive ? '1px solid #FDE68A' : '1px solid #A7F3D0',
+                                color: isActive ? '#B45309' : '#047857',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '3px',
+                                transition: 'all 0.15s ease'
+                              }}
+                            >
+                              {isActive ? '⏸ Pause' : '▶ Enable'}
+                            </button>
+                            <button
+                              onClick={() => openEditModal(c)}
+                              title="Edit Customer Profile"
+                              style={{
+                                backgroundColor: '#F8FAFC',
+                                border: '1.2px solid #CBD5E1',
+                                color: '#334155',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '3px',
+                                transition: 'all 0.15s ease'
+                              }}
+                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F1F5F9'}
+                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#F8FAFC'}
+                            >
+                              ✏️ Edit
+                            </button>
+                            <button
+                              onClick={() => onDeleteCustomer(c._id, c.name)}
+                              title="Delete Record"
+                              style={{
+                                backgroundColor: '#FEF2F2',
+                                border: '1.2px solid #FECACA',
+                                color: '#DC2626',
+                                fontSize: '11px',
+                                fontWeight: '800',
+                                padding: '6px 10px',
+                                borderRadius: '7px',
+                                cursor: 'pointer',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '3px',
+                                transition: 'all 0.15s ease'
+                              }}
+                              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#FEE2E2'}
+                              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#FEF2F2'}
+                            >
+                              🗑️
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
@@ -1128,28 +1170,53 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
             borderRadius: '16px',
             width: '100%',
             maxWidth: '500px',
-            padding: '20px',
+            padding: '24px',
             boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
-            border: '1.5px solid #E2E8F0'
+            border: '1.5px solid #E2E8F0',
+            position: 'relative'
           }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '18px' }}>✏️</span>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '8px',
+                  backgroundColor: '#EEF2FF',
+                  color: '#4338CA',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '15px'
+                }}>
+                  ✏️
+                </div>
                 <h3 style={{ margin: 0, fontSize: '16px', fontWeight: '900', color: '#0F172A' }}>
                   Edit Customer Profile
                 </h3>
               </div>
               <button
                 onClick={() => setEditingCustomer(null)}
-                style={{ background: 'none', border: 'none', fontSize: '16px', cursor: 'pointer', color: '#94A3B8' }}
+                style={{
+                  background: '#F1F5F9',
+                  border: 'none',
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '50%',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                  color: '#64748B',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
               >
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handleSaveCustomerEdit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <form onSubmit={handleSaveCustomerEdit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div>
-                <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '3px' }}>
+                <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '4px' }}>
                   FULL NAME
                 </label>
                 <input
@@ -1157,13 +1224,15 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                   required
                   value={editFormData.name}
                   onChange={e => setEditFormData({ ...editFormData, name: e.target.value })}
-                  style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', border: '1.2px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box' }}
+                  style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1.5px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box', outline: 'none' }}
+                  onFocus={e => e.target.style.borderColor = '#4338CA'}
+                  onBlur={e => e.target.style.borderColor = '#CBD5E1'}
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <div>
-                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '3px' }}>
+                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '4px' }}>
                     EMAIL ADDRESS
                   </label>
                   <input
@@ -1171,50 +1240,58 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                     required
                     value={editFormData.email}
                     onChange={e => setEditFormData({ ...editFormData, email: e.target.value })}
-                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', border: '1.2px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1.5px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box', outline: 'none' }}
+                    onFocus={e => e.target.style.borderColor = '#4338CA'}
+                    onBlur={e => e.target.style.borderColor = '#CBD5E1'}
                   />
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '3px' }}>
+                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '4px' }}>
                     PHONE NUMBER
                   </label>
                   <input
                     type="text"
                     value={editFormData.phone}
                     onChange={e => setEditFormData({ ...editFormData, phone: e.target.value })}
-                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', border: '1.2px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1.5px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box', outline: 'none' }}
+                    onFocus={e => e.target.style.borderColor = '#4338CA'}
+                    onBlur={e => e.target.style.borderColor = '#CBD5E1'}
                   />
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <div>
-                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '3px' }}>
+                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '4px' }}>
                     COMPANY / BUSINESS
                   </label>
                   <input
                     type="text"
                     value={editFormData.company}
                     onChange={e => setEditFormData({ ...editFormData, company: e.target.value })}
-                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', border: '1.2px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1.5px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box', outline: 'none' }}
+                    onFocus={e => e.target.style.borderColor = '#4338CA'}
+                    onBlur={e => e.target.style.borderColor = '#CBD5E1'}
                   />
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '3px' }}>
+                  <label style={{ fontSize: '11px', fontWeight: '800', color: '#475569', display: 'block', marginBottom: '4px' }}>
                     BUSINESS TYPE
                   </label>
                   <input
                     type="text"
                     value={editFormData.businessType}
                     onChange={e => setEditFormData({ ...editFormData, businessType: e.target.value })}
-                    style={{ width: '100%', padding: '8px 10px', borderRadius: '8px', border: '1.2px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box' }}
+                    style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: '1.5px solid #CBD5E1', fontSize: '12px', boxSizing: 'border-box', outline: 'none' }}
+                    onFocus={e => e.target.style.borderColor = '#4338CA'}
+                    onBlur={e => e.target.style.borderColor = '#CBD5E1'}
                   />
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px', marginTop: '10px' }}>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '12px' }}>
                 <button
                   type="button"
                   onClick={() => setEditingCustomer(null)}
@@ -1222,7 +1299,7 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                     background: '#F1F5F9',
                     border: '1px solid #CBD5E1',
                     color: '#475569',
-                    padding: '8px 14px',
+                    padding: '8px 16px',
                     borderRadius: '8px',
                     fontSize: '12px',
                     fontWeight: '700',
@@ -1234,14 +1311,15 @@ export default function CustomersTab({ customers = [], leads = [], onToggleStatu
                 <button
                   type="submit"
                   style={{
-                    background: '#0F766E',
+                    background: '#4338CA',
                     border: 'none',
                     color: '#FFFFFF',
-                    padding: '8px 16px',
+                    padding: '8px 18px',
                     borderRadius: '8px',
                     fontSize: '12px',
                     fontWeight: '800',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    boxShadow: '0 2px 6px rgba(67, 56, 202, 0.25)'
                   }}
                 >
                   Save Profile Changes

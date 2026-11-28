@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function DealsTab({ deals = [], onOpenAddDeal }) {
   const [filterStage, setFilterStage] = useState('All');
   const [search, setSearch] = useState('');
-  const [viewMode, setViewMode] = useState('cards'); // 'cards' (Bento Grid) or 'table'
+  const [viewMode, setViewMode] = useState('table'); // 'cards' (Bento Grid) or 'table'
 
   // Stage configurations with luxury glassmorphic vibrant themes
   const stageThemes = {
@@ -156,57 +156,58 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
       <div 
         className="deals-hero-banner"
         style={{
-          background: 'linear-gradient(135deg, #451A03 0%, #78350F 35%, #B45309 70%, #D97706 100%)',
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E1B4B 40%, #312E81 75%, #4338CA 100%)',
           borderRadius: '16px',
-          padding: '16px 20px',
+          padding: '18px 22px',
           color: '#FFFFFF',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '12px',
-          border: '1.5px solid rgba(254, 243, 199, 0.4)',
+          border: '1.5px solid rgba(255, 255, 255, 0.12)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.12)'
         }}
       >
-        {/* Animated Top Spectrum Line */}
+        {/* Animated Top Indigo Spectrum Line */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
           height: '4px',
-          background: 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 25%, #10B981 50%, #6366F1 75%, #EC4899 100%)'
+          background: '#4338CA'
         }} />
 
-        {/* Ambient multi-color glow orbs */}
-        <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '150px', height: '150px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(253, 230, 138, 0.45) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-25px', left: '25%', width: '120px', height: '120px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(52, 211, 153, 0.3) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+        {/* Ambient glow orbs */}
+        <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '150px', height: '150px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-25px', left: '25%', width: '120px', height: '120px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(67, 56, 202, 0.2) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
         <div style={{ position: 'relative', zIndex: 2 }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '6px',
-            background: 'rgba(255,255,255,0.2)',
+            background: 'rgba(255,255,255,0.12)',
             backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(254, 243, 199, 0.4)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             padding: '4px 10px',
             borderRadius: '16px',
             fontSize: '10px',
             fontWeight: '900',
             letterSpacing: '0.6px',
-            color: '#FEF3C7',
+            color: '#FFFFFF',
             marginBottom: '6px'
           }}>
             <span className="pulse-beacon" style={{ width: '6px', height: '6px' }} />
             <span>COMMERCIAL REVENUE ENGINE</span>
           </div>
-          <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', background: 'linear-gradient(90deg, #FFFFFF 0%, #FEF3C7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <h1 style={{ fontSize: '22px', fontWeight: '900', margin: 0, letterSpacing: '-0.5px', color: '#FFFFFF' }}>
             Commercial Deals & Enterprise Contracts
           </h1>
-          <p style={{ margin: '3px 0 0 0', opacity: 0.95, fontSize: '12px', maxWidth: '580px', lineHeight: '1.4', color: '#FEF3C7' }}>
+          <p style={{ margin: '3px 0 0 0', opacity: 0.9, fontSize: '12px', maxWidth: '580px', lineHeight: '1.4', color: '#C7D2FE' }}>
             Real-time pipeline tracking, deal valuations, conversion odds, and contract booking.
           </p>
         </div>
@@ -215,23 +216,23 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
           {/* View Toggle */}
           <div style={{ 
             display: 'flex', 
-            backgroundColor: 'rgba(255,255,255,0.18)', 
+            backgroundColor: 'rgba(255,255,255,0.14)', 
             backdropFilter: 'blur(8px)',
             borderRadius: '10px', 
             padding: '3px', 
-            border: '1px solid rgba(255,255,255,0.3)' 
+            border: '1px solid rgba(255,255,255,0.25)' 
           }}>
             <button
               onClick={() => setViewMode('cards')}
               style={{
-                padding: '5px 12px',
+                padding: '6px 14px',
                 borderRadius: '7px',
                 fontSize: '11px',
                 fontWeight: '900',
                 border: 'none',
                 backgroundColor: viewMode === 'cards' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'cards' ? '#B45309' : '#FFFFFF',
-                boxShadow: viewMode === 'cards' ? '0 2px 6px rgba(0,0,0,0.18)' : 'none',
+                color: viewMode === 'cards' ? '#1E1B4B' : '#FFFFFF',
+                boxShadow: viewMode === 'cards' ? '0 2px 6px rgba(0,0,0,0.15)' : 'none',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
               }}
@@ -241,14 +242,14 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             <button
               onClick={() => setViewMode('table')}
               style={{
-                padding: '5px 12px',
+                padding: '6px 14px',
                 borderRadius: '7px',
                 fontSize: '11px',
                 fontWeight: '900',
                 border: 'none',
                 backgroundColor: viewMode === 'table' ? '#FFFFFF' : 'transparent',
-                color: viewMode === 'table' ? '#B45309' : '#FFFFFF',
-                boxShadow: viewMode === 'table' ? '0 2px 6px rgba(0,0,0,0.18)' : 'none',
+                color: viewMode === 'table' ? '#1E1B4B' : '#FFFFFF',
+                boxShadow: viewMode === 'table' ? '0 2px 6px rgba(0,0,0,0.15)' : 'none',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
               }}
@@ -262,13 +263,13 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
               onClick={onOpenAddDeal}
               style={{
                 backgroundColor: '#FFFFFF',
-                color: '#B45309',
-                padding: '7px 16px',
+                color: '#1E1B4B',
+                padding: '8px 18px',
                 borderRadius: '10px',
                 border: 'none',
                 fontSize: '12px',
                 fontWeight: '900',
-                boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
@@ -295,10 +296,10 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #FDE68A',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(245, 158, 11, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFFDF7 50%, #FEF3C7 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -307,12 +308,12 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             animationDelay: '0.05s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#F59E0B';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(245, 158, 11, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#FDE68A';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(245, 158, 11, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -320,8 +321,8 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -375,10 +376,10 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #A7F3D0',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(16, 185, 129, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F5FDF8 50%, #ECFDF5 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -387,12 +388,12 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             animationDelay: '0.1s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#10B981';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(16, 185, 129, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#A7F3D0';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(16, 185, 129, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -400,8 +401,8 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #059669 0%, #10B981 50%, #34D399 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -455,10 +456,10 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #C7D2FE',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(99, 102, 241, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #EEF2FF 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -467,12 +468,12 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             animationDelay: '0.15s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#6366F1';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(99, 102, 241, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#C7D2FE';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(99, 102, 241, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -480,8 +481,8 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -535,10 +536,10 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             overflow: 'hidden',
             backgroundColor: '#FFFFFF',
             borderRadius: '16px',
-            border: '1.5px solid #FECDD3',
+            border: '1.5px solid #E2E8F0',
             padding: '16px 18px',
-            boxShadow: '0 4px 16px rgba(244, 63, 94, 0.08)',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #FFF7F8 50%, #FFE4E6 100%)',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -547,12 +548,12 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             animationDelay: '0.2s'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = '#F43F5E';
-            e.currentTarget.style.boxShadow = '0 12px 28px rgba(244, 63, 94, 0.22)';
+            e.currentTarget.style.borderColor = '#94A3B8';
+            e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#FECDD3';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(244, 63, 94, 0.08)';
+            e.currentTarget.style.borderColor = '#E2E8F0';
+            e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
           }}
         >
           <div style={{
@@ -560,8 +561,8 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
             top: 0,
             left: 0,
             right: 0,
-            height: '4px',
-            background: 'linear-gradient(90deg, #E11D48 0%, #F43F5E 50%, #FB7185 100%)'
+            height: '3.5px',
+            background: '#4338CA'
           }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
             <div style={{
@@ -615,14 +616,14 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#FFFFFF',
-        padding: '8px 12px',
-        borderRadius: '12px',
-        border: '1.2px solid var(--border)',
-        gap: '8px',
+        padding: '10px 14px',
+        borderRadius: '14px',
+        border: '1.2px solid #E2E8F0',
+        gap: '10px',
         flexWrap: 'wrap',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.02)'
+        boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
       }}>
-        <div style={{ display: 'flex', gap: '5px', overflowX: 'auto', paddingBottom: '1px' }}>
+        <div style={{ display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px' }}>
           {[
             { id: 'All', label: 'All Deals', count: deals.length, color: '#4338CA', bg: '#EEF2FF', border: '#C7D2FE' },
             { id: 'Won', label: '🏆 Won', count: wonDeals.length, color: '#059669', bg: '#ECFDF5', border: '#A7F3D0' },
@@ -638,27 +639,39 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '5px',
-                  padding: '4px 10px',
-                  borderRadius: '7px',
-                  fontSize: '10.5px',
+                  gap: '6px',
+                  padding: '5px 10px',
+                  borderRadius: '8px',
+                  fontSize: '11px',
                   fontWeight: '800',
-                  backgroundColor: isSelected ? tab.color : '#F8FAFC',
+                  backgroundColor: isSelected ? tab.color : '#FFFFFF',
                   border: isSelected ? `1.5px solid ${tab.color}` : '1.2px solid #E2E8F0',
                   color: isSelected ? '#FFFFFF' : '#475569',
                   whiteSpace: 'nowrap',
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease',
-                  boxShadow: isSelected ? `0 2px 8px ${tab.color}40` : 'none'
+                  transition: 'all 0.18s ease',
+                  boxShadow: isSelected ? `0 2px 8px ${tab.color}35` : 'none'
+                }}
+                onMouseEnter={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = '#FFFFFF';
+                    e.currentTarget.style.borderColor = '#E2E8F0';
+                  }
                 }}
               >
                 <span>{tab.label}</span>
                 <span style={{
                   backgroundColor: isSelected ? 'rgba(255,255,255,0.25)' : tab.bg,
                   color: isSelected ? '#FFFFFF' : tab.color,
-                  fontSize: '9px',
+                  fontSize: '9.5px',
                   fontWeight: '900',
-                  padding: '1px 5px',
+                  padding: '1px 6px',
                   borderRadius: '8px'
                 }}>
                   {tab.count}
@@ -674,13 +687,16 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
           value={search}
           onChange={e => setSearch(e.target.value)}
           style={{
-            minWidth: '180px',
-            flex: 1,
-            padding: '6px 10px',
-            borderRadius: '8px',
-            border: '1.2px solid #CBD5E1',
+            minWidth: '200px',
+            flex: '0 1 250px',
+            padding: '7px 12px',
+            borderRadius: '9px',
+            border: '1.5px solid #E2E8F0',
+            backgroundColor: '#F8FAFC',
             fontSize: '11.5px',
-            color: 'var(--text-dark)'
+            fontWeight: '600',
+            color: '#0F172A',
+            outline: 'none'
           }}
         />
       </div>
@@ -710,25 +726,25 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
                   className="deal-bento-card"
                   style={{
                     backgroundColor: '#FFFFFF',
-                    border: `1.5px solid ${theme.border}`,
+                    border: '1.5px solid #E2E8F0',
                     borderRadius: '16px',
                     padding: '16px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    boxShadow: isWon ? `0 4px 20px ${theme.glow}` : '0 4px 16px rgba(0,0,0,0.04)',
-                    background: theme.cardBg,
+                    boxShadow: '0 4px 18px rgba(15, 23, 42, 0.04)',
+                    background: '#FFFFFF',
                     position: 'relative',
                     overflow: 'hidden',
                     animationDelay: `${Math.min(idx * 0.05, 0.4)}s`
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = theme.color;
-                    e.currentTarget.style.boxShadow = `0 12px 28px ${theme.glow || 'rgba(0,0,0,0.1)'}`;
+                    e.currentTarget.style.borderColor = '#94A3B8';
+                    e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = theme.border;
-                    e.currentTarget.style.boxShadow = isWon ? `0 4px 20px ${theme.glow}` : '0 4px 16px rgba(0,0,0,0.04)';
+                    e.currentTarget.style.borderColor = '#E2E8F0';
+                    e.currentTarget.style.boxShadow = '0 4px 18px rgba(15, 23, 42, 0.04)';
                   }}
                 >
                   {/* Top Ambient Card Accent Stripe */}
@@ -737,21 +753,10 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
                     top: 0,
                     left: 0,
                     right: 0,
-                    height: '4px',
-                    background: `linear-gradient(90deg, ${theme.color} 0%, ${theme.border} 100%)`
+                    height: '3.5px',
+                    background: '#4338CA'
                   }} />
-                  {/* Decorative glowing accent ribbon at top right for high-value won deals */}
-                  {isWon && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '0',
-                      right: '0',
-                      width: '40px',
-                      height: '40px',
-                      background: 'radial-gradient(circle at 100% 0%, #10B981 0%, rgba(0,0,0,0) 70%)',
-                      pointerEvents: 'none'
-                    }} />
-                  )}
+
 
                   {/* Top Bar: Deal ID & Stage Capsule */}
                   <div>
@@ -871,78 +876,98 @@ export default function DealsTab({ deals = [], onOpenAddDeal }) {
 
       {/* 🌟 5. CLASSIC RESPONSIVE TABLE VIEW */}
       {viewMode === 'table' && (
-        <div className="table-responsive" style={{
+        <div style={{
           backgroundColor: '#FFFFFF',
-          borderRadius: '13px',
-          border: '1.2px solid var(--border)',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.02)'
+          borderRadius: '16px',
+          border: '1.5px solid #E2E8F0',
+          boxShadow: '0 4px 20px rgba(15, 23, 42, 0.03)',
+          overflow: 'hidden'
         }}>
-          <table style={{ width: '100%', minWidth: '600px', borderCollapse: 'collapse', textAlign: 'left' }}>
-            <thead>
-              <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.2px solid var(--border)' }}>
-                <th style={{ padding: '10px 14px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted)' }}>DEAL CONTRACT</th>
-                <th style={{ padding: '10px 14px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted)' }}>CLIENT ACCOUNT</th>
-                <th style={{ padding: '10px 14px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted)' }}>CONTRACT VALUE</th>
-                <th style={{ padding: '10px 14px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted)' }}>PIPELINE STAGE</th>
-                <th style={{ padding: '10px 14px', fontSize: '11px', fontWeight: '800', color: 'var(--text-muted)' }}>TARGET CLOSE</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredDeals.length === 0 ? (
-                <tr>
-                  <td colSpan="5" style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '12px' }}>
-                    No deals logged in the pipeline yet.
-                  </td>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', minWidth: '750px', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#F8FAFC', borderBottom: '1.5px solid #E2E8F0' }}>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>DEAL CONTRACT</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CLIENT ACCOUNT</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>CONTRACT VALUE</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>PIPELINE STAGE</th>
+                  <th style={{ padding: '14px 18px', fontSize: '11px', fontWeight: '800', color: '#64748B', letterSpacing: '0.6px', textTransform: 'uppercase' }}>TARGET CLOSE</th>
                 </tr>
-              ) : (
-                filteredDeals.map(d => {
-                  const theme = getStageTheme(d.stage);
-                  const dealVal = Number(d.value || d.amount) || 0;
-                  const targetDate = d.closingDate || d.expectedCloseDate;
+              </thead>
+              <tbody>
+                {filteredDeals.length === 0 ? (
+                  <tr>
+                    <td colSpan="5" style={{ padding: '40px', textAlign: 'center', color: '#64748B', fontSize: '13px', fontWeight: '600' }}>
+                      <div style={{ fontSize: '32px', marginBottom: '8px' }}>💼</div>
+                      No deals logged in the pipeline yet.
+                    </td>
+                  </tr>
+                ) : (
+                  filteredDeals.map((d, index) => {
+                    const theme = getStageTheme(d.stage);
+                    const dealVal = Number(d.value || d.amount) || 0;
+                    const targetDate = d.closingDate || d.expectedCloseDate;
+                    const isEven = index % 2 === 0;
 
-                  return (
-                    <tr key={d._id} style={{ borderBottom: '1px solid #F1F5F9' }}>
-                      <td style={{ padding: '10px 14px' }}>
-                        <div style={{ fontWeight: '800', fontSize: '12.5px', color: 'var(--text-dark)' }}>
-                          {d.title}
-                        </div>
-                        <div style={{ fontSize: '10px', color: 'var(--text-muted)', marginTop: '1px' }}>
-                          ID: #{d._id?.slice(-6).toUpperCase()}
-                        </div>
-                      </td>
-                      <td style={{ padding: '10px 14px', fontSize: '12px', fontWeight: '800', color: '#1E293B' }}>
-                        🏢 {d.customerName || d.customerId?.name || 'Enterprise Client'}
-                      </td>
-                      <td style={{ padding: '10px 14px', fontWeight: '900', color: theme.color, fontSize: '13.5px' }}>
-                        ₹{dealVal.toLocaleString('en-IN')}
-                      </td>
-                      <td style={{ padding: '10px 14px' }}>
-                        <span style={{
-                          background: theme.bg,
-                          border: `1.2px solid ${theme.border}`,
-                          color: theme.color,
-                          fontSize: '10px',
-                          fontWeight: '900',
-                          padding: '3px 8px',
-                          borderRadius: '6px',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '4px',
-                          boxShadow: `0 1px 4px ${theme.glow}`
-                        }}>
-                          <span>{theme.icon}</span>
-                          <span>{d.stage || 'Negotiation'}</span>
-                        </span>
-                      </td>
-                      <td style={{ padding: '10px 14px', fontSize: '11px', fontWeight: '700', color: 'var(--text-muted)' }}>
-                        📅 {targetDate ? new Date(targetDate).toLocaleDateString('en-GB') : 'Q4 FY2026'}
-                      </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
+                    return (
+                      <tr
+                        key={d._id}
+                        style={{
+                          borderBottom: '1px solid #F1F5F9',
+                          backgroundColor: isEven ? '#FFFFFF' : '#FAFAFC',
+                          transition: 'all 0.18s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#F1F5F9';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = isEven ? '#FFFFFF' : '#FAFAFC';
+                        }}
+                      >
+                        <td style={{ padding: '14px 18px' }}>
+                          <div style={{ fontWeight: '800', fontSize: '13.5px', color: '#0F172A' }}>
+                            {d.title}
+                          </div>
+                          <div style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700', marginTop: '2px' }}>
+                            ID: #{d._id?.slice(-6).toUpperCase()}
+                          </div>
+                        </td>
+                        <td style={{ padding: '14px 18px', fontSize: '13px', fontWeight: '800', color: '#1E293B' }}>
+                          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                            <span>🏢</span> {d.customerName || d.customerId?.name || 'Enterprise Client'}
+                          </span>
+                        </td>
+                        <td style={{ padding: '14px 18px', fontWeight: '900', color: theme.color, fontSize: '14px' }}>
+                          ₹{dealVal.toLocaleString('en-IN')}
+                        </td>
+                        <td style={{ padding: '14px 18px' }}>
+                          <span style={{
+                            background: theme.bg,
+                            border: `1.2px solid ${theme.border}`,
+                            color: theme.color,
+                            fontSize: '11px',
+                            fontWeight: '800',
+                            padding: '4px 10px',
+                            borderRadius: '12px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            boxShadow: `0 1px 4px ${theme.glow}`
+                          }}>
+                            <span>{theme.icon}</span>
+                            <span>{d.stage || 'Negotiation'}</span>
+                          </span>
+                        </td>
+                        <td style={{ padding: '14px 18px', fontSize: '11.5px', fontWeight: '700', color: '#64748B' }}>
+                          📅 {targetDate ? new Date(targetDate).toLocaleDateString('en-GB') : 'Q4 FY2026'}
+                        </td>
+                      </tr>
+                    );
+                  })
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
