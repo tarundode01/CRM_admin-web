@@ -815,7 +815,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               Specialists
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: 'var(--text-dark, #0F172A)', lineHeight: '1' }}>
                 {employees.length || kpis.totalEmployees || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -896,7 +896,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               Pipeline Leads
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: 'var(--text-dark, #0F172A)', lineHeight: '1' }}>
                 {leads.length || kpis.totalLeads || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -977,7 +977,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               Booked Deals
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: 'var(--text-dark, #0F172A)', lineHeight: '1' }}>
                 {deals.length || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
@@ -1058,7 +1058,7 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               Clients
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginTop: '2px' }}>
-              <div style={{ fontSize: '24px', fontWeight: '900', color: '#0F172A', lineHeight: '1' }}>
+              <div style={{ fontSize: '24px', fontWeight: '900', color: 'var(--text-dark, #0F172A)', lineHeight: '1' }}>
                 {kpis.totalCustomers || 0}
               </div>
               <span style={{ fontSize: '10.5px', color: '#64748B', fontWeight: '700' }}>
