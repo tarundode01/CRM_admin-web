@@ -192,23 +192,33 @@
   color: #F8FAFC !important;
 }
 
-/* Fix any inner cell spans or text that were defaulting to dark */
-[data-theme='dark'] td span,
-[data-theme='dark'] td div,
-[data-theme='dark'] td p {
-  color: inherit;
-}
-
-/* Client name and subject text in tables */
-[data-theme='dark'] td [style*="color: #0F172A"],
-[data-theme='dark'] td [style*="color: #1E293B"],
-[data-theme='dark'] td [style*="color: #1E1B4B"] {
+/* Universal Dark Mode Text Brightness & Contrast Guarantee */
+[data-theme='dark'] tr,
+[data-theme='dark'] td,
+[data-theme='dark'] th {
   color: #F8FAFC !important;
 }
 
-[data-theme='dark'] td [style*="color: #64748B"],
-[data-theme='dark'] td [style*="color: #475569"] {
+[data-theme='dark'] tr td div,
+[data-theme='dark'] tr td span,
+[data-theme='dark'] tr td p {
+  color: #F8FAFC;
+}
+
+[data-theme='dark'] tr td [style*="color: #64748B"],
+[data-theme='dark'] tr td [style*="color: #475569"],
+[data-theme='dark'] tr td [style*="color: var(--text-muted)"] {
   color: #94A3B8 !important;
+}
+
+/* Ensure status badges and tags retain their readable badge text */
+[data-theme='dark'] .status-badge,
+[data-theme='dark'] [class*="badge"],
+[data-theme='dark'] [style*="border-radius: 6px"],
+[data-theme='dark'] [style*="borderRadius: '6px'"],
+[data-theme='dark'] [style*="borderRadius: '7px'"],
+[data-theme='dark'] [style*="borderRadius: '8px'"] {
+  color: inherit;
 }
 
 /* Table container wrapper */

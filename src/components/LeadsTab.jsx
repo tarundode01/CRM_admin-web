@@ -1136,24 +1136,24 @@ export default function LeadsTab({
                               width: '34px',
                               height: '34px',
                               borderRadius: '10px',
-                              backgroundColor: '#EEF2FF',
-                              border: '1.2px solid #C7D2FE',
+                              backgroundColor: 'rgba(67, 56, 202, 0.2)',
+                              border: '1.2px solid #818CF8',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
                               fontSize: '13px',
                               fontWeight: '900',
-                              color: '#4338CA',
+                              color: '#818CF8',
                               boxShadow: '0 2px 6px rgba(67, 56, 202, 0.1)',
                               flexShrink: 0
                             }}>
                               {String(l._clientName || 'C').charAt(0).toUpperCase()}
                             </div>
                             <div>
-                              <div style={{ fontSize: '13.5px', fontWeight: '800', color: '#0F172A' }}>
+                              <div style={{ fontSize: '13.5px', fontWeight: '800', color: 'var(--text-dark, #0F172A)' }}>
                                 {l._clientName}
                               </div>
-                              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: '600', marginTop: '2px' }}>
+                              <div style={{ fontSize: '11px', color: 'var(--text-muted, #64748B)', fontWeight: '600', marginTop: '2px' }}>
                                 {l.company || (l.customerId && l.customerId.company) ? `🏢 ${l.company || l.customerId.company}` : (l._clientPhone || 'Client')}
                               </div>
                             </div>
@@ -1162,7 +1162,7 @@ export default function LeadsTab({
 
                         {/* 3. Service & Channel */}
                         <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
-                          <div style={{ fontSize: '12.5px', fontWeight: '800', color: '#1E293B', marginBottom: '4px' }}>
+                          <div style={{ fontSize: '12.5px', fontWeight: '800', color: 'var(--text-dark, #1E293B)', marginBottom: '4px' }}>
                             {l._reqSubject}
                           </div>
                           <div style={{ display: 'inline-flex' }}>
