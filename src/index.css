@@ -29,8 +29,8 @@
   --header-border: #1E293B;
   --canvas: #070913;
   --card-bg: #0F172A;
-  --text-dark: #F8FAFC;
-  --text-navy: #F8FAFC;
+  --text-dark: #FFFFFF;
+  --text-navy: #FFFFFF;
   --text-muted: #94A3B8;
   --border: #1E293B;
   --primary: #6366F1;
@@ -46,6 +46,56 @@
   --cyan-light: rgba(56, 189, 248, 0.2);
   --purple: #A855F7;
   --purple-light: rgba(168, 85, 247, 0.2);
+}
+
+/* 🌟 UNIVERSAL DARK MODE: ZERO WHITE BACKGROUNDS & 100% CLEAR TEXT */
+[data-theme='dark'] [style*="#fff" i],
+[data-theme='dark'] [style*="#ffffff" i],
+[data-theme='dark'] [style*="rgb(255, 255, 255)" i],
+[data-theme='dark'] [style*="rgb(255,255,255)" i],
+[data-theme='dark'] [style*="#fafafc" i],
+[data-theme='dark'] [style*="#f8fafc" i],
+[data-theme='dark'] [style*="#f1f5f9" i] {
+  background-color: #0F172A !important;
+}
+
+/* Any div or container inside main content with hardcoded white */
+[data-theme='dark'] .app-main div[style*="backgroundColor: '#FFF'"],
+[data-theme='dark'] .app-main div[style*="backgroundColor: '#FFFFFF'"],
+[data-theme='dark'] .app-main div[style*="backgroundColor: '#ffffff'"],
+[data-theme='dark'] .app-main div[style*="background: '#FFFFFF'"],
+[data-theme='dark'] .app-main div[style*="background: '#ffffff'"],
+[data-theme='dark'] .app-main div[style*="background: '#FFF'"] {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+
+/* Ensure all typography in dark mode is crystal clear */
+[data-theme='dark'] p,
+[data-theme='dark'] span,
+[data-theme='dark'] label,
+[data-theme='dark'] td,
+[data-theme='dark'] th,
+[data-theme='dark'] strong,
+[data-theme='dark'] b {
+  color: #F8FAFC;
+}
+
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3,
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6 {
+  color: #FFFFFF !important;
+}
+
+/* Secondary muted text */
+[data-theme='dark'] [style*="color: #64748B"],
+[data-theme='dark'] [style*="color: #475569"],
+[data-theme='dark'] [style*="color: #334155"],
+[data-theme='dark'] [style*="color: var(--text-muted)"] {
+  color: #94A3B8 !important;
 }
 
 [data-theme='dark'] body,
