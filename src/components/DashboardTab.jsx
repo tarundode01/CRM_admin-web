@@ -750,12 +750,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           style={{
             position: 'relative',
             overflow: 'hidden',
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--card-bg, #FFFFFF)',
             borderRadius: '16px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid var(--border, #E2E8F0)',
             padding: '16px 18px',
             boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -831,12 +830,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           style={{
             position: 'relative',
             overflow: 'hidden',
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--card-bg, #FFFFFF)',
             borderRadius: '16px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid var(--border, #E2E8F0)',
             padding: '16px 18px',
             boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -912,12 +910,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           style={{
             position: 'relative',
             overflow: 'hidden',
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--card-bg, #FFFFFF)',
             borderRadius: '16px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid var(--border, #E2E8F0)',
             padding: '16px 18px',
             boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -993,12 +990,11 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
           style={{
             position: 'relative',
             overflow: 'hidden',
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--card-bg, #FFFFFF)',
             borderRadius: '16px',
-            border: '1.5px solid #E2E8F0',
+            border: '1.5px solid var(--border, #E2E8F0)',
             padding: '16px 18px',
             boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-            background: '#FFFFFF',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -1077,9 +1073,9 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
         <div
           className="dash-chart-card"
           style={{
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--card-bg, #FFFFFF)',
             borderRadius: '16px',
-            border: '1px solid #E0E7FF',
+            border: '1px solid var(--border, #E0E7FF)',
             padding: '14px 16px',
             boxShadow: '0 4px 20px rgba(99, 102, 241, 0.06)',
             display: 'flex',
@@ -1236,9 +1232,9 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
         <div
           className="dash-chart-card"
           style={{
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--card-bg, #FFFFFF)',
             borderRadius: '16px',
-            border: '1px solid #E0E7FF',
+            border: '1px solid var(--border, #E0E7FF)',
             padding: '14px 16px',
             boxShadow: '0 4px 20px rgba(16, 185, 129, 0.06)',
             display: 'flex',
@@ -1491,15 +1487,18 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
         const chartH = svgH - padTop - padBottom;
 
         return (
-          <div style={{
-            backgroundColor: '#FFFFFF',
-            borderRadius: '16px',
-            border: '1px solid #E0E7FF',
-            padding: '16px 20px',
-            boxShadow: '0 4px 24px rgba(99, 102, 241, 0.06)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
+          <div
+            className="dash-chart-card"
+            style={{
+              backgroundColor: 'var(--card-bg, #FFFFFF)',
+              borderRadius: '16px',
+              border: '1px solid var(--border, #E0E7FF)',
+              padding: '16px 20px',
+              boxShadow: '0 4px 24px rgba(99, 102, 241, 0.06)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
             {/* Top Subtle Royal Indigo Accent Line */}
             <div style={{
               position: 'absolute',
@@ -2006,16 +2005,19 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
             </div>
 
             {/* Right Box: Dynamic Channel Breakdown Pie / Donut Chart */}
-            <div style={{
-              backgroundColor: '#FFFFFF',
-              borderRadius: '14px',
-              border: '1.2px solid #E2E8F0',
-              padding: '16px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
-            }}>
+            <div
+              className="dash-chart-card"
+              style={{
+                backgroundColor: 'var(--card-bg, #FFFFFF)',
+                borderRadius: '14px',
+                border: '1.2px solid var(--border, #E2E8F0)',
+                padding: '16px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
+              }}
+            >
               {/* Header */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -2170,14 +2172,17 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
       })()}
 
       {/* 🌟 4. Multi-Platform Individual Dedicated Performance & Trend Graphs */}
-      <div style={{
-        backgroundColor: '#FFFFFF',
-        borderRadius: '16px',
-        border: '1.2px solid #E2E8F0',
-        padding: '16px 18px',
-        boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
-        marginTop: '4px'
-      }}>
+      <div
+        className="dash-chart-card"
+        style={{
+          backgroundColor: 'var(--card-bg, #FFFFFF)',
+          borderRadius: '16px',
+          border: '1.2px solid var(--border, #E2E8F0)',
+          padding: '16px 18px',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
+          marginTop: '4px'
+        }}
+      >
         {/* Section Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
           <div>
@@ -2264,8 +2269,9 @@ export default function DashboardTab({ dashboardData, leads = [], deals = [], em
               return (
                 <div
                   key={p.key}
+                  className="dash-tile-card"
                   style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'var(--card-bg, #FFFFFF)',
                     borderRadius: '18px',
                     border: isHero ? `2px solid ${p.color}` : `1.5px solid ${p.border}`,
                     padding: isHero ? '18px 20px' : '15px 16px',

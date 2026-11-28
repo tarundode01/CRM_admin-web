@@ -114,10 +114,14 @@
 
 /* Dashboard Cards & Bento Grid */
 [data-theme='dark'] .dash-tile-card,
-[data-theme='dark'] .dash-chart-card {
+[data-theme='dark'] .dash-chart-card,
+[data-theme='dark'] .card,
+[data-theme='dark'] .table-container,
+[data-theme='dark'] [class*="card"] {
   background-color: #0F172A !important;
   border-color: #1E293B !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  color: #F8FAFC !important;
 }
 
 [data-theme='dark'] .dash-tile-card:hover,
@@ -126,10 +130,48 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Clean text colors in dark mode */
-[data-theme='dark'] .dash-tile-card h3,
-[data-theme='dark'] .dash-chart-card h3 {
+/* Force dark card background on any inner div that had hardcoded white backgrounds in dark mode */
+[data-theme='dark'] .dash-chart-card > div,
+[data-theme='dark'] .dash-tile-card > div {
+  color: #F8FAFC;
+}
+
+[data-theme='dark'] [style*="background-color: #FFFFFF"],
+[data-theme='dark'] [style*="background-color: #ffffff"],
+[data-theme='dark'] [style*="background-color: rgb(255, 255, 255)"],
+[data-theme='dark'] [style*="background: #FFFFFF"],
+[data-theme='dark'] [style*="background: #ffffff"] {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+
+[data-theme='dark'] [style*="background-color: #F8FAFC"],
+[data-theme='dark'] [style*="background-color: #F1F5F9"],
+[data-theme='dark'] [style*="background: #F8FAFC"],
+[data-theme='dark'] [style*="background: #F1F5F9"] {
+  background-color: #131B2E !important;
+  border-color: #1E293B !important;
+}
+
+/* Text readability in dark mode */
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3,
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6 {
   color: #F8FAFC !important;
+}
+
+[data-theme='dark'] [style*="color: #0F172A"],
+[data-theme='dark'] [style*="color: #1E1B4B"],
+[data-theme='dark'] [style*="color: #1E293B"] {
+  color: #F8FAFC !important;
+}
+
+[data-theme='dark'] [style*="color: #64748B"],
+[data-theme='dark'] [style*="color: #475569"] {
+  color: #94A3B8 !important;
 }
 
 /* Tables in Dark Mode */
