@@ -248,20 +248,90 @@
 }
 
 /* Ensure buttons and badges in table keep their own distinct styling */
-[data-theme='dark'] table td button,
-[data-theme='dark'] table td button * {
-  color: inherit !important;
+/* 1. Status Badges in Dark Mode */
+[data-theme='dark'] .status-badge,
+[data-theme='dark'] table td span[style*="borderRadius: '12px'"],
+[data-theme='dark'] table td span[style*="border-radius: 12px"] {
+  background-color: rgba(30, 41, 59, 0.85) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  color: #F1F5F9 !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-[data-theme='dark'] table td [style*="border-radius: 12px"],
-[data-theme='dark'] table td [style*="borderRadius: '12px'"],
-[data-theme='dark'] table td [style*="border-radius: 14px"],
-[data-theme='dark'] table td [style*="borderRadius: '14px'"],
-[data-theme='dark'] table td [style*="border-radius: 8px"],
-[data-theme='dark'] table td [style*="borderRadius: '8px'"],
-[data-theme='dark'] table td [style*="border-radius: 6px"],
-[data-theme='dark'] table td [style*="borderRadius: '6px'"] {
-  color: inherit !important;
+[data-theme='dark'] table td span[style*="#1D4ED8"],
+[data-theme='dark'] table td span[style*="Submitted"] {
+  background-color: rgba(37, 99, 235, 0.22) !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+  color: #93C5FD !important;
+}
+
+[data-theme='dark'] table td span[style*="#047857"],
+[data-theme='dark'] table td span[style*="Assigned"] {
+  background-color: rgba(16, 185, 129, 0.22) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  color: #6EE7B7 !important;
+}
+
+[data-theme='dark'] table td span[style*="#6D28D9"],
+[data-theme='dark'] table td span[style*="Discussion"] {
+  background-color: rgba(139, 92, 246, 0.22) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+  color: #D8B4FE !important;
+}
+
+/* 2. Source Channel Badge (Website, WhatsApp, Facebook, LinkedIn, etc.) */
+[data-theme='dark'] table td span[title*="Acquisition Channel"],
+[data-theme='dark'] table td span[style*="Acquisition Channel"],
+[data-theme='dark'] table td span[style*="borderRadius: '6px'"] {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  color: #38BDF8 !important;
+}
+
+/* 3. Budget Estimate Badge */
+[data-theme='dark'] table td span[style*="#047857"][style*="borderRadius: '7px'"],
+[data-theme='dark'] table td span[style*="#047857"][style*="border-radius: 7px"],
+[data-theme='dark'] table td span[style*="#ECFDF5"] {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #34D399 !important;
+}
+
+/* 4. Assigned Specialist Badge */
+[data-theme='dark'] table td div[style*="#F0FDF4"],
+[data-theme='dark'] table td div[style*="#86EFAC"],
+[data-theme='dark'] table td div[style*="#15803D"] {
+  background-color: rgba(16, 185, 129, 0.18) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  color: #6EE7B7 !important;
+}
+
+[data-theme='dark'] table td span[style*="#FFFBEB"],
+[data-theme='dark'] table td span[style*="#B45309"],
+[data-theme='dark'] table td span[style*="#FDE68A"] {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  color: #FCD34D !important;
+}
+
+/* 5. Action Buttons (View, Assign, Reassign) */
+[data-theme='dark'] table td button {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
+}
+
+[data-theme='dark'] table td button:hover {
+  background-color: #334155 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme='dark'] table td button[style*="#EEF2FF"],
+[data-theme='dark'] table td button[style*="#4338CA"],
+[data-theme='dark'] table td button[style*="linear-gradient"] {
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%) !important;
+  border-color: #6366F1 !important;
+  color: #FFFFFF !important;
 }
 
 /* Table container wrapper */
