@@ -1172,18 +1172,21 @@ export default function LeadsTab({
 
                         {/* 4. Status (Clean capsule badge) */}
                         <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            backgroundColor: stBadge.bg,
-                            border: `1.2px solid ${stBadge.border}`,
-                            color: stBadge.text,
-                            fontSize: '11px',
-                            fontWeight: '800',
-                            padding: '4px 10px',
-                            borderRadius: '12px'
-                          }}>
+                          <span
+                            className="lead-status-pill"
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '5px',
+                              backgroundColor: stBadge.bg,
+                              border: `1.2px solid ${stBadge.border}`,
+                              color: stBadge.text,
+                              fontSize: '11px',
+                              fontWeight: '800',
+                              padding: '4px 10px',
+                              borderRadius: '12px'
+                            }}
+                          >
                             <span style={{
                               width: '6px',
                               height: '6px',
@@ -1196,16 +1199,19 @@ export default function LeadsTab({
 
                         {/* 5. Budget Estimate */}
                         <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
-                          <span style={{
-                            display: 'inline-block',
-                            backgroundColor: '#ECFDF5',
-                            border: '1.2px solid #A7F3D0',
-                            color: '#047857',
-                            fontSize: '13px',
-                            fontWeight: '900',
-                            padding: '4px 10px',
-                            borderRadius: '7px'
-                          }}>
+                          <span
+                            className="lead-budget-pill"
+                            style={{
+                              display: 'inline-block',
+                              backgroundColor: '#ECFDF5',
+                              border: '1.2px solid #A7F3D0',
+                              color: '#047857',
+                              fontSize: '13px',
+                              fontWeight: '900',
+                              padding: '4px 10px',
+                              borderRadius: '7px'
+                            }}
+                          >
                             {l._budgetVal}
                           </span>
                         </td>
@@ -1214,37 +1220,43 @@ export default function LeadsTab({
                         <td style={{ padding: '14px 18px', verticalAlign: 'middle' }}>
                           {l._specialistName ? (
                             <div>
-                              <div style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '5px',
-                                backgroundColor: '#F0FDF4',
-                                border: '1.2px solid #86EFAC',
-                                color: '#15803D',
-                                fontSize: '12px',
-                                fontWeight: '800',
-                                padding: '4px 10px',
-                                borderRadius: '7px'
-                              }}>
+                              <div
+                                className="lead-specialist-pill"
+                                style={{
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '5px',
+                                  backgroundColor: '#F0FDF4',
+                                  border: '1.2px solid #86EFAC',
+                                  color: '#15803D',
+                                  fontSize: '12px',
+                                  fontWeight: '800',
+                                  padding: '4px 10px',
+                                  borderRadius: '7px'
+                                }}
+                              >
                                 <span>🎯</span> {l._specialistName}
                               </div>
                               {l._assignedDateFormatted && (
-                                <div style={{ fontSize: '10px', color: '#4338CA', fontWeight: '700', marginTop: '2px' }}>
+                                <div style={{ fontSize: '10px', color: '#818CF8', fontWeight: '700', marginTop: '2px' }}>
                                   🕒 {l._assignedDateFormatted}
                                 </div>
                               )}
                             </div>
                           ) : (
-                            <span style={{
-                              display: 'inline-block',
-                              backgroundColor: '#FFFBEB',
-                              border: '1.2px solid #FDE68A',
-                              color: '#B45309',
-                              fontSize: '11.5px',
-                              fontWeight: '800',
-                              padding: '4px 10px',
-                              borderRadius: '7px'
-                            }}>
+                            <span
+                              className="lead-unassigned-pill"
+                              style={{
+                                display: 'inline-block',
+                                backgroundColor: '#FFFBEB',
+                                border: '1.2px solid #FDE68A',
+                                color: '#B45309',
+                                fontSize: '11.5px',
+                                fontWeight: '800',
+                                padding: '4px 10px',
+                                borderRadius: '7px'
+                              }}
+                            >
                               ⏳ Unassigned
                             </span>
                           )}
@@ -1255,6 +1267,7 @@ export default function LeadsTab({
                           <div style={{ display: 'inline-flex', gap: '8px' }}>
                             <button
                               onClick={() => onOpenLeadDetails && onOpenLeadDetails(l)}
+                              className="lead-action-btn-view"
                               style={{
                                 backgroundColor: '#FFFFFF',
                                 color: '#334155',
@@ -1270,20 +1283,13 @@ export default function LeadsTab({
                                 transition: 'all 0.18s ease',
                                 boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
                               }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = '#F8FAFC';
-                                e.currentTarget.style.borderColor = '#94A3B8';
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = '#FFFFFF';
-                                e.currentTarget.style.borderColor = '#CBD5E1';
-                              }}
                             >
                               <span>👁️</span> View
                             </button>
 
                             <button
                               onClick={() => onOpenAssignModal(l)}
+                              className="lead-action-btn-assign"
                               style={{
                                 background: l._specialistName ? '#EEF2FF' : 'linear-gradient(135deg, #312E81 0%, #4338CA 100%)',
                                 color: l._specialistName ? '#4338CA' : '#FFFFFF',

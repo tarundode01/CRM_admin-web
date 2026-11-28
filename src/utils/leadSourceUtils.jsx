@@ -99,6 +99,7 @@ export const SourceBadge = ({ source, size = 'normal', showIcon = true }) => {
 
   return (
     <span
+      className="lead-channel-pill"
       style={{
         display: 'inline-flex',
         alignItems: 'center',
