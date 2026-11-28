@@ -165,13 +165,49 @@
 
 [data-theme='dark'] [style*="color: #0F172A"],
 [data-theme='dark'] [style*="color: #1E1B4B"],
-[data-theme='dark'] [style*="color: #1E293B"] {
+[data-theme='dark'] [style*="color: #1E293B"],
+[data-theme='dark'] [style*="color: #334155"],
+[data-theme='dark'] [style*="color: #000"],
+[data-theme='dark'] [style*="color: #000000"],
+[data-theme='dark'] [style*="color: #111827"] {
   color: #F8FAFC !important;
 }
 
 [data-theme='dark'] [style*="color: #64748B"],
-[data-theme='dark'] [style*="color: #475569"] {
-  color: #94A3B8 !important;
+[data-theme='dark'] [style*="color: #475569"],
+[data-theme='dark'] [style*="color: #94A3B8"] {
+  color: #CBD5E1 !important;
+}
+
+/* Ensure progress bar backgrounds and card row items in Analytics & Dashboard are properly visible */
+[data-theme='dark'] .analytics-bento-card,
+[data-theme='dark'] .analytics-metric-card {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+[data-theme='dark'] [style*="background-color: #F1F5F9"] {
+  background-color: #1E293B !important;
+}
+
+/* Ensure text inside flex item containers is always bright & readable */
+[data-theme='dark'] .analytics-bento-card span,
+[data-theme='dark'] .analytics-bento-card div,
+[data-theme='dark'] .dash-chart-card span,
+[data-theme='dark'] .dash-chart-card div {
+  text-shadow: none;
+}
+
+/* Channel names & Deal stage names */
+[data-theme='dark'] [style*="justifyContent: 'space-between'"] > span:first-child,
+[data-theme='dark'] [style*="justify-content: space-between"] > span:first-child {
+  color: #F8FAFC !important;
+}
+
+[data-theme='dark'] [style*="justifyContent: 'space-between'"] > div:first-child,
+[data-theme='dark'] [style*="justify-content: space-between"] > div:first-child {
+  color: #F8FAFC !important;
 }
 
 /* Tables in Dark Mode */

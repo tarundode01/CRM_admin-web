@@ -2311,10 +2311,10 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
                     e.currentTarget.style.boxShadow = isPeak ? '0 4px 14px rgba(67, 56, 202, 0.08)' : '0 2px 6px rgba(0,0,0,0.02)';
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', fontWeight: '800', color: 'var(--text-dark, #0F172A)', marginBottom: '8px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-dark, #0F172A)' }}>
                       <span style={{ fontSize: '15px' }}>{c.icon}</span>
-                      <span>{c.channel}</span>
+                      <span style={{ color: 'var(--text-dark, #0F172A)' }}>{c.channel}</span>
                       {isPeak && (
                         <span style={{
                           fontSize: '9px',
@@ -2349,19 +2349,19 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
           </div>
 
           <div style={{
-            backgroundColor: '#F8FAFC',
+            backgroundColor: 'var(--card-bg, #F8FAFC)',
             padding: '12px 16px',
             borderRadius: '12px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid var(--border, #E2E8F0)',
             marginTop: '16px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ fontSize: '11.5px', color: '#64748B', fontWeight: '700' }}>
+            <span style={{ fontSize: '11.5px', color: 'var(--text-muted, #64748B)', fontWeight: '700' }}>
               Total Multi-Channel Leads:
             </span>
-            <span style={{ fontSize: '13.5px', fontWeight: '900', color: '#0F172A', backgroundColor: '#FFFFFF', padding: '3px 10px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+            <span style={{ fontSize: '13.5px', fontWeight: '900', color: 'var(--text-dark, #0F172A)', backgroundColor: 'var(--card-bg, #FFFFFF)', padding: '3px 10px', borderRadius: '8px', border: '1px solid var(--border, #E2E8F0)' }}>
               {leads.length} Active Records
             </span>
           </div>
@@ -2438,10 +2438,10 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
                   e.currentTarget.style.boxShadow = s.isHighest ? '0 4px 14px rgba(16, 185, 129, 0.08)' : '0 2px 6px rgba(0,0,0,0.02)';
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', fontWeight: '800', color: '#0F172A', marginBottom: '8px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', fontWeight: '800', color: 'var(--text-dark, #0F172A)', marginBottom: '8px' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-dark, #0F172A)' }}>
                     {s.isHighest && <span>👑</span>}
-                    <span>{s.stage}</span>
+                    <span style={{ color: 'var(--text-dark, #0F172A)' }}>{s.stage}</span>
                   </span>
                   <span style={{ color: s.color, fontWeight: '900', fontSize: '13px' }}>
                     {s.count} Deals ({s.percent}%)
@@ -2462,19 +2462,19 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
           </div>
 
           <div style={{
-            backgroundColor: '#F8FAFC',
+            backgroundColor: 'var(--card-bg, #F8FAFC)',
             padding: '12px 16px',
             borderRadius: '12px',
-            border: '1px solid #E2E8F0',
+            border: '1px solid var(--border, #E2E8F0)',
             marginTop: '16px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ fontSize: '11.5px', color: '#64748B', fontWeight: '700' }}>
+            <span style={{ fontSize: '11.5px', color: 'var(--text-muted, #64748B)', fontWeight: '700' }}>
               Total Deployed Pipeline Pool:
             </span>
-            <span style={{ fontSize: '13.5px', fontWeight: '900', color: '#059669', backgroundColor: '#ECFDF5', padding: '3px 10px', borderRadius: '8px', border: '1px solid #A7F3D0' }}>
+            <span style={{ fontSize: '13.5px', fontWeight: '900', color: '#10B981', backgroundColor: 'rgba(16, 185, 129, 0.15)', padding: '3px 10px', borderRadius: '8px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
               ₹{((totalRevenue + leadPipelineVal) / 100000).toFixed(1)} Lakhs
             </span>
           </div>
@@ -2585,8 +2585,8 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
                     #{idx + 1}
                   </div>
                   <div>
-                    <div style={{ fontSize: '13px', fontWeight: '900', color: '#0F172A' }}>{emp.name}</div>
-                    <div style={{ fontSize: '10px', color: '#64748B', fontWeight: '700' }}>{emp.role}</div>
+                    <div style={{ fontSize: '13px', fontWeight: '900', color: 'var(--text-dark, #0F172A)' }}>{emp.name}</div>
+                    <div style={{ fontSize: '10px', color: 'var(--text-muted, #64748B)', fontWeight: '700' }}>{emp.role}</div>
                   </div>
                 </div>
                 <div style={{
@@ -2602,13 +2602,13 @@ export function AnalyticsView({ dashboardData, leads = [], deals = [], employees
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid #F1F5F9', paddingTop: '8px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid var(--border, #F1F5F9)', paddingTop: '8px' }}>
                 <div>
-                  <div style={{ fontSize: '9px', color: '#64748B', fontWeight: '800' }}>CLOSED DEALS</div>
-                  <div style={{ fontSize: '14px', fontWeight: '900', color: '#0F172A' }}>{emp.dealsCount}</div>
+                  <div style={{ fontSize: '9px', color: 'var(--text-muted, #64748B)', fontWeight: '800' }}>CLOSED DEALS</div>
+                  <div style={{ fontSize: '14px', fontWeight: '900', color: 'var(--text-dark, #0F172A)' }}>{emp.dealsCount}</div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '9px', color: '#64748B', fontWeight: '800' }}>BOOKED REVENUE</div>
+                  <div style={{ fontSize: '9px', color: 'var(--text-muted, #64748B)', fontWeight: '800' }}>BOOKED REVENUE</div>
                   <div style={{ fontSize: '14px', fontWeight: '900', color: '#059669' }}>
                     ₹{(emp.revenue / 100000).toFixed(1)}L
                   </div>
