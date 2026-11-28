@@ -485,6 +485,22 @@
   color: #F8FAFC !important;
 }
 
+[data-theme='dark'] .integration-metrics-grid > div,
+[data-theme='dark'] .security-metrics-grid > div,
+[data-theme='dark'] .config-metrics-grid > div {
+  background: #0F172A !important;
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme='dark'] .integration-metrics-grid > div div[style*="fontSize: '24px'"],
+[data-theme='dark'] .integration-metrics-grid > div div[style*="fontSize: '20px'"],
+[data-theme='dark'] .security-metrics-grid > div div[style*="fontSize: '24px'"],
+[data-theme='dark'] .security-metrics-grid > div div[style*="fontSize: '20px'"] {
+  color: #FFFFFF !important;
+}
+
 [data-theme='dark'] .integration-bento-card:hover,
 [data-theme='dark'] .security-log-card:hover,
 [data-theme='dark'] .config-bento-card:hover {
@@ -563,6 +579,13 @@
   background: #131B2E !important;
   border-color: #334155 !important;
   color: #CBD5E1 !important;
+}
+
+/* Disconnect button in dark mode */
+[data-theme='dark'] .integ-btn-glow[style*="#FEF2F2"] {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border: 1.2px solid #EF4444 !important;
+  color: #FCA5A5 !important;
 }
 
 /* Table container wrapper */
